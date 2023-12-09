@@ -16,7 +16,7 @@ const Navbar = () => {
     // const onClose = () => {
     //   setOpen(false);
     // };
-    
+
     const items = [
         {
           key: "1",
@@ -76,7 +76,7 @@ const Navbar = () => {
 
 
     return (
-        <section className="relative z-50 mb-32 w-full">
+        <section className="relative z-50  w-full">
         <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2">
           <nav className="flex justify-between p-3 w-[90%] mx-auto">
             <div className="flex items-center">
@@ -90,8 +90,8 @@ const Navbar = () => {
                 height={500}
                 alt="car service logo"
               />
-              <h3 className="text-3xl font-bold text-black p-1">
-                Car<span className="text-[#f93e76]">Dev</span>
+              <h3 className="text-xl font-bold text-black p-1">
+                Green<span className="text-[#f93e76]">Harvest</span>
               </h3>
             </div>
             <div className="flex items-center">
