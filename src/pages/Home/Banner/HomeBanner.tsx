@@ -1,12 +1,11 @@
-import Banner from '../../../assets/images/home banner.png'
+
+import HomeCarousel from './HomeCarousel';
 
 const HomeBanner = () => {
     return (
-        <div className=''>
-            <div className=''>
-            <img className='w-full h-96' src={Banner} alt="" />
-        </div>
-        </div>
+        <div className="w-full">
+      <HomeCarousel />
+    </div>
     );
 };
 

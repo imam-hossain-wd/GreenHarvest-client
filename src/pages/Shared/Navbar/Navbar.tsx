@@ -1,7 +1,7 @@
 import { Avatar, Button, Drawer, Dropdown, Space } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CloseOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { CloseOutlined, MenuOutlined, UserOutlined,ShoppingCartOutlined,HeartOutlined } from "@ant-design/icons";
 
 
 
@@ -96,6 +96,10 @@ const Navbar = () => {
             </div>
             <div className="flex items-center">
               <ul className="hidden lg:flex">{navMenuItems}</ul>
+              <div className="flex mr-14 lg:mr-3 text-2xl">
+                <p className="mr-3"><HeartOutlined /></p>
+              <p><ShoppingCartOutlined /></p>
+              </div>
               <Dropdown menu={{ items }} className="">
                 <a className="-ml-10 lg:ml-2">
                   <Space wrap size={24}>

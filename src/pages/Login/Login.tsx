@@ -4,11 +4,7 @@ import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
 import { Link } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
-import { GithubFilled,GoogleCircleFilled } from '@ant-design/icons';
-
-
-
-
+import { GithubFilled, GoogleCircleFilled } from "@ant-design/icons";
 
 type FormValues = {
   Email: string;
@@ -18,11 +14,9 @@ type FormValues = {
 const Login = () => {
   // const router = useRouter();
 
-
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-
-      console.log(data, 'datas....');
+      console.log(data, "datas....");
       // const res = await userLogIn({ ...data }).unwrap();
 
       // if (res?.accessToken) {
@@ -31,7 +25,7 @@ const Login = () => {
       // }
 
       // const user = getUserInfo();
-   
+
       // const role: any = user.role;
 
       // if (user && role) {
@@ -43,7 +37,6 @@ const Login = () => {
       console.error(err.message);
     }
   };
-
 
   return (
     <div className="bg-white shadow-2xl border-2 border-gray-200 mt-24">
@@ -67,7 +60,9 @@ const Login = () => {
           <h3 className="text-center text-lg  py-1 rounded mx-auto mb-3 ">
             Welcome Back
           </h3>
-          <p className="text-center mb-2 mb-1">Please Login into your account</p>
+          <p className="text-center mb-2 mb-1">
+            Please Login into your account
+          </p>
           <Form submitHandler={onSubmit}>
             <div className="">
               <div className="mb-3">
@@ -106,29 +101,28 @@ const Login = () => {
               </p>
             </div>
           </Form>
-          
- <div className="flex justify-center items-center mt-4">
-              <hr className="w-32 mr-2 text-[15px]" /> or Sing in with{" "}
-              <hr className="ml-2 w-32" />
-            </div>
- <div className="mt-5 flex justify-center ">
-              <Link
-                to="/facebook"
-                className="text-4xl rounded-full 
+
+          <div className="flex justify-center items-center mt-4">
+            <hr className="w-32 mr-2 text-[15px]" /> or Sing in with{" "}
+            <hr className="ml-2 w-32" />
+          </div>
+          <div className="mt-5 flex justify-center ">
+            <Link
+              to="/facebook"
+              className="text-4xl rounded-full 
                 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 mr-5 text-black"
-              >
-                <GithubFilled />
-              </Link>
+            >
+              <GithubFilled />
+            </Link>
 
-              <Link
-                to="/facebook"
-                className="text-4xl rounded-full 
+            <Link
+              to="/facebook"
+              className="text-4xl rounded-full 
                 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-black"
-              >
-                <GoogleCircleFilled />
-              </Link>
-            </div> 
-
+            >
+              <GoogleCircleFilled />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
