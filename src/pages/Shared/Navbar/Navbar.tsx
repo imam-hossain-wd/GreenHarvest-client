@@ -1,7 +1,8 @@
 import { Avatar, Button, Drawer, Dropdown, Space } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CloseOutlined, MenuOutlined, UserOutlined,ShoppingCartOutlined,HeartOutlined } from "@ant-design/icons";
+import { CloseOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
+import CartDrawer from "../../../components/Drawer/CartDrawer";
 
 
 
@@ -12,10 +13,6 @@ const Navbar = () => {
     const showDrawer = () => {
       setOpen(true);
     };
-
-    // const onClose = () => {
-    //   setOpen(false);
-    // };
 
     const items = [
         {
@@ -42,66 +39,61 @@ const Navbar = () => {
     const navMenuItems = (
         <li className="list-none flex flex-col justify-center items-center lg:flex-row">
           <Link
-            className="text-black  mt-2 lg:mt-0 lg:mr-3 no-underline "
+            className="text-gray-800 hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline"
             to="/"
           >
             Home
           </Link>
           <Link
-            className="text-black  mt-2 lg:mt-0 lg:mr-3 no-underline "
+            className="text-gray-800  hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline "
             to="/service"
           >
-            Contact Us
+            Contact us
           </Link>
           <Link
-            className="text-black no-underline  mt-2 lg:mt-0 lg:mr-3    "
+            className="text-gray-800 hover:text-primary text-base no-underline  mt-2 lg:mt-0 lg:mr-3    "
             to="/contact"
           >
             Our Menu
           </Link>
           <Link
-            className="text-black no-underline mt-2 lg:mt-0 lg:mr-3"
+            className="text-gray-800 hover:text-primary text-base no-underline mt-2 lg:mt-0 lg:mr-3"
             to="/about"
           >
             About
           </Link>
           <Link
-            className="text-black no-underline mt-2 lg:mt-0 lg:mr-3  "
+            className="text-gray-800 hover:text-primary text-base no-underline mt-2 lg:mt-0 lg:mr-3  "
             to="/booking"
           >
             Our Shop
           </Link>
+
         </li>
       );
 
 
     return (
-        <section className="relative z-50  w-full">
-        <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2">
+        <section className="relative z-50  w-full overflow-hidden">
+        <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
           <nav className="flex justify-between p-3 w-[90%] mx-auto">
             <div className="flex items-center">
-              <Button className="lg:hidden mr-3 -ml-4 " onClick={showDrawer}>
+              <Button className="lg:hidden mr-3 -ml-4 bg-primary text-white text-lg w-12 h-9 border-primary " onClick={showDrawer}>
                 <MenuOutlined />
               </Button>
-              <img
-                className="w-10 h-10 rounded-full"
-                src="https://i.ibb.co/863c3CY/car-service-logo.jpg'"
-                width={500}
-                height={500}
-                alt="car service logo"
-              />
-              <h3 className="text-xl font-bold text-black p-1">
-                Green<span className="text-[#f93e76]">Harvest</span>
+
+              <h3 className="text-2xl text-primary rounded font-bold ">
+                Green<span className="">Harvest</span>
               </h3>
             </div>
             <div className="flex items-center">
               <ul className="hidden lg:flex">{navMenuItems}</ul>
-              <div className="flex mr-14 lg:mr-3 text-2xl">
-                <p className="mr-3"><HeartOutlined /></p>
-              <p><ShoppingCartOutlined /></p>
-              </div>
+ 
+                 <div className="mr-2 lg:ml-0">
+                 <CartDrawer />
+                 </div>
               <Dropdown menu={{ items }} className="">
-                <a className="-ml-10 lg:ml-2">
+                <a className="lg:ml-2">
                   <Space wrap size={24}>
                     <Avatar
                       className="text-[20px] "

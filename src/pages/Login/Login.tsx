@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
 import { GithubFilled, GoogleCircleFilled } from "@ant-design/icons";
 
+
 type FormValues = {
   Email: string;
   password: string;
@@ -16,8 +17,7 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-      console.log(data, "datas....");
-      // const res = await userLogIn({ ...data }).unwrap();
+   
 
       // if (res?.accessToken) {
       //   message.success("Login Successful");
@@ -39,17 +39,11 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-white shadow-2xl border-2 border-gray-200 mt-24">
-      <div className="flex flex-col lg:flex-row justify-around">
-        <div>
-          <img
-            className="w-96 h-96"
-            src="https://i.ibb.co/gMndB2j/loginpage.png"
-            alt="login image"
-          />
-        </div>
-        <div
-          className="w-full lg:w-[30%] bg-white drop-shadow-2xl p-5 rounded-lg"
+    <div className="bg-white border-2 border-gray-200 mt-24">
+      <div className="">
+  
+      <div
+          className="w-full lg:w-[30%] mx-auto bg-[#E1F3E4] drop-shadow-2xl p-5 rounded-lg"
           style={{
             border: "1px solid #d9d9d9",
             borderRadius: "5px",

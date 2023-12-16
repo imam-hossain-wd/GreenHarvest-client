@@ -1,49 +1,40 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button } from "antd";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
+import { Button, message } from "antd";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
-import { GithubFilled,GoogleCircleFilled } from '@ant-design/icons';
-
-
-
-
+import { GithubFilled, GoogleCircleFilled } from "@ant-design/icons";
+import { useCreateUserMutation } from "../../redux/api/authApi";
 
 type FormValues = {
-  Email: string;
+  name: string;
+  email: string;
   password: string;
 };
 
 const Signup = () => {
-  // const router = useRouter();
+  const [createUser, { error }] = useCreateUserMutation();
 
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
+  const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
     try {
+      const res = await createUser(data);
 
-      console.log(data, 'datas....');
-      // const res = await userLogIn({ ...data }).unwrap();
-
-      // if (res?.accessToken) {
-      //   message.success("Login Successful");
-      //   storeUserInto({ accessToken: res?.accessToken });
-      // }
-
-      // const user = getUserInfo();
-   
-      // const role: any = user.role;
-
-      // if (user && role) {
-      //   router.push(`/${role}/profile`);
-      // } else {
-      //   console.log("User or role not available for redirection.");
-      // }
-    } catch (err: any) {
-      console.error(err.message);
+      if (res?.data) {
+        message.success(res?.data?.message);
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error creating user:", error);
     }
   };
 
+  if (error) {
+    console.log(error?.data?.message, "error");
+  }
 
   return (
     <div className="bg-white shadow-2xl border-2 border-gray-200 mt-24">
@@ -67,7 +58,9 @@ const Signup = () => {
           <h3 className="text-center text-lg  py-1 rounded mx-auto mb-3 ">
             Welcome Back
           </h3>
-          <p className="text-center mb-2 mb-1">Please Sign up into your account</p>
+          <p className="text-center mb-2 mb-1">
+            Please Sign up into your account
+          </p>
           <Form submitHandler={onSubmit}>
             <div className="">
               <div className="mb-3">
@@ -85,6 +78,9 @@ const Signup = () => {
                   size="large"
                   placeholder="Email"
                 />
+                <span className="ml-3 text-sm mt-3 text-red-500">
+                  {error && error?.data?.message}
+                </span>
               </div>
 
               <div className="mb-5">
@@ -114,29 +110,28 @@ const Signup = () => {
               </p>
             </div>
           </Form>
-          
- <div className="flex justify-center items-center mt-4">
-              <hr className="w-32 mr-2 text-[15px]" /> or Sing in with{" "}
-              <hr className="ml-2 w-32" />
-            </div>
- <div className="mt-5 flex justify-center ">
-              <Link
-                to="/facebook"
-                className="text-4xl rounded-full 
+
+          <div className="flex justify-center items-center mt-4">
+            <hr className="w-32 mr-2 text-[15px]" /> or Sing in with{" "}
+            <hr className="ml-2 w-32" />
+          </div>
+          <div className="mt-5 flex justify-center ">
+            <Link
+              to="/facebook"
+              className="text-4xl rounded-full 
                 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 mr-5 text-black"
-              >
-                <GithubFilled />
-              </Link>
+            >
+              <GithubFilled />
+            </Link>
 
-              <Link
-                to="/facebook"
-                className="text-4xl rounded-full 
+            <Link
+              to="/facebook"
+              className="text-4xl rounded-full 
                 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-black"
-              >
-                <GoogleCircleFilled />
-              </Link>
-            </div> 
-
+            >
+              <GoogleCircleFilled />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
