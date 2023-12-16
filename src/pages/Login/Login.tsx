@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button } from "antd";
+import { Button, message } from "antd";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
 import { GithubFilled, GoogleCircleFilled } from "@ant-design/icons";
+import { useLogInUserMutation } from "../../redux/api/authApi";
 
 
 type FormValues = {
@@ -13,26 +14,21 @@ type FormValues = {
 };
 
 const Login = () => {
-  // const router = useRouter();
 
+
+  const navigate = useNavigate();
+
+  
+  const [logInUser, { error }] = useLogInUserMutation();
+  
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-   
+      const res = await logInUser(data);
 
-      // if (res?.accessToken) {
-      //   message.success("Login Successful");
-      //   storeUserInto({ accessToken: res?.accessToken });
-      // }
-
-      // const user = getUserInfo();
-
-      // const role: any = user.role;
-
-      // if (user && role) {
-      //   router.push(`/${role}/profile`);
-      // } else {
-      //   console.log("User or role not available for redirection.");
-      // }
+      if (res?.data?.data?.accessToken) {
+        message.success(res?.data?.message);
+        navigate("/");
+      }
     } catch (err: any) {
       console.error(err.message);
     }
@@ -66,6 +62,7 @@ const Login = () => {
                   size="large"
                   placeholder="Email"
                 />
+                <span className="text-sm text-red-500 mt-2">{error && error?.data?.message === "user does not exist" && error?.data?.message }</span>
               </div>
 
               <div className="mb-5">
@@ -75,6 +72,7 @@ const Login = () => {
                   size="large"
                   placeholder="Strong Password"
                 />
+                 <span className="text-sm text-red-500 mt-2">{error && error?.data?.message === "Password is incorrect" && error?.data?.message }</span>
               </div>
             </div>
             <div className="flex justify-center">
