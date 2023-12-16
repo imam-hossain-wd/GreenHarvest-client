@@ -7,6 +7,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
 import { GithubFilled, GoogleCircleFilled } from "@ant-design/icons";
 import { useCreateUserMutation } from "../../redux/api/authApi";
+import { auth, googleProvider, handleSignInClick } from "../../firebase/firebase.config";
+import { signInWithPopup } from "firebase/auth";
+import MyButton from "../../components/button/Button";
 
 type FormValues = {
   name: string;
@@ -15,8 +18,9 @@ type FormValues = {
 };
 
 const Signup = () => {
-  const [createUser, { error }] = useCreateUserMutation();
 
+  const googleIcon = <GoogleCircleFilled />
+  const [createUser, { error }] = useCreateUserMutation();
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
@@ -35,6 +39,29 @@ const Signup = () => {
   if (error) {
     console.log(error?.data?.message, "error");
   }
+
+const handleGoogleSignUp = async ()=> {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log(result?.user, 'result...');
+      const name = result?.user?.displayName;
+      const email = result?.user?.email;
+      const password = result?.user?.uid;
+      const user = {
+        name, 
+        email,password
+      }
+      console.log(user, 'suser');
+      const res = await createUser(user);
+
+      if (res?.data) {
+        message.success(res?.data?.message);
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+}
 
   return (
     <div className="bg-white shadow-2xl border-2 border-gray-200 mt-24">
@@ -101,37 +128,27 @@ const Signup = () => {
                 Sign up
               </Button>
             </div>
-            <div className="mt-5 flex justify-center">
-              <p className="text-[12px] font-semibold">
-                New to CarDev?{" "}
-                <Link to="/singup" className="text-red-400 underline">
-                  Register
-                </Link>
-              </p>
-            </div>
+  
           </Form>
 
           <div className="flex justify-center items-center mt-4">
-            <hr className="w-32 mr-2 text-[15px]" /> or Sing in with{" "}
-            <hr className="ml-2 w-32" />
+            <hr className="w-28 mr-2 text-[15px]" /> or Sing in with{" "}
+            <hr className="ml-2 w-28" />
           </div>
           <div className="mt-5 flex justify-center ">
-            <Link
-              to="/facebook"
-              className="text-4xl rounded-full 
-                transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 mr-5 text-black"
-            >
-              <GithubFilled />
-            </Link>
-
-            <Link
-              to="/facebook"
-              className="text-4xl rounded-full 
-                transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-black"
-            >
-              <GoogleCircleFilled />
-            </Link>
+            <MyButton onClick={handleGoogleSignUp} text={googleIcon}
+      className="text-2xl h-8 flex justify-center items-center w-60"
+      type="primary"
+      htmlType="submit" />
           </div>
+          <div className="mt-5 flex justify-center">
+              <p className="text-[12px] font-semibold">
+                New to CarDev?{" "}
+                <Link to="/login" className="text-red-400 underline">
+                 Login
+                </Link>
+              </p>
+            </div>
         </div>
       </div>
     </div>

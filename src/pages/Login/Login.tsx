@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable padded-blocks */
 import { Button, message } from "antd";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
 import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
-import { GithubFilled, GoogleCircleFilled } from "@ant-design/icons";
+import {  GoogleCircleFilled } from "@ant-design/icons";
 import { useLogInUserMutation } from "../../redux/api/authApi";
+import MyButton from "../../components/button/Button";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../../firebase/firebase.config";
 
 
 type FormValues = {
@@ -15,7 +19,7 @@ type FormValues = {
 
 const Login = () => {
 
-
+  const googleIcon = <GoogleCircleFilled />
   const navigate = useNavigate();
 
   
@@ -33,6 +37,25 @@ const Login = () => {
       console.error(err.message);
     }
   };
+
+  const handleGoogleSignIn = async ()=> {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const email = result?.user?.email;
+      const password = result?.user?.uid;
+      const user = {
+        email,
+        password
+      }
+      const res = await logInUser(user);
+      if (res?.data) {
+        message.success(res?.data?.message);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+}
 
   return (
     <div className="bg-white border-2 border-gray-200 mt-24">
@@ -87,7 +110,7 @@ const Login = () => {
             <div className="mt-5 flex justify-center">
               <p className="text-[12px] font-semibold">
                 New to CarDev?{" "}
-                <Link to="/singup" className="text-red-400 underline">
+                <Link to="/signup" className="text-red-400 underline">
                   Register
                 </Link>
               </p>
@@ -99,21 +122,12 @@ const Login = () => {
             <hr className="ml-2 w-32" />
           </div>
           <div className="mt-5 flex justify-center ">
-            <Link
-              to="/facebook"
-              className="text-4xl rounded-full 
-                transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 mr-5 text-black"
-            >
-              <GithubFilled />
-            </Link>
+          
 
-            <Link
-              to="/facebook"
-              className="text-4xl rounded-full 
-                transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-black"
-            >
-              <GoogleCircleFilled />
-            </Link>
+          <MyButton onClick={handleGoogleSignIn} text={googleIcon}
+      className="text-2xl h-8 flex justify-center items-center w-60"
+      type="primary"
+      htmlType="submit" />
           </div>
         </div>
       </div>
