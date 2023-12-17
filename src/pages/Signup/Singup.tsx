@@ -120,13 +120,10 @@ const handleGoogleSignUp = async ()=> {
               </div>
             </div>
             <div className="flex justify-center">
-              <Button
-                className=" bg-primary w-full h-9"
-                type="primary"
-                htmlType="submit"
-              >
-                Sign up
-              </Button>
+                 <MyButton text="Sign up"
+      className="text-md   h-8 flex justify-center items-center w-60"
+      type="primary"
+      htmlType="submit" />
             </div>
   
           </Form>
@@ -136,15 +133,15 @@ const handleGoogleSignUp = async ()=> {
             <hr className="ml-2 w-28" />
           </div>
           <div className="mt-5 flex justify-center ">
-            <MyButton onClick={handleGoogleSignUp} text={googleIcon}
-      className="text-2xl h-8 flex justify-center items-center w-60"
+         <MyButton onClick={handleGoogleSignUp} text="Log In"
+      className="text-md h-8 flex justify-center items-center w-60"
       type="primary"
       htmlType="submit" />
           </div>
           <div className="mt-5 flex justify-center">
               <p className="text-[12px] font-semibold">
                 New to CarDev?{" "}
-                <Link to="/login" className="text-red-400 underline">
+                <Link to="/login" className="text-primary underline">
                  Login
                 </Link>
               </p>

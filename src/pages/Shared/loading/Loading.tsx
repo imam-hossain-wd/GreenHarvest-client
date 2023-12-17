@@ -1,9 +1,9 @@
-import { Flex, Spin } from 'antd';
+import {  Spin } from 'antd';
 
 const Loading = () => (
-  <Flex align="center" gap="middle">
-    <Spin />
-  </Flex>
+  <div className='flex justify-center items-center'>
+     <Spin size='large' />
+  </div>
 );
 
 export default Loading;

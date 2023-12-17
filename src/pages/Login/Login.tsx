@@ -99,18 +99,24 @@ const Login = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <Button
+
+              
+          <MyButton onClick={handleGoogleSignIn} text="Log In"
+      className="text-md h-8 flex justify-center items-center w-60"
+      type="primary"
+      htmlType="submit" />
+              {/* <Button
                 className=" bg-primary w-full h-9"
                 type="primary"
                 htmlType="submit"
               >
                 Log In
-              </Button>
+              </Button> */}
             </div>
             <div className="mt-5 flex justify-center">
               <p className="text-[12px] font-semibold">
                 New to CarDev?{" "}
-                <Link to="/signup" className="text-red-400 underline">
+                <Link to="/signup" className="text-primary underline">
                   Register
                 </Link>
               </p>
@@ -118,8 +124,8 @@ const Login = () => {
           </Form>
 
           <div className="flex justify-center items-center mt-4">
-            <hr className="w-32 mr-2 text-[15px]" /> or Sing in with{" "}
-            <hr className="ml-2 w-32" />
+            <hr className="w-28 mr-2 text-[15px]" /> or Sing in with{" "}
+            <hr className="ml-2 w-28" />
           </div>
           <div className="mt-5 flex justify-center ">
           
