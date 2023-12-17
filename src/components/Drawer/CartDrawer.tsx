@@ -1,7 +1,7 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 import { useState } from "react";
-import { Drawer } from "antd";
+import { Button, Drawer } from "antd";
 
 const CartDrawer = () => {
   const [open, setOpen] = useState(false);
@@ -16,13 +16,13 @@ const CartDrawer = () => {
 
   return (
     <div className="overflow-hidden">
-      <p
+      <Button
         onClick={showDrawer}
-        className="bg-primary text-2xl text-white w-10 h-10 flex justify-center rounded-full"
+        className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-2xl text-white w-10 h-10 flex justify-center items-center rounded-full"
       >
         <ShoppingCartOutlined />
-      </p>
-
+      </Button>
+    
       <Drawer
         title="Basic Drawer"
         placement="right"

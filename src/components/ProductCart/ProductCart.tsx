@@ -4,9 +4,10 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
 
 
+
 const ProductCart = ({ product }:any) => {
   return (
-    <div className="border border-primary shadow-lg">
+    <div>
       <div>
         <img
           className="w-72 h-60"
@@ -15,7 +16,7 @@ const ProductCart = ({ product }:any) => {
       </div>
 
       <div className="flex flex-col justify-center items-center mb-5">
-        <Rate disabled defaultValue={5} />;<p className="font-semibold text-lg">{product.name}</p>
+        <Rate disabled defaultValue={5} />;<p className="font-semibold text-lg text-black">{product.name}</p>
         <p className="mt-2 text-xl font-semibold text-primary">$ {product.price}</p>
         <Button className="text-primary border-primary hover:bg-primary hover:text-white w-36 font-semibold h-10 flex justify-center items-center mt-2">
           {" "}
