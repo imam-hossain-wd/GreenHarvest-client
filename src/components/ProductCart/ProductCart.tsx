@@ -2,10 +2,22 @@
 import { Button } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
+import { useAppDispatch} from "../../redux/hooks";
+import { addToCart } from "../../redux/slice/cartSlice";
+import { IProduct } from "../../types/ProductTypes";
 
 
 
 const ProductCart = ({ product }:any) => {
+
+  // const cart = useAppSelector((state) => state?.cart);
+  // console.log(cart, 'icart');
+
+  const dispatch = useAppDispatch();
+
+  const addToCartHandler = (product:IProduct) => {
+    dispatch(addToCart(product));
+  }
   return (
     <div>
       <div>
@@ -18,7 +30,9 @@ const ProductCart = ({ product }:any) => {
       <div className="flex flex-col justify-center items-center mb-5">
         <Rate disabled defaultValue={5} />;<p className="font-semibold text-lg text-black">{product.name}</p>
         <p className="mt-2 text-xl font-semibold text-primary">$ {product.price}</p>
-        <Button className="text-primary border-primary hover:bg-primary hover:text-white w-36 font-semibold h-10 flex justify-center items-center mt-2">
+        <Button
+        onClick={()=> addToCartHandler(product)}
+        className="text-primary border-primary hover:bg-primary hover:text-white w-36 font-semibold h-10 flex justify-center items-center mt-2">
           {" "}
           <span className="mr-2 text-xl">
             <ShoppingCartOutlined />
