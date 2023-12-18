@@ -1,4 +1,4 @@
-import { Button, Drawer, Dropdown} from "antd";
+import { Button, Drawer, Dropdown } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -8,9 +8,20 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import CartDrawer from "../../../components/Drawer/CartDrawer";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { clearAccessToken, selectAccessToken } from "../../../redux/slice/authSlice";
+import {  authKey,  removeUserInfo } from "../../../utils/auth.Services";
 
 const Navbar = () => {
+
+  const dispatch= useAppDispatch()
   const [open, setOpen] = useState(false);
+  const accessToken = useAppSelector(selectAccessToken);
+  // console.log(accessToken, 'accessToken');
+  // const loggedUser = IsUserLoggedIn();
+  // console.log(getUserInfo(), 'getUserInfo');
+
+  // console.log(loggedUser, "lggd user");
 
   const showDrawer = () => {
     setOpen(true);
@@ -25,7 +36,7 @@ const Navbar = () => {
             <Button type="text">
               <Link to={`/profile`}> Profile</Link>
             </Button>
-            <Button danger type="text">
+            <Button onClick={()=> {removeUserInfo(authKey); dispatch(clearAccessToken())}} danger type="text">
               Log out
             </Button>
           </div>
@@ -33,6 +44,17 @@ const Navbar = () => {
       ),
     },
   ];
+
+  const closedButton =   <div className="ml-72 ml-5">
+    <Button className=" bg-primary hover:bg-white hover:text-primary hover:border-primary rounded-full hover:border text-2xl text-white w-10 h-10 flex justify-center items-center -ml-3 mr-2">
+    <CloseOutlined
+  className=""
+  onClick={() => setOpen(!open)}
+/>
+  </Button>
+  </div> 
+  
+  
 
   const navMenuItems = (
     <li className="list-none flex flex-col justify-center items-center lg:flex-row">
@@ -75,12 +97,11 @@ const Navbar = () => {
         <nav className="flex justify-between p-3 w-[90%] mx-auto">
           <div className="flex items-center">
             <Button
-              className="lg:hidden mr-3 -ml-4 bg-primary text-white text-lg w-12 h-9 border-primary "
+              className="lg:hidden bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-2xl text-white w-10 h-10 flex justify-center items-center -ml-3 mr-2"
               onClick={showDrawer}
             >
               <MenuOutlined />
             </Button>
-
             <h3 className="text-2xl text-primary rounded font-bold ">
               Green<span className="">Harvest</span>
             </h3>
@@ -92,29 +113,29 @@ const Navbar = () => {
               <CartDrawer />
             </div>
 
-            <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg ">
-             <Link to='/login'> <LoginOutlined />
-              Login</Link>
-            </Button>
-
-            <Dropdown menu={{ items }} className="">
-              <a className="lg:ml-2">
-                <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-2xl text-white w-10 h-10 flex justify-center items-center rounded-full">
-                  <UserOutlined />
-                </Button>
-              </a>
-            </Dropdown>
+            {accessToken ? (
+              <Dropdown menu={{ items }} className="">
+                <a className="lg:ml-2">
+                  <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-2xl text-white w-10 h-10 flex justify-center items-center rounded-full">
+                    <UserOutlined />
+                  </Button>
+                </a>
+              </Dropdown>
+            ) : (
+              <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg ">
+                <Link to="/login">
+                  {" "}
+                  <LoginOutlined className="mr-1"/>
+                  Login
+                </Link>
+              </Button>
+            )}
           </div>
         </nav>
         <nav>
           <Drawer
             placement="left"
-            title={
-              <CloseOutlined
-                className="ml-72 ml-5 hover:text-red-500 text-lg transition-all delay-300"
-                onClick={() => setOpen(!open)}
-              />
-            }
+            title={closedButton}
             open={open}
             closable={false}
           >

@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable padded-blocks */
-import { Button, message } from "antd";
+import {  message } from "antd";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,8 +11,11 @@ import { useLogInUserMutation } from "../../redux/api/authApi";
 import MyButton from "../../components/button/Button";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../firebase/firebase.config";
+import { useAppDispatch } from "../../redux/hooks";
+import { setAccessToken } from "../../redux/slice/authSlice";
+import { storeUserInto } from "../../utils/auth.Services";
 
-
+// @ts-ignore
 type FormValues = {
   Email: string;
   password: string;
@@ -21,20 +25,26 @@ const Login = () => {
 
   const googleIcon = <GoogleCircleFilled />
   const navigate = useNavigate();
-
-  
   const [logInUser, { error }] = useLogInUserMutation();
+
+  const dispatch = useAppDispatch()
   
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
       const res = await logInUser(data);
-
-      if (res?.data?.data?.accessToken) {
+        //@ts-ignore
+      const token = res?.data?.data?.accessToken
+    
+      if (token) {
+        storeUserInto({ accessToken: token });
+        dispatch(setAccessToken(token));
+        //@ts-ignore
+        // const message = res?.data?.message
         message.success(res?.data?.message);
         navigate("/");
       }
-    } catch (err: any) {
-      console.error(err.message);
+    } catch (error: any) {
+      // console.error(error.message);
     }
   };
 
@@ -48,7 +58,9 @@ const Login = () => {
         password
       }
       const res = await logInUser(user);
+      //@ts-ignore
       if (res?.data) {
+        //@ts-ignore
         message.success(res?.data?.message);
         navigate("/");
       }
@@ -85,7 +97,10 @@ const Login = () => {
                   size="large"
                   placeholder="Email"
                 />
-                <span className="text-sm text-red-500 mt-2">{error && error?.data?.message === "user does not exist" && error?.data?.message }</span>
+                
+                <span className="text-sm text-red-500 mt-2">{error && 
+                //@ts-ignore
+                error?.data?.message === "user does not exist" && error?.data?.message }</span>
               </div>
 
               <div className="mb-5">
@@ -95,13 +110,15 @@ const Login = () => {
                   size="large"
                   placeholder="Strong Password"
                 />
-                 <span className="text-sm text-red-500 mt-2">{error && error?.data?.message === "Password is incorrect" && error?.data?.message }</span>
+                 <span className="text-sm text-red-500 mt-2">{error && 
+                 //@ts-ignore
+                 error?.data?.message === "Password is incorrect" && error?.data?.message }</span>
               </div>
             </div>
             <div className="flex justify-center">
 
               
-          <MyButton onClick={handleGoogleSignIn} text="Log In"
+          <MyButton text="Log In"
       className="text-md h-8 flex justify-center items-center w-60"
       type="primary"
       htmlType="submit" />

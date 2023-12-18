@@ -20,17 +20,37 @@ export default function Swipper() {
     { url: "https://greengrocery.com.bd/wp-content/uploads/2022/09/p-5-1.jpg" },
   ];
 
+  const breakpoints = {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+  };
+
   return (
     <div className="w-[90%] mx-auto my-20">
       <Swiper
-        slidesPerView={4}
-        spaceBetween={33}
+
         pagination={{
           clickable: true,
+          // el: ".swiper-pagination",
         }}
         modules={[Pagination, Autoplay]} 
         className="mySwiper"
         autoplay={{ delay: 2000, disableOnInteraction: false }}
+        breakpoints={breakpoints}
       >
         {image_datas.map((image, index) => (
           <SwiperSlide key={index}>

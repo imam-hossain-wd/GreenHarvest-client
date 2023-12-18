@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Singup";
 import ProductDetails from "../pages/Home/Product/ProductDetails";
+import Profile from "../pages/Profile/Profile";
+import ErrorElement from "../pages/Errorpage/ErrorElement";
 
 
 
@@ -11,6 +13,7 @@ import ProductDetails from "../pages/Home/Product/ProductDetails";
     {
       path: "/",
       element: <MainLayout/> ,
+      errorElement: <ErrorElement />,
       children: [
         {
             path: '/',
@@ -28,6 +31,10 @@ import ProductDetails from "../pages/Home/Product/ProductDetails";
         {
           path: 'signup',
           element: <Signup />
+        },
+        {
+          path: 'profile',
+          element: <Profile />
         },
       ]
     },
