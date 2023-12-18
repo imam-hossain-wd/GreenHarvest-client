@@ -6,6 +6,7 @@ import Signup from "../pages/Signup/Singup";
 import ProductDetails from "../pages/Home/Product/ProductDetails";
 import Profile from "../pages/Profile/Profile";
 import ErrorElement from "../pages/Errorpage/ErrorElement";
+import CheckoutPage from "../pages/Checkout/CheckoutPage";
 
 
 
@@ -35,6 +36,10 @@ import ErrorElement from "../pages/Errorpage/ErrorElement";
         {
           path: 'profile',
           element: <Profile />
+        },
+        {
+          path: 'checkout',
+          element: <CheckoutPage />
         },
       ]
     },
