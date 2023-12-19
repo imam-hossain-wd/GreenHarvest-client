@@ -14,9 +14,6 @@ const CartDrawer = () => {
 
   const dispatch = useAppDispatch();
 
-  // console.log(cart, "cartitems...");
-
-
 
   const showDrawer = () => {
     setOpen(true);
@@ -26,19 +23,13 @@ const CartDrawer = () => {
     setOpen(false);
   };
   const closeIcon = (
-    <Button className=" bg-primary hover:bg-white hover:text-primary hover:border-primary rounded-full hover:border text-lg text-white w-9 h-9 flex justify-center items-center  mr-2">
-      <CloseOutlined className="" onClick={() => setOpen(!open)} />
-    </Button>
+    <MyButton onClick={() => setOpen(!open)} text={<CloseOutlined />} className=" text-xl h-8 w-8 rounded-full flex justify-center items-center -ml-2 mr-3 " />
+
   );
 
   return (
     <div className="overflow-hidden">
-      <Button
-        onClick={showDrawer}
-        className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-2xl text-white w-10 h-10 flex justify-center items-center rounded-full"
-      >
-        <ShoppingCartOutlined />
-      </Button>
+      <MyButton onClick={showDrawer} text={<ShoppingCartOutlined />} className="ml-2 text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center" />
 
       <Drawer
         // title={cart?.total}
@@ -51,8 +42,8 @@ const CartDrawer = () => {
             <p className="text-lg my-5 text-primary text-center">Total : {cart.total.toFixed(2)}</p>
            
            <div className="flex justify-around font-bold">
-           <MyButton text="View cart" className="w-32 text-lg h-10 text-white"/>
-          <Link onClick={onClose} to="/checkout"> <MyButton text="Checkout" className="w-32 text-lg h-10 text-white"/></Link>
+           <MyButton text="View cart" className="w-32 text-lg h-9 flex justify-center items-center "/>
+          <Link onClick={onClose} to="/checkout"> <MyButton text="Checkout" className="w-32 text-lg h-9 flex justify-center items-center"/></Link>
            </div>
           </div>
         )}

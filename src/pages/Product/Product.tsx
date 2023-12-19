@@ -5,7 +5,7 @@ import Loading from "../Shared/loading/Loading";
 
 const Product = () => {
   const { data: products, isLoading } = useGetProductQuery(undefined);
-
+console.log(products, 'pppp');
   if (isLoading) {
     return <Loading />;
   }

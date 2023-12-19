@@ -5,7 +5,7 @@ import PopularCategory from "../PopularCategory/PopularCategory";
 
 const Home = () => {
     return (
-        <div>
+        <div className="mt-20">
             <HomeBanner />
             <Swipper />
             <HomeProduct />

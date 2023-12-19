@@ -2,13 +2,12 @@
 
 import { Button } from 'antd'; 
 //@ts-ignore
-const MyButton = ({ text, className, ...props }) => {
-    
+const OutletButton = ({ text, className, ...props }) => {
   return (
-    <Button className={`${className} bg-primary hover:text-primary hover:border-primary hover:bg-white`} {...props}>
+    <Button className={`${className} bg-white text-primary hover:text-white hover:bg-primary border-primary `} {...props}>
       {text}
     </Button>
   );
 };
 
-export default MyButton;
+export default OutletButton;

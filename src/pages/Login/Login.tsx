@@ -119,7 +119,7 @@ const Login = () => {
 
               
           <MyButton text="Log In"
-      className="text-md h-8 flex justify-center items-center w-full"
+      className="text-md h-8 flex justify-center items-center w-full bg-primary"
       type="primary"
       htmlType="submit" />
 

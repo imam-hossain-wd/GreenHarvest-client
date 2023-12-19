@@ -14,6 +14,7 @@ import {
   selectAccessToken,
 } from "../../../redux/slice/authSlice";
 import { authKey, removeUserInfo } from "../../../utils/auth.Services";
+import MyButton from "../../../components/button/Button";
 
 
 const Navbar = () => {
@@ -52,16 +53,14 @@ const Navbar = () => {
 
   const closedButton = (
     <div className="ml-72 ml-5">
-      <Button className=" bg-primary hover:bg-white hover:text-primary hover:border-primary rounded-full hover:border text-2xl text-white w-10 h-10 flex justify-center items-center -ml-3 mr-2">
-        <CloseOutlined className="" onClick={() => setOpen(!open)} />
-      </Button>
+       <MyButton onClick={() => setOpen(!open)} text={<CloseOutlined />} className="lg:hidden text-xl h-8 w-8 rounded-full flex justify-center items-center -ml-2 mr-3 " />
     </div>
   );
 
   const navMenuItems = (
     <li className="list-none flex flex-col justify-center items-center lg:flex-row">
       <Link
-        className="text-gray-800 hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline"
+        className=" text-gray-800 hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline"
         to="/"
       >
         Home
@@ -94,16 +93,13 @@ const Navbar = () => {
   );
 
   return (
-    <section className="relative z-50  w-full overflow-hidden">
+    <section className="relative z-50 mb-28  w-full overflow-hidden">
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
         <nav className="flex justify-between p-3 w-[90%] mx-auto">
           <div className="flex items-center">
-            <Button
-              className="lg:hidden bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-2xl text-white w-10 h-10 flex justify-center items-center -ml-3 mr-2"
-              onClick={showDrawer}
-            >
-              <MenuOutlined />
-            </Button>
+ 
+            <MyButton onClick={showDrawer} text={<MenuOutlined />} className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-2 mr-3 " />
+
             <h3 className="text-2xl text-primary rounded font-bold ">
               Green<span className="">Harvest</span>
             </h3>
@@ -117,14 +113,12 @@ const Navbar = () => {
 
             {accessToken ? (
               <Dropdown menu={{ items }} className="">
-                <a className="lg:ml-2">
-                  <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-2xl text-white w-10 h-10 flex justify-center items-center rounded-full">
-                    <UserOutlined />
-                  </Button>
+                <a className="ml-2">
+                  <MyButton text={<UserOutlined />} className=" text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center" />
                 </a>
               </Dropdown>
             ) : (
-              <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg ">
+              <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg  ">
                 <Link to="/login">
                   {" "}
                   <LoginOutlined className="mr-1" />

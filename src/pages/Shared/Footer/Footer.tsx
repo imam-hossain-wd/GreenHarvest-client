@@ -18,19 +18,19 @@ const Footer = () => {
           <div>
             <div className="">
               <div className="flex items-center">
-                <img
+                {/* <img
                   className="w-14 h-14 rounded-full"
                   src="https://i.ibb.co/863c3CY/car-service-logo.jpg"
                   width={500}
                   height={500}
                   alt="car service logo"
-                />
-                <h3 className="text-xl hover:text-red-500 ml-2 font-semibold ">
-                Green <span className="text-red-400 ">Harvest</span>
+                /> */}
+                <h3 className="text-xl text-primary ml-2 font-semibold ">
+                Green <span className=" ">Harvest</span>
                 </h3>
               </div>
               <div className="flex my-4">
-                <span className="text-2xl border-2 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 p-1  ml-2">
+                <span className="text-2xl  border-2 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 p-1  ml-2">
                   <FacebookFilled />
                 </span>
                 <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  text-black duration-300  ml-2">
