@@ -119,16 +119,10 @@ const Login = () => {
 
               
           <MyButton text="Log In"
-      className="text-md h-8 flex justify-center items-center w-60"
+      className="text-md h-8 flex justify-center items-center w-full"
       type="primary"
       htmlType="submit" />
-              {/* <Button
-                className=" bg-primary w-full h-9"
-                type="primary"
-                htmlType="submit"
-              >
-                Log In
-              </Button> */}
+
             </div>
             <div className="mt-5 flex justify-center">
               <p className="text-[12px] font-semibold">
@@ -148,7 +142,7 @@ const Login = () => {
           
 
           <MyButton onClick={handleGoogleSignIn} text={googleIcon}
-      className="text-2xl h-8 flex justify-center items-center w-60"
+      className="text-2xl h-8 flex justify-center items-center w-full"
       type="primary"
       htmlType="submit" />
           </div>

@@ -1,15 +1,15 @@
 import Swipper from "../../../components/Swipper/Swipper";
-// import Slider from "../../../components/slider/Slider";
 import HomeBanner from "../Banner/HomeBanner";
-import Product from "../Product/Product";
+import HomeProduct from "../HomeProduct/HomeProduct";
+import PopularCategory from "../PopularCategory/PopularCategory";
 
 const Home = () => {
     return (
         <div>
             <HomeBanner />
             <Swipper />
-            {/* <Slider /> */}
-            <Product />
+            <HomeProduct />
+            <PopularCategory />
         </div>
     );
 };

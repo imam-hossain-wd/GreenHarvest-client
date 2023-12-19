@@ -41,6 +41,7 @@ export default function Swipper() {
 
   return (
     <div className="w-[90%] mx-auto my-20">
+         <h1 className="lg:text-center mb-2">Special Packages & Offers</h1>
       <Swiper
 
         pagination={{

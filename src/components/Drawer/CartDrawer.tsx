@@ -7,6 +7,7 @@ import { CloseOutlined,PlusOutlined,MinusOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { addToCart, removeFromCart, removeOne } from "../../redux/slice/cartSlice";
 import MyButton from "../button/Button";
+import { Link } from "react-router-dom";
 const CartDrawer = () => {
   const [open, setOpen] = useState(false);
   const cart = useAppSelector((state) => state?.cart);
@@ -47,11 +48,11 @@ const CartDrawer = () => {
         closeIcon={closeIcon}
         footer={(
           <div className="h-24">
-            <p className="text-lg my-5 text-primary text-center">Total : {cart.total}</p>
+            <p className="text-lg my-5 text-primary text-center">Total : {cart.total.toFixed(2)}</p>
            
            <div className="flex justify-around font-bold">
            <MyButton text="View cart" className="w-32 text-lg h-10 text-white"/>
-           <MyButton text="Checkout" className="w-32 text-lg h-10 text-white"/>
+          <Link onClick={onClose} to="/checkout"> <MyButton text="Checkout" className="w-32 text-lg h-10 text-white"/></Link>
            </div>
           </div>
         )}

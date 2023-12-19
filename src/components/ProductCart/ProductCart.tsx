@@ -20,7 +20,7 @@ const ProductCart = ({ product }:any) => {
   }
   return (
     <div>
-      <div>
+      <div className="flex justify-center mb-2 rounded-lg">
         <img
           className="w-72 h-60"
           src="https://greengrocery.com.bd/wp-content/uploads/2023/12/cinnamon-2.jpg"

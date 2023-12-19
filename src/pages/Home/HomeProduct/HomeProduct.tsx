@@ -1,9 +1,11 @@
 import ProductCart from "../../../components/ProductCart/ProductCart";
+import MyButton from "../../../components/button/Button";
 import { useGetProductQuery } from "../../../redux/api/productApi";
 import { IProduct } from "../../../types/ProductTypes";
 import Loading from "../../Shared/loading/Loading";
 
-const Product = () => {
+
+const HomeProduct = () => {
   const { data: products, isLoading } = useGetProductQuery(undefined);
 
   if (isLoading) {
@@ -11,10 +13,10 @@ const Product = () => {
   }
   return (
     <div>
-      <h1>This is product page..</h1>
+      <h1 className="lg:text-center mb-2">Best Selling Products</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-[80%] mx-auto gap-5">
         {products &&
-          products.data.map((product: IProduct) => (
+          products.data.slice(0,6).map((product: IProduct) => (
             <div
               className="border border-primary shadow-lg no-underline"
               key={product._id}
@@ -23,8 +25,11 @@ const Product = () => {
             </div>
           ))}
       </div>
+      <div className="flex justify-center my-4">
+      <MyButton text="All Product" className="w-40 h-10 text-lg font-bold text-white"/>
+      </div>
     </div>
   );
 };
 
-export default Product;
+export default HomeProduct;

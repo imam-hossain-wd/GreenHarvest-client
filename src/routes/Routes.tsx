@@ -3,10 +3,11 @@ import MainLayout from '../layout/MainLayout'
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Singup";
-import ProductDetails from "../pages/Home/Product/ProductDetails";
+import ProductDetails from "../pages/Product/ProductDetails";
 import Profile from "../pages/Profile/Profile";
 import ErrorElement from "../pages/Errorpage/ErrorElement";
 import CheckoutPage from "../pages/Checkout/CheckoutPage";
+import Product from "../pages/Product/Product";
 
 
 
@@ -40,6 +41,10 @@ import CheckoutPage from "../pages/Checkout/CheckoutPage";
         {
           path: 'checkout',
           element: <CheckoutPage />
+        },
+        {
+          path: 'product',
+          element: <Product />
         },
       ]
     },

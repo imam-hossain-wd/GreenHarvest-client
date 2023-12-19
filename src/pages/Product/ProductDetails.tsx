@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useGetSingleProductQuery } from "../../../redux/api/productApi";
-import Loading from "../../Shared/loading/Loading";
-import ProductCart from "../../../components/ProductCart/ProductCart";
+import { useGetSingleProductQuery } from "../../redux/api/productApi";
+import Loading from "../Shared/loading/Loading";
+import ProductCart from "../../components/ProductCart/ProductCart";
 
 const ProductDetails = () => {
   const { id } = useParams();
