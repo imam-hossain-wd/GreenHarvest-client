@@ -33,7 +33,10 @@ const Navbar = () => {
         <div>
           <div className="flex flex-col">
             <Button type="text">
-              <Link to={`/profile`}> Profile</Link>
+              <Link to="/dashboard/profile"> Profile</Link>
+            </Button>
+            <Button type="text">
+              <Link to="/dashboard"> Dashboard</Link>
             </Button>
             <Button
               onClick={() => {
@@ -113,9 +116,9 @@ const Navbar = () => {
 
             {accessToken ? (
               <Dropdown menu={{ items }} className="">
-                <a className="ml-2">
+             
                   <MyButton text={<UserOutlined />} className=" text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center" />
-                </a>
+              
               </Dropdown>
             ) : (
               <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg  ">

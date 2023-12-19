@@ -1,9 +1,9 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { useGetSingleUserQuery } from "../../redux/api/userApi";
-import { getUserInfo } from "../../utils/auth.Services";
-import Loading from "../Shared/loading/Loading";
+import { useGetSingleUserQuery } from "../../../redux/api/userApi";
+import { getUserInfo } from "../../../utils/auth.Services";
+import Loading from "../../Shared/loading/Loading";
 import {UserOutlined} from "@ant-design/icons";
 import { Avatar } from 'antd';
 
