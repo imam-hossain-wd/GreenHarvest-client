@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Drawer, Dropdown } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -13,7 +14,7 @@ import {
   clearAccessToken,
   selectAccessToken,
 } from "../../../redux/slice/authSlice";
-import { authKey, removeUserInfo } from "../../../utils/auth.Services";
+import { authKey, getUserInfo, removeUserInfo } from "../../../utils/auth.Services";
 import MyButton from "../../../components/button/Button";
 
 
@@ -21,6 +22,8 @@ const Navbar = () => {
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);
   const accessToken = useAppSelector(selectAccessToken);
+  const { role } = getUserInfo() as any;
+  
 
   const showDrawer = () => {
     setOpen(true);
@@ -33,7 +36,7 @@ const Navbar = () => {
         <div>
           <div className="flex flex-col">
             <Button type="text">
-              <Link to="/dashboard/profile"> Profile</Link>
+              <Link to={`/dashboard/${role}/account`}> Account</Link>
             </Button>
             <Button type="text">
               <Link to="/dashboard"> Dashboard</Link>
@@ -96,7 +99,7 @@ const Navbar = () => {
   );
 
   return (
-    <section className="relative z-50 mb-28  w-full overflow-hidden">
+    <section className="relative z-50 mb-20  w-full overflow-hidden">
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
         <nav className="flex justify-between p-3 w-[90%] mx-auto">
           <div className="flex items-center">
