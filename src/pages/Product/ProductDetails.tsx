@@ -19,10 +19,11 @@ const ProductDetails = () => {
 
   return (
     <div className="my-28  w-[80%] mx-auto">
-      <div className="flex justify-center bg-white shadow-xl p-5">
+      <div className="flex justify-between justify-center">
+        <div className="flex justify-between justify-center bg-white shadow-xl p-7 rounded">
         <div>
           <img
-            className="w-96 h-96"
+            className="w-[600px] h-72"
             src="https://greengrocery.com.bd/wp-content/uploads/2023/12/cinnamon-2.jpg"
           />
         </div>
@@ -51,6 +52,7 @@ const ProductDetails = () => {
           </div>
         </div>
 
+        </div>
         </div>
       </div>
       <Review />

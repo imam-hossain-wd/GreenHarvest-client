@@ -1,24 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+"use client"
+import { Button , ButtonProps} from 'antd';
 
-// import { Button } from 'antd'; 
-// //@ts-ignore
-// const ColorButton = ({ text, className, ...props }) => {
-//   return (
-//     <Button className={`${className} bg-primary text-white hover:text-primary hover:bg-white border-primary `} {...props}>
-//       {text}
-//     </Button>
-//   );
-// };
-
-// export default ColorButton;
+type ColorButtonProps = {
+  className?: string;
+  children?: React.ReactNode;
+} & ButtonProps;
 
 
-import { Button } from 'antd';
-
-
-
-const ColorButton = ({ className, children, ...props }) => {
+const ColorButton = ({ className, children, ...props }: ColorButtonProps) => {
   return (
     <Button className={`${className} bg-primary text-white hover:text-primary hover:bg-white border-primary`} {...props}>
       {children}
