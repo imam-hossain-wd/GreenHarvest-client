@@ -73,15 +73,15 @@ const Navbar = () => {
       </Link>
       <Link
         className="text-gray-800  hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline "
-        to="/service"
+        to="/product"
       >
-        Contact us
+        Product
       </Link>
       <Link
         className="text-gray-800 hover:text-primary text-base no-underline  mt-2 lg:mt-0 lg:mr-3    "
-        to="/contact"
+        to="/contact-us"
       >
-        Our Menu
+        Contact us
       </Link>
       <Link
         className="text-gray-800 hover:text-primary text-base no-underline mt-2 lg:mt-0 lg:mr-3"

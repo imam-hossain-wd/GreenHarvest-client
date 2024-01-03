@@ -45,7 +45,7 @@ const ProductCart = ({ product }:any) => {
         <Button
         className="text-primary border-primary hover:bg-primary hover:text-white w-36 font-semibold h-10 flex justify-center items-center mt-2">
           {" "}
-      <Link to={`/product/${product?._id}`}>Detailsa</Link>
+      <Link to={`/product/${product?._id}`}>Details</Link>
         </Button>
 
       </div>

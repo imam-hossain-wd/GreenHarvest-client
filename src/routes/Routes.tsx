@@ -15,6 +15,7 @@ import Cartitem from "../pages/Dashboard/cartItem/Cartitem";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import Account from "../pages/Dashboard/Account/Account";
 import Password from "../pages/Dashboard/Password/Password";
+import Contact from "../pages/Contact/Contact";
 
 
 
@@ -40,6 +41,10 @@ import Password from "../pages/Dashboard/Password/Password";
         {
           path: 'signup',
           element: <Signup />
+        },
+        {
+          path: 'contact-us',
+          element: <Contact />
         },
         {
           path: 'profile',
