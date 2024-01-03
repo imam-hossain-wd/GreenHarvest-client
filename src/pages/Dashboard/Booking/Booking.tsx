@@ -1,8 +1,9 @@
 
+
 const Booking = () => {
     return (
         <div>
-            <h1>Dashboard Booking Page</h1>
+            Booking page
         </div>
     );
 };

@@ -54,15 +54,15 @@ const SideBar = () => {
         bottom: 0,
       }}
     >
-      {!collapsed && <div className="flex flex-col justify-center items-center mt-4 -ml-3 mb-2 hidden lg:flex">
+      {!collapsed && <div className="flex flex-col justify-center items-center mt-4 -ml-3 -mb-7 hidden lg:flex">
                 {
-                   image ? <img className="" src={image}/> :<Avatar size={100} icon={<UserOutlined />} />
+                   image ? <img className="" src={image}/> :<Avatar size={80} icon={<UserOutlined />} />
                    
                 }
                 <p className="mt-2 text-lg">{data?.data?.name}</p>
             </div>}
       <Menu
-      className="mt-7"
+      className="mt-10"
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={sidebarItems(role)}

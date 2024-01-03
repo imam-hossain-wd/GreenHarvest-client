@@ -3,7 +3,7 @@ import ProductCart from "../../../components/ProductCart/ProductCart";
 import { useGetProductQuery } from "../../../redux/api/productApi";
 import { IProduct } from "../../../types/ProductTypes";
 import Loading from "../../Shared/loading/Loading";
-import OutletButton from "../../../components/button/Button";
+// import OutletButton from "../../../components/button/Button";
 import ColorButton from "../../../components/button/ColorButton";
 
 const HomeProduct = () => {

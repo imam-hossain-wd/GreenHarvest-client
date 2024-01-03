@@ -14,6 +14,7 @@ import Wishlist from "../pages/Dashboard/Wishlist/Wishlist";
 import Cartitem from "../pages/Dashboard/cartItem/Cartitem";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import Account from "../pages/Dashboard/Account/Account";
+import Password from "../pages/Dashboard/Password/Password";
 
 
 
@@ -65,23 +66,27 @@ import Account from "../pages/Dashboard/Account/Account";
           element: <h1>Dashboard </h1>,
         },
         {
-          path: "/dashboard/:id/account",
+          path: "/dashboard/:user/account",
           element: <Account />,
         },
         {
-          path: "/dashboard/booking",
+          path: "/dashboard/:user/password",
+          element: <Password />,
+        },
+        {
+          path: "/dashboard/:user/booking",
           element: <Booking />,
         },
         {
-          path: "/dashboard/wishlish",
+          path: "/dashboard/:user/wish-list",
           element: <Wishlist />,
         },
         {
-          path: "/dashboard/cart-item",
+          path: "/dashboard/:user/cart-item",
           element: <Cartitem />,
         },
         {
-          path: "/dashboard/payment",
+          path: "/dashboard/:user/payment",
           element: <Payment/>,
         },
     

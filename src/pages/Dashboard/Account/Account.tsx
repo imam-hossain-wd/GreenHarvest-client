@@ -8,7 +8,7 @@ import FormInput from "../../../components/Forms/InputForm";
 import { useGetSingleUserQuery } from "../../../redux/api/userApi";
 import { getUserInfo } from "../../../utils/auth.Services";
 import Loading from "../../Shared/loading/Loading";
-import { UserOutlined, InstagramOutlined,LinkedinOutlined,WhatsAppOutlined } from "@ant-design/icons";
+import { UserOutlined,TwitterOutlined, InstagramOutlined,LinkedinOutlined,WhatsAppOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 
 import ColorButton from "../../../components/button/ColorButton";
@@ -50,20 +50,20 @@ console.log(data, 'updated data..');
             <Avatar size={120} icon={<UserOutlined />} />
           )}
         </div>
-
-        <div className="flex my-3">
-            <div className="text-3xl text-primary hover:text-white w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary">
-            <WhatsAppOutlined />
-            </div>
-            <div className="text-3xl text-sky-700 hover:text-white w-10 h-10 rounded-full flex justify-center items-center hover:bg-sky-700 ">
-            <LinkedinOutlined />
-            </div>
-            <div className="text-3xl text-red-500 hover:text-white w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500">
-            <InstagramOutlined />
-            </div>
-           
-          
-        </div>
+        <div className="flex my-4">
+                <span className="text-2xl  border-2 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 p-1 text-sky-600  ml-2">
+                  <LinkedinOutlined />
+                </span>
+                <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 text-primary hover:scale-110  duration-300  ml-2">
+                  <WhatsAppOutlined />
+                </span>
+                <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 ml-2 text-red-500">
+                  <InstagramOutlined />
+                </span>
+                <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 ml-2 text-sky-500">
+                  <TwitterOutlined />
+                </span>
+              </div>
 
         <div className="w-full lg:w-96">
           <Form submitHandler={onSubmit}>

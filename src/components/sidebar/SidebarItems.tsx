@@ -1,7 +1,8 @@
 import type { MenuProps } from "antd";
 import {
 //   TableOutlined,
-DashboardOutlined,
+CreditCardOutlined,
+HeartOutlined,
   ScheduleOutlined,
   ShoppingCartOutlined,
   UnlockOutlined,
@@ -13,17 +14,12 @@ export const sidebarItems = (role: string) => {
 
   const defaultSidebarItems: MenuProps["items"] = [
     {
-      label: <Link to={`/${role}/profile`}>Dashboard</Link>,
-      key: `/${role}/dashboard`,
-      icon: <DashboardOutlined />
-    },
-    {
       label: <Link to={`/dashboard/${role}/account`}>Account</Link>,
       key: `/${role}/account`,
       icon: <UserOutlined />
     },
     {
-      label: <Link to={`/${role}/password`}>Password</Link>,
+      label: <Link to={`/dashboard/${role}/password`}>Password</Link>,
       key: `/${role}/password`,
       icon: <UnlockOutlined />
     },
@@ -34,15 +30,25 @@ export const sidebarItems = (role: string) => {
   const UsersSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
     {
-      label: <Link to={`/${role}/booking`}>Booking</Link>,
+      label: <Link to={`/dashboard/${role}/booking`}>Booking</Link>,
       icon: <ScheduleOutlined />,
       key: `/${role}/booking`,
     },
     {
-      label: <Link to={`/${role}/cartlist`}>Cart List</Link>,
+      label: <Link to={`/dashboard/${role}/cart-item`}>Cart Item</Link>,
       icon: <ShoppingCartOutlined />,
       key: `/${role}/cartlist`,
-    }
+    },
+    {
+      label: <Link to={`/dashboard/${role}/payment`}>Payment</Link>,
+      icon: <CreditCardOutlined />,
+      key: `/${role}/payment`,
+    },
+    {
+      label: <Link to={`/dashboard/${role}/wish-list`}>Wish List</Link>,
+      icon: <HeartOutlined />,
+      key: `/${role}/wishlist`,
+    },
   ];
   const AdminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
