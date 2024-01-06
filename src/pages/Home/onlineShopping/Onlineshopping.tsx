@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Onlineshopping = () => {
   return (
     <div
@@ -15,16 +17,20 @@ const Onlineshopping = () => {
         </p>
 
         <div className="flex">
+            
+            <Link to="https://play.google.com/store/games?hl=en&gl=US&pli=1">
           <img
             className=" mr-4 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 "
             src="https://i.ibb.co/syKSCFL/play-store.png"
-            alt="Shopping Banner"
-          />
-          <img
+            alt="play store"
+          /> </Link>
+            <Link to="https://www.apple.com/app-store/">
+            <img
             className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300"
             src="https://i.ibb.co/X4Xr8D1/ios-store.png"
-            alt="Shopping Banner"
-          />
+            alt="Apple Store"
+          /></Link>
+         
         </div>
       </div>
       <div>
