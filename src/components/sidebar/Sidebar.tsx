@@ -10,7 +10,7 @@ import {
   RightSquareOutlined,
 } from "@ant-design/icons";
 import { getUserInfo } from "../../utils/auth.Services";
-import { sidebarItems } from "./SidebarItems";
+import { getSidebarItems } from "./SidebarItems";
 import { useGetSingleUserQuery } from "../../redux/api/userApi";
 import Loading from "../../pages/Shared/loading/Loading";
 
@@ -20,17 +20,22 @@ const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const userInfo = getUserInfo()
+
     //@ts-ignore
     const id = userInfo?._id as string
-    
+    //@ts-ignore
+    const role = userInfo?.role as string
+
     const {data, isLoading}= useGetSingleUserQuery(id);
+    const textColor = "black"
+    const sidebarItems = getSidebarItems(role,textColor )
+
 
     if(isLoading){
         return <Loading />
     }
     const image = data?.data?.userImage;
     
-  const { role } = getUserInfo() as any;
   return (
     <Sider
       className="bg-white text-black"
@@ -65,7 +70,7 @@ const SideBar = () => {
       className="mt-10 "
         defaultSelectedKeys={["1"]}
         mode="inline"
-        items={sidebarItems(role)}
+        items={sidebarItems}
       />
     </Sider>
   );

@@ -1,84 +1,99 @@
-import type { MenuProps } from "antd";
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
+
+import { Link } from "react-router-dom";
 import {
-//   TableOutlined,
-CreditCardOutlined,
-HeartOutlined,
+  DashboardOutlined,
+  UserOutlined,
+  UnlockOutlined,
+  PlusCircleOutlined,
   ScheduleOutlined,
   ShoppingCartOutlined,
-  UnlockOutlined,
-  UserOutlined,
-  DashboardOutlined,
-  PlusCircleOutlined
+  CreditCardOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
 
-export const sidebarItems = (role: string) => {
+//@ts-ignore
+// const StyledStyledLink = ({ to, children }) => (
+//   <Link to={to} style={{textDecoration:"none"}}>{children}</Link>
+// );
+const StyledStyledLink = ({ to, color, children }) => (
+  <Link to={to} style={{ textDecoration: "none", color: color }}>{children}</Link>
+);
 
-  const defaultSidebarItems: MenuProps["items"] = [
-    {
-      label: <Link to={`/dashboard`}>Dashboard</Link>,
-      key: `/dashboard`,
-      icon: <DashboardOutlined />
-    },
-    {
-      label: <Link to={`/dashboard/${role}/account`}>Account</Link>,
-      key: `/${role}/account`,
-      icon: <UserOutlined />
-    },
-    {
-      label: <Link to={`/dashboard/${role}/password`}>Password</Link>,
-      key: `/${role}/password`,
-      icon: <UnlockOutlined />
-    },
-    {
-      label: <Link to={`/dashboard/${role}/add-product`}>Add Product</Link>,
-      key: `/${role}/add-product`,
-      icon: <PlusCircleOutlined />
-    },
-  ];
+// Base sidebar items
+const baseSidebarItems = (role:string ,color: string) => [
+  {
+    label: <StyledStyledLink to={`/dashboard`} color={color}>Dashboard</StyledStyledLink>,
+    key: `/dashboard`,
+    icon: <DashboardOutlined />,
+  },
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/account`} color={color}>Account</StyledStyledLink>,
+    key: `/dashboard/${role}/account`,
+    icon: <UserOutlined />,
+  },
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/password`} color={color}>Password</StyledStyledLink>,
+    key: `/dashboard/${role}/password`,
+    icon: <UnlockOutlined />,
+  },
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/add-product`} color={color}>Add Product</StyledStyledLink>,
+    key: `/dashboard/${role}/add-product`,
+    icon: <PlusCircleOutlined />,
+  },
+];
 
+// Sidebar items for users
+const userSidebarItems = (role:string,color: string ) => [
+  ...baseSidebarItems(role ,color),
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/booking`} color={color}>Booking</StyledStyledLink>,
+    icon: <ScheduleOutlined />,
+    key: `/dashboard/${role}/booking`,
+  },
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/cart-item`} color={color}>Cart Item</StyledStyledLink>,
+    icon: <ShoppingCartOutlined />,
+    key: `/dashboard/${role}/cart-item`,
+  },
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/payment`} color={color}>Payment</StyledStyledLink>,
+    icon: <CreditCardOutlined />,
+    key: `/dashboard/${role}/payment`,
+  },
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/wish-list`} color={color}>Wish List</StyledStyledLink>,
+    icon: <HeartOutlined />,
+    key: `/dashboard/${role}/wish-list`,
+  },
+];
 
- 
-  const UsersSidebarItems: MenuProps["items"] = [
-    ...defaultSidebarItems,
-    {
-      label: <Link to={`/dashboard/${role}/booking`}>Booking</Link>,
-      icon: <ScheduleOutlined />,
-      key: `/${role}/booking`,
-    },
-    {
-      label: <Link to={`/dashboard/${role}/cart-item`}>Cart Item</Link>,
-      icon: <ShoppingCartOutlined />,
-      key: `/${role}/cartlist`,
-    },
-    {
-      label: <Link to={`/dashboard/${role}/payment`}>Payment</Link>,
-      icon: <CreditCardOutlined />,
-      key: `/${role}/payment`,
-    },
-    {
-      label: <Link to={`/dashboard/${role}/wish-list`}>Wish List</Link>,
-      icon: <HeartOutlined />,
-      key: `/${role}/wishlist`,
-    },
-  ];
-  const AdminSidebarItems: MenuProps["items"] = [
-    ...defaultSidebarItems,
-    {
-      label: <Link to={`/${role}/booking`}>Booking</Link>,
-      icon: <ScheduleOutlined />,
-      key: `/${role}/booking`,
-    },
-    {
-      label: <Link to={`/${role}/cartlist`}>Cart List</Link>,
-      icon: <ShoppingCartOutlined />,
-      key: `/${role}/cartlist`,
-    }
-  ];
+// Sidebar items for admins
+const adminSidebarItems = (role:string, color: string) => [
+  ...baseSidebarItems(role, color),
+  {
+    label: <StyledStyledLink to={`/${role}/booking`} color={color}>Booking</StyledStyledLink>,
+    icon: <ScheduleOutlined />,
+    key: `/${role}/booking`,
+  },
+  {
+    label: <StyledStyledLink to={`/${role}/cartlist`}color={color}>Cart List</StyledStyledLink>,
+    icon: <ShoppingCartOutlined />,
+    key: `/${role}/cartlist`,
+  },
+];
 
-  if (role === "admin") return AdminSidebarItems;
-  else if (role === "user") return UsersSidebarItems;
-  else {
-    return defaultSidebarItems;
+// Export a function to get sidebar items based on role
+export const getSidebarItems = (role: string, color: string) => {
+  switch (role) {
+    case "user":
+      return userSidebarItems(role, color);
+    case "admin":
+      return adminSidebarItems(role, color);
+    default:
+      return baseSidebarItems(role, color);
   }
 };
