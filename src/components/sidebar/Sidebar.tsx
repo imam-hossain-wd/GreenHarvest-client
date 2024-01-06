@@ -29,7 +29,7 @@ const SideBar = () => {
         return <Loading />
     }
     const image = data?.data?.userImage;
-
+    
   const { role } = getUserInfo() as any;
   return (
     <Sider
@@ -38,16 +38,16 @@ const SideBar = () => {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       width={230}
-      collapsedWidth={70}
+      collapsedWidth={80}
       theme="light"
       trigger={
-        <div className="trigger text-3xl ">
-          {collapsed ? <RightSquareOutlined /> : <LeftSquareOutlined />}
+        <div className="trigger text-3xl">
+          {collapsed ? <span className="ml-6"><RightSquareOutlined /></span> : <span className="ml-40"><LeftSquareOutlined /></span>}
         </div>
       }
       style={{
         overflow: "auto",
-        height: "100vh",
+        height: "550px",
         position: "sticky",
         left: 0,
         top: 0,
@@ -62,7 +62,7 @@ const SideBar = () => {
                 <p className="mt-2 text-lg">{data?.data?.name}</p>
             </div>}
       <Menu
-      className="mt-10"
+      className="mt-10 "
         defaultSelectedKeys={["1"]}
         mode="inline"
         items={sidebarItems(role)}

@@ -16,6 +16,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import Account from "../pages/Dashboard/Account/Account";
 import Password from "../pages/Dashboard/Password/Password";
 import Contact from "../pages/Contact/Contact";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
 
 
 
@@ -68,11 +70,15 @@ import Contact from "../pages/Contact/Contact";
       children: [
         {
           path: "/dashboard",
-          element: <h1>Dashboard </h1>,
+          element: <Dashboard />,
         },
         {
           path: "/dashboard/:user/account",
           element: <Account />,
+        },
+        {
+          path: "/dashboard/:user/add-product",
+          element: <AddProduct />,
         },
         {
           path: "/dashboard/:user/password",

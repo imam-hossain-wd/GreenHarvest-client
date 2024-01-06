@@ -6,13 +6,20 @@ HeartOutlined,
   ScheduleOutlined,
   ShoppingCartOutlined,
   UnlockOutlined,
-  UserOutlined
+  UserOutlined,
+  DashboardOutlined,
+  PlusCircleOutlined
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 export const sidebarItems = (role: string) => {
 
   const defaultSidebarItems: MenuProps["items"] = [
+    {
+      label: <Link to={`/dashboard`}>Dashboard</Link>,
+      key: `/dashboard`,
+      icon: <DashboardOutlined />
+    },
     {
       label: <Link to={`/dashboard/${role}/account`}>Account</Link>,
       key: `/${role}/account`,
@@ -23,10 +30,15 @@ export const sidebarItems = (role: string) => {
       key: `/${role}/password`,
       icon: <UnlockOutlined />
     },
+    {
+      label: <Link to={`/dashboard/${role}/add-product`}>Add Product</Link>,
+      key: `/${role}/add-product`,
+      icon: <PlusCircleOutlined />
+    },
   ];
 
 
-
+ 
   const UsersSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
     {
