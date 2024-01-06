@@ -20,6 +20,7 @@ const Account = () => {
 
   const { data, isLoading } = useGetSingleUserQuery(id);
 
+  
   if (isLoading) {
     return <Loading />;
   }
@@ -27,7 +28,6 @@ const Account = () => {
 
   const image = data?.data?.userImage;
 
-//   console.log(data, "user");
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
 

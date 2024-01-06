@@ -21,7 +21,7 @@ const Review = () => {
   console.log(data?.data, 'user data');
 
   const userData = data?.data;
-  const { _id, email, name,role} = userData;
+  const { _id, email, name} = userData;
 
 
 
@@ -35,8 +35,7 @@ const Review = () => {
         name,
         email,
         comment,
-        rating,
-        role
+        rating
     }
 
     console.log(userRivew, 'userRivew');
