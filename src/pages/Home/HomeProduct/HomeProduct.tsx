@@ -29,10 +29,7 @@ const HomeProduct = () => {
       </div>
       <div className="flex justify-center my-6">
         <Link className="no-underline" to="/product">
-          <ColorButton
-            text="All Product"
-            className="w-36 h-9 flex justify-center items-center text-lg font-bold"
-          />
+         <ColorButton className="w-36 h-9 flex justify-center items-center text-lg font-bold">All Product</ColorButton>
         </Link>
       </div>
     </div>

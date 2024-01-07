@@ -42,7 +42,9 @@ Deserve to Eat Fresh</h1>
 <p className="my-5 text-lg">We source and sell the very best beef, lamb, <br />
 fish & herbs with the care from farmers.</p>
 
-<OutletButton text="getting start" className="w-36 text-lg font-bold h-10"/>
+<OutletButton className="w-36 text-lg font-bold h-10">
+getting start
+</OutletButton>
       </div>
       {/* home banner */}
       <img className="w-[550px] h-[400px]" 

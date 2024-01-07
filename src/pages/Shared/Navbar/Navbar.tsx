@@ -14,16 +14,18 @@ import {
   clearAccessToken,
   selectAccessToken,
 } from "../../../redux/slice/authSlice";
-import { authKey, getUserInfo, removeUserInfo } from "../../../utils/auth.Services";
-import MyButton from "../../../components/button/Button";
-
+import {
+  authKey,
+  getUserInfo,
+  removeUserInfo,
+} from "../../../utils/auth.Services";
+import OutletButton from "../../../components/button/Button";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const [open, setOpen] = useState(false);
   const accessToken = useAppSelector(selectAccessToken);
   const { role } = getUserInfo() as any;
-  
 
   const showDrawer = () => {
     setOpen(true);
@@ -59,7 +61,12 @@ const Navbar = () => {
 
   const closedButton = (
     <div className="ml-72 ml-5">
-       <MyButton onClick={() => setOpen(!open)} text={<CloseOutlined />} className="lg:hidden text-xl h-8 w-8 rounded-full flex justify-center items-center -ml-2 mr-3 " />
+      <OutletButton
+        onClick={() => setOpen(!open)}
+        className="lg:hidden text-xl h-8 w-8 rounded-full flex justify-center items-center -ml-2 mr-3 "
+      >
+        <CloseOutlined />
+      </OutletButton>
     </div>
   );
 
@@ -103,9 +110,13 @@ const Navbar = () => {
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
         <nav className="flex justify-between p-3 w-[90%] mx-auto">
           <div className="flex items-center">
- 
-            <MyButton onClick={showDrawer} text={<MenuOutlined />} className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-2 mr-3 " />
 
+            <OutletButton
+              onClick={showDrawer}
+              className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-2 mr-3 "
+            >
+              <MenuOutlined />
+            </OutletButton>
             <h3 className="text-2xl text-primary rounded font-bold ">
               Green<span className="">Harvest</span>
             </h3>
@@ -115,22 +126,34 @@ const Navbar = () => {
 
             <div className="mr-2 lg:ml-0">
               <CartDrawer />
-            </div> 
+            </div>
 
             {accessToken ? (
               <Dropdown menu={{ items }} className="">
-             
-                  <MyButton text={<UserOutlined />} className=" text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center" />
-              
+
+                 <OutletButton
+              className="text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center"
+            >
+              <UserOutlined />
+            </OutletButton>
               </Dropdown>
             ) : (
-              <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg  ">
-                <Link to="/login">
+              <OutletButton
+              className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg"
+            >
+                   <Link to="/login">
                   {" "}
                   <LoginOutlined className="mr-1" />
                   Login
                 </Link>
-              </Button>
+            </OutletButton>
+              // <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg  ">
+                // <Link to="/login">
+                //   {" "}
+                //   <LoginOutlined className="mr-1" />
+                //   Login
+                // </Link>
+              // </Button>
             )}
           </div>
         </nav>
@@ -144,7 +167,6 @@ const Navbar = () => {
           >
             {navMenuItems}
           </Drawer>
-         
         </nav>
       </header>
     </section>

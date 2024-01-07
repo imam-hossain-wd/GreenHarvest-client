@@ -4,9 +4,9 @@
 // //@ts-ignore
 // const OutletButton = ({ text, className, ...props }) => {
 //   return (
-//     <Button className={`${className} bg-white text-primary hover:text-white hover:bg-primary border-primary `} {...props}>
-//       {text}
-//     </Button>
+    // <Button className={`${className} bg-white text-primary hover:text-white hover:bg-primary border-primary `} {...props}>
+    //   {text}
+    // </Button>
 //   );
 // };
 
@@ -19,13 +19,13 @@ type ColorButtonProps = ButtonProps & {
   className?: string;
 };
 
-const ColorButton: React.FC<ColorButtonProps> = ({ className, children, ...props }) => {
+const OutletButton: React.FC<ColorButtonProps> = ({ className, children, ...props }) => {
   return (
-    <Button className={`${className || ''} bg-primary text-white hover:text-primary hover:bg-white border-primary`} {...props}>
+    <Button className={`${className || ''} bg-white text-primary hover:text-white hover:bg-primary border-primary`} {...props}>
       {children}
     </Button>
   );
 };
 
-export default ColorButton;
+export default OutletButton;
 

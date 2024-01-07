@@ -10,8 +10,8 @@ import {
   removeFromCart,
   removeOne,
 } from "../../redux/slice/cartSlice";
-import MyButton from "../button/Button";
 import { Link } from "react-router-dom";
+import OutletButton from "../button/Button";
 const CartDrawer = () => {
   const [open, setOpen] = useState(false);
   const cart = useAppSelector((state) => state?.cart);
@@ -26,20 +26,22 @@ const CartDrawer = () => {
     setOpen(false);
   };
   const closeIcon = (
-    <MyButton
+    <OutletButton
       onClick={() => setOpen(!open)}
-      text={<CloseOutlined />}
-      className=" text-xl h-8 w-8 rounded-full flex justify-center items-center -ml-2 mr-3 "
-    />
+      className="text-xl h-8 w-8 rounded-full flex justify-center items-center -ml-2 mr-3 "
+    >
+      <CloseOutlined />
+    </OutletButton>
   );
 
   return (
     <div className="overflow-hidden">
-      <MyButton
+      <OutletButton
         onClick={showDrawer}
-        text={<ShoppingCartOutlined />}
         className="ml-2 text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center"
-      />
+      >
+        <ShoppingCartOutlined />
+      </OutletButton>
 
       <Drawer
         // title={cart?.total}
@@ -55,16 +57,15 @@ const CartDrawer = () => {
               </p>
 
               <div className="flex justify-around font-bold">
-                <MyButton
-                  text="View cart"
-                  className="w-32 text-lg h-9 flex justify-center items-center "
-                />
+                <OutletButton className="w-32 text-lg h-9 flex justify-center items-center">
+                  View cart
+                </OutletButton>
+
                 <Link onClick={onClose} to="/checkout">
                   {" "}
-                  <MyButton
-                    text="Checkout"
-                    className="w-32 text-lg h-9 flex justify-center items-center"
-                  />
+                  <OutletButton className="w-32 text-lg h-9 flex justify-center items-center">
+                    Checkout
+                  </OutletButton>
                 </Link>
               </div>
             </div>
