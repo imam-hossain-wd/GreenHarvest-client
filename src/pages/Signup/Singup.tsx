@@ -10,6 +10,8 @@ import { useCreateUserMutation } from "../../redux/api/authApi";
 import { auth, googleProvider, handleSignInClick } from "../../firebase/firebase.config";
 import { signInWithPopup } from "firebase/auth";
 import MyButton from "../../components/button/Button";
+import OutletButton from "../../components/button/Button";
+import ColorButton from "../../components/button/ColorButton";
 
 type FormValues = {
   name: string;
@@ -19,7 +21,6 @@ type FormValues = {
 
 const Signup = () => {
 
-  const googleIcon = <GoogleCircleFilled />
   const [createUser, { error }] = useCreateUserMutation();
   const navigate = useNavigate();
 
@@ -120,10 +121,12 @@ const handleGoogleSignUp = async ()=> {
               </div>
             </div>
             <div className="flex justify-center">
-                 <MyButton text="Sign up"
-      className="text-md   h-8 flex justify-center items-center w-60"
+
+      <ColorButton className="text-md   h-8 flex justify-center items-center w-full"
       type="primary"
-      htmlType="submit" />
+      htmlType="submit" >
+        Sign up
+      </ColorButton>
             </div>
   
           </Form>
@@ -133,10 +136,13 @@ const handleGoogleSignUp = async ()=> {
             <hr className="ml-2 w-28" />
           </div>
           <div className="mt-5 flex justify-center ">
-         <MyButton onClick={handleGoogleSignUp} text="Log In"
-      className="text-md h-8 flex justify-center items-center w-60"
+  
+      <ColorButton onClick={handleGoogleSignUp} 
+      className="text-md h-8 flex justify-center items-center w-full"
       type="primary"
-      htmlType="submit" />
+      htmlType="submit" >
+        <GoogleCircleFilled />
+      </ColorButton>
           </div>
           <div className="mt-5 flex justify-center">
               <p className="text-[12px] font-semibold">

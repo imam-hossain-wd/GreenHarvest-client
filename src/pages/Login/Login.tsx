@@ -7,12 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
 import {  GoogleCircleFilled } from "@ant-design/icons";
 import { useLogInUserMutation } from "../../redux/api/authApi";
-import MyButton from "../../components/button/Button";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../firebase/firebase.config";
 import { useAppDispatch } from "../../redux/hooks";
 import { setAccessToken } from "../../redux/slice/authSlice";
 import { storeUserInto } from "../../utils/auth.Services";
+import ColorButton from "../../components/button/ColorButton";
 
 // @ts-ignore
 type FormValues = {
@@ -116,11 +116,9 @@ const Login = () => {
             </div>
             <div className="flex justify-center">
 
-              
-          <MyButton text="Log In"
-      className="text-md h-8 flex justify-center items-center w-full bg-primary"
+      <ColorButton  className="text-md h-8 flex justify-center items-center w-full bg-primary"
       type="primary"
-      htmlType="submit" />
+      htmlType="submit" >Log In</ColorButton>
 
             </div>
             <div className="mt-5 flex justify-center">
@@ -139,11 +137,10 @@ const Login = () => {
           </div>
           <div className="mt-5 flex justify-center ">
           
-
-          <MyButton onClick={handleGoogleSignIn} text={googleIcon}
+       <ColorButton  onClick={handleGoogleSignIn} 
       className="text-2xl h-8 flex justify-center items-center w-full"
       type="primary"
-      htmlType="submit" />
+      htmlType="submit">{googleIcon}</ColorButton>
           </div>
         </div>
       </div>

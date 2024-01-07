@@ -20,10 +20,19 @@ const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.user],
     }),
+    changePassword: builder.mutation({
+      query: ( data ) => ({
+        url: `/auth/change-password`,
+        method: 'PATCH',
+        body: data,
+      }),
+      invalidatesTags: [tagTypes.user],
+    }),
   }),
 });
 
 export const {
     useCreateUserMutation,
+    useChangePasswordMutation,
     useLogInUserMutation
 } = authApi;

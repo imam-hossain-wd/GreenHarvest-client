@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-
-
 import { Input } from "antd";
 import { useFormContext, Controller } from "react-hook-form";
 import { getErrorMessageByPropertyName } from "../../utils/schemaValidation";
@@ -21,9 +19,9 @@ const FormInput = ({
   name,
   type,
   size = "large",
-//   value,
-//   id,
-//   validation,
+  //   value,
+  //   id,
+  //   validation,
   defaultValue,
   placeholder,
   label,
@@ -46,7 +44,7 @@ const FormInput = ({
             <Input.Password
               type={type}
               size={size}
-              className="mt-2 border-primary "
+              className=""
               placeholder={placeholder}
               {...field}
               defaultValue={defaultValue ? defaultValue : field.value}
@@ -55,7 +53,7 @@ const FormInput = ({
             <Input
               type={type}
               size={size}
-              className="mt-2 "
+              className=""
               placeholder={placeholder}
               {...field}
               defaultValue={defaultValue ? defaultValue : field.value}

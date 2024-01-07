@@ -138,15 +138,21 @@ const Navbar = () => {
             </OutletButton>
               </Dropdown>
             ) : (
+              <Link className="no-underline -mr-5" to="/login">
               <OutletButton
-              className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg"
+              className="w-24 h-10 flex justify-center items-center rounded-lg text-lg"
             >
-                   <Link to="/login">
-                  {" "}
-                  <LoginOutlined className="mr-1" />
-                  Login
-                </Link>
+                  <LoginOutlined/>
+              Login
             </OutletButton>
+            </Link>
+             
+            //   <OutletButton
+            //   className="bg-primary hover:bg-white text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg"
+            // >
+            //       <LoginOutlined/>
+            //   Login
+            // </OutletButton>
               // <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg  ">
                 // <Link to="/login">
                 //   {" "}
