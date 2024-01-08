@@ -5,7 +5,6 @@ import { persistStore } from 'redux-persist';
 
  const store = configureStore({
   reducer ,
-  
   middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware().concat(baseApi.middleware),
 })

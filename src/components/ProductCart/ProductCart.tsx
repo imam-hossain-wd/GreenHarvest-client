@@ -6,6 +6,7 @@ import { useAppDispatch} from "../../redux/hooks";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { IProduct } from "../../types/ProductTypes";
 import { Link } from "react-router-dom";
+import { addToWishlist } from "../../redux/slice/wishlistSlice";
 
 
 
@@ -21,6 +22,12 @@ const ProductCart = ({ product }:any) => {
     message.success("Add Product Successfully")
     dispatch(addToCart(product));
   }
+  const addToCartWishlist = (product:IProduct) => {
+    message.success("Added wishlist Successfully")
+    dispatch(addToWishlist(product));
+  }
+
+
   return (
     <div>
       <div className="flex justify-center mb-2 rounded-lg">
@@ -41,6 +48,15 @@ const ProductCart = ({ product }:any) => {
             <ShoppingCartOutlined />
           </span>
           Add To cart{" "}
+        </Button>
+        <Button
+        onClick={()=> addToCartWishlist(product)}
+        className="text-primary border-primary hover:bg-primary hover:text-white w-36 font-semibold h-10 flex justify-center items-center mt-2">
+          {" "}
+          <span className="mr-2 text-xl">
+            <ShoppingCartOutlined />
+          </span>
+        wishlist
         </Button>
         <Button
         className="text-primary border-primary hover:bg-primary hover:text-white w-36 font-semibold h-10 flex justify-center items-center mt-2">

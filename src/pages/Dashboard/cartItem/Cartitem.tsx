@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../../redux/hooks";
-import { Button } from "antd";
 import {
     DeleteOutlined,
     EditOutlined,
@@ -95,7 +95,6 @@ const Cartitem = () => {
             showSizeChanger={true}
             showPagination={true}
           />
-          <h1>hello baba</h1>
         </div>
       );
     };
