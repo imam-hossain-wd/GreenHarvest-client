@@ -1,13 +1,54 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { Button, Input, message } from "antd";
+import { Button, Input } from "antd";
 import { useAppSelector } from "../../redux/hooks";
+import { useEffect, useState } from "react";
+import { getUserInfo } from "../../utils/auth.Services";
+import { useCreatepaymentIntentMutation } from "../../redux/api/paymentApi";
+import { useGetSingleUserQuery } from "../../redux/api/userApi";
+import Loading from "../Shared/loading/Loading";
 
 
 const CheckoutForm = () => {
-    const cart = useAppSelector((state) => state?.cart);
+  const [error, setError] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+
+
+  const cart = useAppSelector((state) => state?.cart);
   const stripe = useStripe();
   const elements = useElements();
+  const totalPrice = Number(cart.total.toFixed(2));
+  const user = getUserInfo();
+  
+
+  const {data, isLoading} = useGetSingleUserQuery(user?._id)
+  const userData = data?.data;
+  const [createPaymentMethod] = useCreatepaymentIntentMutation();
+
+ 
+  const fatchPaymentIntent = async () => {
+    try {
+      const res = await createPaymentMethod({ price: totalPrice });
+      //@ts-ignore
+      const result = res?.data?.data?.clientSecret;
+      if (result) {
+        setClientSecret(result);
+      }
+    } catch (error) {
+      console.error("Error fetching payment intent:", error);
+    }
+  };
+  // console.log(clientSecret, 'client secret..');
+
+  useEffect(() => {
+    if (totalPrice > 0) {
+      fatchPaymentIntent();
+    }
+  }, [totalPrice]);
+ 
+
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -16,30 +57,91 @@ const CheckoutForm = () => {
       return;
     }
 
+    if (!clientSecret) {
+      console.error("Client secret is missing.");
+      return;
+    }
+
     const card = elements.getElement(CardElement);
+
+    console.log(card, 'card cardcard');
+
+    if (!card) {
+      console.error("Card element is not available.");
+      return;
+    } 
 
     if (card == null) {
       return;
     }
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
-      card,
-    });
-    message.success("Payment Complete")
+      type: 'card',
+      card
+  })
 
-    if (error) {
-        message.error(error.message)
-      console.log("[error]", error);
-    } else {
-      console.log("[PaymentMethod]", paymentMethod);
-    }
+  if (error) {
+      console.error('payment error', error);
+      //@ts-ignore
+      setError(error.message);
+  }
+  else {
+      console.log('payment method', paymentMethod)
+      setError('');
+  }
+
+
+  const { paymentIntent, error:confirmError } = await stripe.confirmCardPayment(clientSecret, {
+    payment_method: {
+      //@ts-ignore
+      card: card,
+      billing_details: {
+        //@ts-ignore
+          email:userData?.email || "anonymous@gmail.com",
+          //@ts-ignore
+          name: userData?.name || 'anonymous'
+      }
+  }
+  });
+
+  // console.log(paymentIntent, 'paymentIntent');
+
+  if (confirmError) {
+      console.log('confirm error', confirmError)
+  }
+  else {
+      console.log('payment intent', paymentIntent)
+      if (paymentIntent.status === 'succeeded') {
+        // console.log(paymentIntent.id, 'paymentIntent.id');
+
+          const payment = {
+            email: userData?.email,
+            userName: userData?.name,
+            price: totalPrice,
+            transactionId: paymentIntent.id,
+            date: new Date(),
+            status: 'pending'
+          };
+
+        console.log(payment, 'payment cart details');
+      }
+  }
+
   };
 
+  if(isLoading){
+    return <Loading />
+  }
+
   return (
-    <form className="w-96 mx-auto bg-[#E1F3E4] rounded p-10" onSubmit={handleSubmit}>
-        <p className="text-lg mb-2 text-center -mt-3 text-primary">Total : {cart.total.toFixed(2)}</p>
-         <Input type="email" placeholder="Email" className="mb-3" />
+    <form
+      className="w-96 mx-auto bg-[#E1F3E4] rounded p-10"
+      onSubmit={handleSubmit}
+    >
+      <p className="text-lg mb-2 text-center -mt-3 text-primary">
+        Total : {cart.total.toFixed(2)}
+      </p>
+      <Input type="email" placeholder="Email" className="mb-3" />
       <Input type="text" placeholder="Phone Number" className="mb-3" />
       <Input type="text" placeholder="Address" className="mb-3" />
       <CardElement

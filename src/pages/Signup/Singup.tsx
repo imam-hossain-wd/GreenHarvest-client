@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { Button, message } from "antd";
+import { message } from "antd";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
 import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
-import { GithubFilled, GoogleCircleFilled } from "@ant-design/icons";
+import {  GoogleCircleFilled } from "@ant-design/icons";
 import { useCreateUserMutation } from "../../redux/api/authApi";
-import { auth, googleProvider, handleSignInClick } from "../../firebase/firebase.config";
+import { auth, googleProvider, } from "../../firebase/firebase.config";
 import { signInWithPopup } from "firebase/auth";
-import MyButton from "../../components/button/Button";
-import OutletButton from "../../components/button/Button";
 import ColorButton from "../../components/button/ColorButton";
 
 type FormValues = {

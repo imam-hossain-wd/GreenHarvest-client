@@ -13,8 +13,6 @@ const Wishlist = () => {
 
     const wishlistItems = useAppSelector((state) => state?.wishlist);
 
-    // console.log('Wishlist Items:', wishlistItems.wishlistItems);
-
     const wishlistProduct = wishlistItems?.wishlistItems;
   
     const columns = [
