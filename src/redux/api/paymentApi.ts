@@ -12,9 +12,18 @@ const paymentApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.payment],
     }),
+    createPayment: builder.mutation({
+      query: ( data ) => ({
+        url: "/payment/create-payment",
+        method: 'POST',
+        body: data,
+      }),
+      invalidatesTags: [tagTypes.payment],
+    }),
   }),
 });
 
 export const {
-    useCreatepaymentIntentMutation
+    useCreatepaymentIntentMutation,
+    useCreatePaymentMutation
 } = paymentApi;

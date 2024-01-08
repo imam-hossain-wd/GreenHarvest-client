@@ -1,20 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { Button, Input } from "antd";
+import { Button, Input, message } from "antd";
 import { useAppSelector } from "../../redux/hooks";
 import { useEffect, useState } from "react";
 import { getUserInfo } from "../../utils/auth.Services";
-import { useCreatepaymentIntentMutation } from "../../redux/api/paymentApi";
+import { useCreatePaymentMutation, useCreatepaymentIntentMutation } from "../../redux/api/paymentApi";
 import { useGetSingleUserQuery } from "../../redux/api/userApi";
 import Loading from "../Shared/loading/Loading";
+
 
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-
 
   const cart = useAppSelector((state) => state?.cart);
   const stripe = useStripe();
@@ -22,10 +23,11 @@ const CheckoutForm = () => {
   const totalPrice = Number(cart.total.toFixed(2));
   const user = getUserInfo();
   
-
+//@ts-ignore
   const {data, isLoading} = useGetSingleUserQuery(user?._id)
   const userData = data?.data;
   const [createPaymentMethod] = useCreatepaymentIntentMutation();
+  const [createPayment]= useCreatePaymentMutation();
 
  
   const fatchPaymentIntent = async () => {
@@ -123,7 +125,17 @@ const CheckoutForm = () => {
             status: 'pending'
           };
 
-        console.log(payment, 'payment cart details');
+          try {
+            const res = await createPayment(payment).unwrap();
+            // console.log(res.success);
+            if(res?.success === true){
+              message.success(res?.message)
+            }
+
+          } catch (error) {
+            console.error('Error creating payment:', error);
+          }
+     
       }
   }
 
