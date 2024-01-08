@@ -14,10 +14,10 @@ const productApi = baseApi.injectEndpoints({
     }),
 
     getProduct: builder.query({
-        query: () => '/products',
+        query: () => '/product',
       }),
     getSingleProduct: builder.query({
-        query: (id:string) => `/products/${id}`,
+        query: (id:string) => `/product/${id}`,
       }),
  
   }),

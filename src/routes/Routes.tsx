@@ -9,7 +9,6 @@ import ErrorElement from "../pages/Errorpage/ErrorElement";
 import CheckoutPage from "../pages/Checkout/CheckoutPage";
 import Product from "../pages/Product/Product";
 import DeshboardLayout from '../layout/DashboardLayout'
-import Booking from "../pages/Dashboard/Booking/Booking";
 import Wishlist from "../pages/Dashboard/Wishlist/Wishlist";
 import Cartitem from "../pages/Dashboard/cartItem/Cartitem";
 import Payment from "../pages/Dashboard/Payment/Payment";
@@ -18,6 +17,7 @@ import Password from "../pages/Dashboard/Password/Password";
 import Contact from "../pages/Contact/Contact";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
+import Order from "../pages/Dashboard/Order/Order";
 
 
 
@@ -85,8 +85,8 @@ import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
           element: <Password />,
         },
         {
-          path: "/dashboard/:user/booking",
-          element: <Booking />,
+          path: "/dashboard/:user/order",
+          element: <Order />,
         },
         {
           path: "/dashboard/:user/wish-list",

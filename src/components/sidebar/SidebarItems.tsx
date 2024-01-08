@@ -15,9 +15,6 @@ import {
 } from "@ant-design/icons";
 
 //@ts-ignore
-// const StyledStyledLink = ({ to, children }) => (
-//   <Link to={to} style={{textDecoration:"none"}}>{children}</Link>
-// );
 const StyledStyledLink = ({ to, color, children }) => (
   <Link to={to} style={{ textDecoration: "none", color: color }}>{children}</Link>
 );
@@ -50,7 +47,7 @@ const baseSidebarItems = (role:string ,color: string) => [
 const userSidebarItems = (role:string,color: string ) => [
   ...baseSidebarItems(role ,color),
   {
-    label: <StyledStyledLink to={`/dashboard/${role}/booking`} color={color}>Booking</StyledStyledLink>,
+    label: <StyledStyledLink to={`/dashboard/${role}/order`} color={color}>Order</StyledStyledLink>,
     icon: <ScheduleOutlined />,
     key: `/dashboard/${role}/booking`,
   },
@@ -75,7 +72,7 @@ const userSidebarItems = (role:string,color: string ) => [
 const adminSidebarItems = (role:string, color: string) => [
   ...baseSidebarItems(role, color),
   {
-    label: <StyledStyledLink to={`/${role}/booking`} color={color}>Booking</StyledStyledLink>,
+    label: <StyledStyledLink to={`/${role}/order`} color={color}>Booking</StyledStyledLink>,
     icon: <ScheduleOutlined />,
     key: `/${role}/booking`,
   },

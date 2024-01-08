@@ -7,6 +7,7 @@ import {
     EyeOutlined,
   } from "@ant-design/icons";
 import SPTable from "../../../components/Table/SPTable";
+import OutletButton from "../../../components/button/Button";
 
 
 
@@ -16,62 +17,59 @@ const Cartitem = () => {
     console.log(products, total, 'products, cart..');
 
     const columns = [
-        {
-          title: "Image",
-          dataIndex: "userImage",
-          render: (userImage: string) => (
-            <img
-              className="w-20 h-20 rounded-full"
-              src={userImage}
-              alt="Product"
-            />
-          ),
-        },
+      {
+        title: "Image",
+        dataIndex: "image",
+        render: (image: string) => (
+          <img
+            className="w-20 h-20 rounded-full"
+            src={image}
+            alt="Product"
+            style={{ objectFit: "cover" }} // Add this style for better image rendering
+          />
+        ),
+      },
         {
           title: "Name",
-          dataIndex: "firstName",
+          dataIndex: "name",
         },
         {
-          title: "Email",
-          dataIndex: "email",
+          title: "Price",
+          dataIndex: "price",
         },
         {
-          title: "Contact no.",
-          dataIndex: "contactNo",
+          title: "quantity",
+          dataIndex: "quantity"
         },
         {
           title: "Action",
           dataIndex: "id",
           render: function (data: any) {
             return (
-              <>
-                <Link to={`/super_admin/admin/details/${data.id}`}>
-                  <Button onClick={() => console.log(data)} type="primary">
-                    <EyeOutlined />
-                  </Button>
+              <div className="flex">
+                <Link className="mr-2" to={`/super_admin/admin/details/${data?.id}`}>
+                    <OutletButton className=" flex items-center justify-center w-10 h-8 rounded">
+                  <EyeOutlined  className="text-xl text-black" />
+                  </OutletButton>
                 </Link>
-                <Link to={`/super_admin/admin/edit/${data?.id}`}>
-                  <Button
-                    style={{
-                      margin: "0px 5px",
-                    }}
-                    onClick={() => console.log(data?.id)}
-                    type="primary"
-                  >
-                    <EditOutlined />
-                  </Button>
-                </Link>
-                <Button onClick={() => console.log(data)} type="primary" danger>
-                  <DeleteOutlined />
-                </Button>
-              </>
+                <Link className="mr-2" to={`/super_admin/admin/edit/${data?.id}`}>
+
+                    <OutletButton className=" flex items-center justify-center w-10 h-8 rounded">
+                  <EditOutlined className="text-xl text-black" />
+                  </OutletButton>
+
+                </Link>                 
+                 <OutletButton className=" flex items-center justify-center w-10 h-8 rounded">
+                  <DeleteOutlined className="text-xl text-black" />
+                  </OutletButton>
+              </div>
             );
           },
         },
       ];
     
       return (
-        <div>
+        <div className="w-[90%] mx-auto">
           {/* <BreadCrumb
             items={[
               {
@@ -90,12 +88,14 @@ const Cartitem = () => {
     
           <SPTable
             // loading={isLoading}
+            
             columns={columns}
-            dataSource={products.data}
+            dataSource={products}
             // totalPages={meta?.total}
             showSizeChanger={true}
             showPagination={true}
           />
+          <h1>hello baba</h1>
         </div>
       );
     };
