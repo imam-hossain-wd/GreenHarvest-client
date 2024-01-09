@@ -2,7 +2,7 @@
 import { Button, message } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Rate } from "antd";
-import { useAppDispatch} from "../../redux/hooks";
+import { useAppDispatch, useAppSelector} from "../../redux/hooks";
 import { addToCart } from "../../redux/slice/cartSlice";
 import { IProduct } from "../../types/ProductTypes";
 import { Link } from "react-router-dom";
@@ -14,7 +14,8 @@ const ProductCart = ({ product }:any) => {
 
   // const cart = useAppSelector((state) => state?.cart);
   // console.log(cart, 'icart');
-  console.log(product, 'product product');
+  // console.log(product, 'product product');
+
 
   const dispatch = useAppDispatch();
 

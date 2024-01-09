@@ -11,9 +11,9 @@ import SPTable from "../../../components/Table/SPTable";
 
 const Wishlist = () => {
 
-    const wishlistItems = useAppSelector((state) => state?.wishlist);
-
-    const wishlistProduct = wishlistItems?.wishlistItems;
+  const wishlistItems = useAppSelector((state) => state.wishlist.wishlistItems);
+console.log(wishlistItems, 'wishlistItems');
+    // const wishlistProduct = wishlistItems?.wishlistItems;
   
     const columns = [
         {
@@ -67,13 +67,9 @@ const Wishlist = () => {
 
     return (
         <div className="w-full">
-            <h1>Wishlist </h1>
             <SPTable
-            // loading={isLoading}
-            
             columns={columns}
-            dataSource={wishlistProduct}
-            // totalPages={meta?.total}
+            dataSource={wishlistItems}
             showSizeChanger={true}
             showPagination={true}
           />
