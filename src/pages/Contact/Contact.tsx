@@ -2,13 +2,17 @@ import {
   PhoneOutlined,
   MailOutlined,
   EnvironmentOutlined,
-  MessageOutlined
+  MessageOutlined,
 } from "@ant-design/icons";
 import { SubmitHandler } from "react-hook-form";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
 import FormTextArea from "../../components/Forms/FormTextArea";
 import ColorButton from "../../components/button/ColorButton";
+import emailjs from '@emailjs/browser';
+
+
+
 
 interface FormValues {
   name: string;
@@ -20,14 +24,32 @@ interface FormValues {
 
 const Contact = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    const { email, message, name, phone, subject }= data;
+
+    const userMessage = {
+      name,
+      email, 
+      phone,
+      message,
+      subject
+    }
+
     try {
-      console.log(data, "contact data...");
+      const serviceID = import.meta.env.VITE_serviceID;
+    const templateID = import.meta.env.VITE_templateID;
+    const publicKey = import.meta.env.VITE_publicKey;
+  
+    const result = await emailjs.send(serviceID, templateID, userMessage, publicKey);
+    if(result?.status === 200){
+      alert("Send Message Successfully")
+    }
+
     } catch (error) {
       console.error("Error creating user:", error);
     }
   };
 
-  // <GlobalOutlined />
+
   const ContactDetails = [
     {
       title: "Contact On Phone",
@@ -46,7 +68,7 @@ const Contact = () => {
     },
   ];
   return (
-    <div className="mt-28">
+    <div className="mt-28 mb-10">
       {/* contact information */}
       <div className="flex">
         {ContactDetails?.map((details, index) => (
@@ -77,9 +99,9 @@ const Contact = () => {
         ></iframe>
       </div>
 
-      <div className="w-[80%] mx-auto">
-        <Form submitHandler={onSubmit}>
-          <div>
+      <div className="w-[80%] mx-auto bg-white shadow-2xl rounded mt-5 p-5">
+        <Form  submitHandler={onSubmit}>
+          <div className="grid grid-cols-2 gap-x-5 gap-y-1">
             <div className="mb-3">
               <FormInput
                 name="name"
@@ -124,9 +146,11 @@ const Contact = () => {
               />
             </div>
           </div>
-          <ColorButton>
-          <MessageOutlined /> Send Message
-          </ColorButton>
+          <div className="flex justify-center items-enter mt-10">
+            <ColorButton htmlType="submit" className="text-lg w-48 h-10">
+              <MessageOutlined /> Send Message
+            </ColorButton>
+          </div>
         </Form>
       </div>
     </div>
