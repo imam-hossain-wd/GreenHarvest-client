@@ -44,7 +44,6 @@ const CartDrawer = () => {
       </OutletButton>
 
       <Drawer
-        // title={cart?.total}
         placement="right"
         onClose={onClose}
         open={open}
@@ -73,9 +72,14 @@ const CartDrawer = () => {
         }
       >
         <div>
-          <p className="text-lg text-center">
-            {cart.products?.length < 1 && "There is no cart"}
-          </p>
+          {
+            cart.products?.length < 1 && <div className="flex flex-col justify-center items-center">
+              <img className="w-60 h-60" src="https://i.ibb.co/QFN127j/shooping-cart.png" alt="shopping-cart"/>
+
+              <h1 className="text-xl mt-4">Your cart is empty</h1>
+              <p className="text-lg mt-3">Please add product to your cart</p>
+            </div>
+          }
           {cart &&
             cart.products.map((cartItem: any) => (
               <div className="" key={cartItem.id}>
