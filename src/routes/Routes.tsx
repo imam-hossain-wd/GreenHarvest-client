@@ -18,6 +18,7 @@ import Contact from "../pages/Contact/Contact";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
 import Order from "../pages/Dashboard/Order/Order";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -58,7 +59,7 @@ import Order from "../pages/Dashboard/Order/Order";
         },
         {
           path: 'product',
-          element: <Product />
+          element:<PrivateRoute> <Product /> </PrivateRoute> 
         },
       ]
     },

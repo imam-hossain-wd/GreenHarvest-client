@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client"
 import {  message } from "antd";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
 import {  GoogleCircleFilled } from "@ant-design/icons";
 import { useLogInUserMutation } from "../../redux/api/authApi";
@@ -27,8 +28,12 @@ const Login = () => {
   const [logInUser, { error }] = useLogInUserMutation();
 
   const dispatch = useAppDispatch()
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   
-  const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const res = await logInUser(data);
         //@ts-ignore
@@ -40,7 +45,7 @@ const Login = () => {
         //@ts-ignore
         // const message = res?.data?.message
         message.success(res?.data?.message);
-        navigate("/");
+        navigate(from, { replace: true });
       }
     } catch (error: any) {
       // console.error(error.message);
