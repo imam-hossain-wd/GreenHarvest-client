@@ -20,10 +20,14 @@ const paymentApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.payment],
     }),
+    getPayment: builder.query({
+      query: (email:string) => `/payment/${email}`,
+    }),
   }),
 });
 
 export const {
     useCreatepaymentIntentMutation,
-    useCreatePaymentMutation
+    useCreatePaymentMutation,
+    useGetPaymentQuery
 } = paymentApi;
