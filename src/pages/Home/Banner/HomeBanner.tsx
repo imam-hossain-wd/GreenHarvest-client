@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import OutletButton from "../../../components/button/Button";
-
+import {  ArrowUpOutlined,
+} from "@ant-design/icons";
 
 
 const HomeBanner = () => {
@@ -33,6 +34,15 @@ const HomeBanner = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+
+
   return (
     <div className="flex h-screen justify-around bg-[#78af2f] mt-12 items-center">
       <div className="-mt-28">
@@ -50,6 +60,10 @@ getting start
       <img className="w-[550px] h-[400px]" 
       src={images[currentImageIndex].img}
       />
+        <OutletButton onClick={handleScrollToTop}
+          className="animated  items-center z-10 fixed right-5 bottom-16 transition rounded-full duration-200 text-[20px] flex justify-center items-center animate-bounce w-8 h-8 font-bold bg-primary ">
+        <ArrowUpOutlined />
+        </OutletButton>
     </div>
   );
 };
