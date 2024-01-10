@@ -19,6 +19,7 @@ import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
 import Order from "../pages/Dashboard/Order/Order";
 import PrivateRoute from "./PrivateRoute";
+import AboutPage from "../pages/about/About";
 
 
 
@@ -52,6 +53,10 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: 'profile',
           element: <Profile />
+        },
+        {
+          path: 'about',
+          element: <AboutPage />
         },
         {
           path: 'checkout',
