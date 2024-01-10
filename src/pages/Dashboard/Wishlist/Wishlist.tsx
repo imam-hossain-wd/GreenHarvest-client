@@ -4,16 +4,30 @@ import { useAppSelector } from "../../../redux/hooks";
 import OutletButton from "../../../components/button/Button";
 import {
     DeleteOutlined,
-    EditOutlined,
     EyeOutlined,
   } from "@ant-design/icons";
 import SPTable from "../../../components/Table/SPTable";
+import { removeFromWishlist } from "../../../redux/slice/wishlistSlice";
+import { IProduct } from "../../../types/ProductTypes";
+import Swall from 'sweetalert2'
 
 const Wishlist = () => {
 
   const wishlistItems = useAppSelector((state) => state.wishlist.wishlistItems);
-console.log(wishlistItems, 'wishlistItems');
-    // const wishlistProduct = wishlistItems?.wishlistItems;
+// console.log(wishlistItems, 'wishlistItems');
+
+const handleRemoveWishlist = (product:IProduct)=> {
+  removeFromWishlist(product);
+  // message.success("Product remove successfully")
+  Swall.fire({
+    position: "top",
+    icon: "success",
+    title: "Your work has been saved",
+    showConfirmButton: false,
+    timer: 1500
+  });
+
+}
   
     const columns = [
         {
@@ -24,7 +38,7 @@ console.log(wishlistItems, 'wishlistItems');
               className="w-20 h-20 rounded-full"
               src={image}
               alt="Product"
-              style={{ objectFit: "cover" }} // Add this style for better image rendering
+              style={{ objectFit: "cover" }} 
             />
           ),
         },
@@ -39,9 +53,9 @@ console.log(wishlistItems, 'wishlistItems');
           {
             title: "Action",
             dataIndex: "id",
-            render: function (data: string) {
+            render: function ( product:IProduct) {
                 //@ts-ignore
-                const id = data?.id 
+                const id = product?.id 
               return (
                 <div className="flex">
                   <Link className="mr-2" to={`/super_admin/admin/details/${id}`}>
@@ -49,14 +63,8 @@ console.log(wishlistItems, 'wishlistItems');
                     <EyeOutlined  className="text-xl text-black" />
                     </OutletButton>
                   </Link>
-                  <Link className="mr-2" to={`/super_admin/admin/edit/${id}`}>
-  
-                      <OutletButton className=" flex items-center justify-center w-10 h-8 rounded">
-                    <EditOutlined className="text-xl text-black" />
-                    </OutletButton>
-  
-                  </Link>                 
-                   <OutletButton className=" flex items-center justify-center w-10 h-8 rounded">
+
+                   <OutletButton onClick={()=> handleRemoveWishlist(product)}  className=" flex items-center justify-center w-10 h-8 rounded">
                     <DeleteOutlined className="text-xl text-black" />
                     </OutletButton>
                 </div>
