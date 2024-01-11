@@ -65,31 +65,33 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-1.  Clone the repository:
+ -  Clone the repository:
     
     
     `git clone https://github.com/imam-hossain-wd/GreenHarvest-client.git` 
     
-2.  Install frontend dependencies:
+ -  Install frontend dependencies:
     
     `npm install` 
     
-3.  Create a `.env.local` file in the root directory and fill it with the necessary environment variables:
-   
-    
-    `VITE_BASE_URL="backend server link"
-    
-   `"VITE_apiKey="firebase api key"
-VITE_authDomain="firebase authDomain"
-VITE_projectId="firebase VITE_projectId"
-VITE_storageBucket="firebase storageBucket"
-VITE_messagingSenderId="firebase messagingSenderId"
-VITE_appId="firebase appId"
-VITE_imageHostKey="imgbb api key "
-VITE_Publishablekey="stripe Publishablekey"
-VITE_serviceID="emailjs serviceID"
-VITE_templateID="emailjs templateID"
-VITE_publicKey="emailjs publicKey" ` `
+ -  Create a `.env.local` file in the root directory and fill it with the necessary environment variables:
+    `
+ - VITE_BASE_URL="backend server link"
+ - VITE_apiKey="firebase api key"
+ - VITE_authDomain="firebase authDomain"
+ - VITE_projectId="firebase VITE_projectId"
+ - VITE_storageBucket="firebase storageBucket"
+ - VITE_messagingSenderId="firebase messagingSenderId"
+ - VITE_appId="firebase appId"
+ - VITE_imageHostKey="imgbb api key "
+ - VITE_Publishablekey="stripe Publishablekey"
+ - VITE_serviceID="emailjs serviceID"
+ - VITE_templateID="emailjs templateID"
+ - VITE_publicKey="emailjs publicKey"  
+ `
+
+
+`
     ` 
     
 4.  Run the application:
