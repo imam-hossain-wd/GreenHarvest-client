@@ -25,8 +25,9 @@ const Signup = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
     try {
       const res = await createUser(data);
-
+      //@ts-ignore
       if (res?.data) {
+        //@ts-ignore
         message.success(res?.data?.message);
         navigate("/login");
       }
@@ -36,6 +37,7 @@ const Signup = () => {
   };
 
   if (error) {
+    //@ts-ignore
     console.log(error?.data?.message, "error");
   }
 
@@ -52,8 +54,9 @@ const handleGoogleSignUp = async ()=> {
       }
       console.log(user, 'suser');
       const res = await createUser(user);
-
+      //@ts-ignore
       if (res?.data) {
+         //@ts-ignore
         message.success(res?.data?.message);
         navigate("/login");
       }
@@ -105,7 +108,10 @@ const handleGoogleSignUp = async ()=> {
                   placeholder="Email"
                 />
                 <span className="ml-3 text-sm mt-3 text-red-500">
-                  {error && error?.data?.message}
+                  
+                  {
+                  //@ts-ignore
+                  error && error?.data?.message}
                 </span>
               </div>
 

@@ -1,15 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { Button, Upload } from "antd";
 import { useFormContext, Controller } from "react-hook-form";
 import { UploadOutlined } from "@ant-design/icons";
-import OutletButton from "../button/Button";
-import ColorButton from "../button/ColorButton";
+
 
 type FormImageUploaderProps = {
   name: string;
   label?: string;
-  // Additional props can be added as needed
 };
 
 const FormImageUploader: React.FC<FormImageUploaderProps> = ({
@@ -33,6 +32,7 @@ const FormImageUploader: React.FC<FormImageUploaderProps> = ({
       <Controller
         name={name}
         control={control}
+        //@ts-ignore
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <Upload
             name="files"

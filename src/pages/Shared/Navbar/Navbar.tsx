@@ -20,6 +20,8 @@ import {
   removeUserInfo,
 } from "../../../utils/auth.Services";
 import OutletButton from "../../../components/button/Button";
+import SearchFiltering from "./SearchFiltering";
+
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -105,12 +107,20 @@ const Navbar = () => {
     </li>
   );
 
+
+
   return (
     <section className="relative z-50 mb-20  w-full overflow-hidden">
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
-        <nav className="flex justify-between p-3 w-[90%] mx-auto">
-          <div className="flex items-center">
+        {/* upper navbar start */}
+  <div>
+  <SearchFiltering />
+  </div>
 
+      {/* upper navbar end */}
+        <nav className="flex justify-between p-3 w-[90%] mx-auto">
+        
+          <div className="flex items-center">
             <OutletButton
               onClick={showDrawer}
               className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-2 mr-3 "
@@ -121,8 +131,12 @@ const Navbar = () => {
               Green<span className="">Harvest</span>
             </h3>
           </div>
-          <div className="flex items-center">
-            <ul className="hidden lg:flex">{navMenuItems}</ul>
+          <div className="flex items-center items-center">
+            <ul className="hidden lg:flex">{navMenuItems}
+            
+
+            
+            </ul>
 
             <div className="mr-2 lg:ml-0">
               <CartDrawer />
@@ -146,20 +160,6 @@ const Navbar = () => {
               Login
             </OutletButton>
             </Link>
-             
-            //   <OutletButton
-            //   className="bg-primary hover:bg-white text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg"
-            // >
-            //       <LoginOutlined/>
-            //   Login
-            // </OutletButton>
-              // <Button className="bg-primary hover:bg-white hover:text-primary hover:border-primary hover:border text-lg text-white w-24 h-10 flex justify-center items-center rounded-lg  ">
-                // <Link to="/login">
-                //   {" "}
-                //   <LoginOutlined className="mr-1" />
-                //   Login
-                // </Link>
-              // </Button>
             )}
           </div>
         </nav>

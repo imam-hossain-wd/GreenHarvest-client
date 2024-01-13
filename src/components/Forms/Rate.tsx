@@ -12,9 +12,9 @@ type RateFieldProps = {
 
 const FormRateField = ({
   name,
-  value,
-  label,
-  defaultValue,
+  // value,
+  // label,
+  // defaultValue,
   handleChange,
 }: RateFieldProps) => {
   const { control } = useFormContext();

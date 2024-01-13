@@ -20,11 +20,11 @@ type SelectFieldProps = {
 const FormSelectField = ({
   name,
   size = "small",
-  value,
+  // value,
   placeholder = "select",
   options,
   label,
-  defaultValue,
+  // defaultValue,
   handleChange,
 }: SelectFieldProps) => {
   const { control } = useFormContext();
@@ -41,7 +41,7 @@ const FormSelectField = ({
             size={size}
             options={options}
             value={value}
-            className="w-full mt-2 mb-2"
+            className="w-full mt-2 mb-2 border-primary focus:border-primary"
             placeholder={placeholder}
           />
         )}

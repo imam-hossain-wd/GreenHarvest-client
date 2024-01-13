@@ -1,3 +1,4 @@
+
 const AboutPage = () => {
 
   const provideDetails = [
@@ -94,6 +95,7 @@ const AboutPage = () => {
           ))}
         </div>
       </div>
+     
     </div>
   );
 };

@@ -16,7 +16,7 @@ import Loading from "../Shared/loading/Loading";
 const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-
+console.log(error);
   const cart = useAppSelector((state) => state?.cart);
   const stripe = useStripe();
   const elements = useElements();

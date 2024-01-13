@@ -1,30 +1,29 @@
 import { tagTypes } from "../tag-types";
 import { baseApi } from "./baseApi";
 
-
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     addProduct: builder.mutation({
-      query: ( data ) => ({
+      query: (data) => ({
         url: `/product/create`,
-        method: 'POST',
+        method: "POST",
         body: data,
       }),
       invalidatesTags: [tagTypes.product],
     }),
 
     getProduct: builder.query({
-        query: () => '/product',
-      }),
+      query: ({ searchTerm = "", sortBy = "name", sortOrder = "asc" }) =>
+        `/product/?searchTerm=${searchTerm}&sortBy=${sortBy}&sortOrder=${sortOrder}`,
+    }),
     getSingleProduct: builder.query({
-        query: (id:string) => `/product/${id}`,
-      }),
- 
+      query: (id: string) => `/product/${id}`,
+    }),
   }),
 });
 
 export const {
   useAddProductMutation,
   useGetProductQuery,
-  useGetSingleProductQuery
+  useGetSingleProductQuery,
 } = productApi;

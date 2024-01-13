@@ -104,7 +104,9 @@ console.log(data, 'updated data..');
             <div>
             </div>
 
-            <ColorButton text="update" className="w-full mt-3"/>
+            <ColorButton className="w-full mt-3">
+              Update
+            </ColorButton>
           </Form>
         </div>
       </div>

@@ -44,7 +44,7 @@ const FormInput = ({
             <Input.Password
               type={type}
               size={size}
-              className=""
+              className="border-primary focus:border-primary"
               placeholder={placeholder}
               {...field}
               defaultValue={defaultValue ? defaultValue : field.value}
@@ -53,7 +53,7 @@ const FormInput = ({
             <Input
               type={type}
               size={size}
-              className=""
+              className="border-primary focus:border-primary"
               placeholder={placeholder}
               {...field}
               defaultValue={defaultValue ? defaultValue : field.value}

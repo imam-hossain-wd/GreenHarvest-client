@@ -2,7 +2,7 @@ import Swipper from "../../../components/Swipper/Swipper";
 import HomeBanner from "../Banner/HomeBanner";
 import HomeProduct from "../HomeProduct/HomeProduct";
 import PopularCategory from "../PopularCategory/PopularCategory";
-import Onlineshopping from "../onlineShopping/Onlineshopping";
+
 
 const Home = () => {
     return (
@@ -11,7 +11,6 @@ const Home = () => {
             <Swipper />
             <HomeProduct />
             <PopularCategory />
-            <Onlineshopping />
         </div>
     );
 };

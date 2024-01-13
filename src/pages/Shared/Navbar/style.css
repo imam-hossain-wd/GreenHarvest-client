@@ -1,0 +1,10 @@
+/* styles.css */
+.ant-select-focused .ant-select-selector,
+.ant-select-selector:hover,
+.ant-select-open .ant-select-selector {
+  border-color: #37B149 !important; 
+}
+
+.border-primary {
+  border-color: #37B149 !important;
+}

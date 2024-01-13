@@ -19,9 +19,11 @@ import { Link } from "react-router-dom";
 import useSweetAlert from "../../hooks/useAlert";
 
 const ProductCart = ({ product }: any) => {
+
   const activewishlistButton = useAppSelector(
     (state) => state.wishlist.activeWishlistButtons[product._id]
   );
+  
   const showSavedAlert = useSweetAlert();
   const dispatch = useAppDispatch();
   console.log(activewishlistButton, "activewishlistButton");

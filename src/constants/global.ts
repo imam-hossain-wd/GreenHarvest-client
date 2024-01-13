@@ -49,3 +49,27 @@ export const availabilityOptions = [
         value:false
     }
 ]
+
+
+export const orderOptions = [
+    {
+        label: "ASC",
+        value:"asc"
+    },
+    {
+        label: "DESC",
+        value:"desc"
+    },
+  
+]
+export const sortOptions = [
+    {
+        label: "Name",
+        value:"name"
+    },
+    {
+        label: "Price",
+        value:"price"
+    },
+  
+]
