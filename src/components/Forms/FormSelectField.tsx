@@ -13,6 +13,7 @@ type SelectFieldProps = {
   value?: string | string[] | undefined;
   placeholder?: string;
   label?: string;
+  className?:string;
   defaultValue?: SelectOptions;
   handleChange?: (el: string) => void;
 };
@@ -24,6 +25,7 @@ const FormSelectField = ({
   placeholder = "select",
   options,
   label,
+  className,
   // defaultValue,
   handleChange,
 }: SelectFieldProps) => {
@@ -41,7 +43,7 @@ const FormSelectField = ({
             size={size}
             options={options}
             value={value}
-            className="w-full mt-2 mb-2 border-primary focus:border-primary"
+            className={`w-full mt-2 mb-2 border-primary focus:border-primary ${className}`}
             placeholder={placeholder}
           />
         )}

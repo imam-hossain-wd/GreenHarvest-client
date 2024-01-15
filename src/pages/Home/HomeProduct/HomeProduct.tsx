@@ -7,6 +7,9 @@ import Loading from "../../Shared/loading/Loading";
 import ColorButton from "../../../components/button/ColorButton";
 import SearchSorting, { IPagination } from "../../Shared/Navbar/SearchFiltering";
 import { useAppSelector } from "../../../redux/hooks";
+import ProductCarousel, { Carousel7 } from "./ProductCarousel";
+import App from "./ProductCarousel";
+import HomeCarousel from "../Banner/HomeCarousel";
 
 const HomeProduct = () => {
 
@@ -45,6 +48,10 @@ const HomeProduct = () => {
         <Link className="no-underline" to="/product">
          <ColorButton className="w-36 h-9 flex justify-center items-center text-lg font-bold mt-4">All Product</ColorButton>
         </Link>
+      </div>
+
+      <div className="mt-10">
+      <ProductCarousel/>
       </div>
     </div>
   );

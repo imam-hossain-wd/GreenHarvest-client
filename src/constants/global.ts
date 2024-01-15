@@ -66,4 +66,32 @@ export const sortOptions = [
         value:"category"
     },
   
+];
+// Fish Vegetables Fruits Rice Meals Tea
+export const categoryOptions = [
+    {
+        label: "Fish",
+        value:"Fish"
+    },
+    {
+        label: "Vegetables",
+        value:"Vegetables"
+    },
+    {
+        label: "Fruits",
+        value:"Fruits"
+    },
+    {
+        label: "Rice",
+        value:"Rice"
+    },
+    {
+        label: "Meals",
+        value:"Meals"
+    },
+    {
+        label: "Tea",
+        value:"Tea"
+    },
+  
 ]

@@ -25,3 +25,89 @@
   border-color: #37B149 !important;
 }
 
+
+.green-slider .ant-slider-track,
+.green-slider .ant-slider:hover .ant-slider-track,
+.green-slider .ant-slider-focused .ant-slider-track {
+  background-color: #37B149;
+}
+
+.green-slider .ant-slider-handle,
+.green-slider .ant-slider-handle:focus,
+.green-slider .ant-slider-handle:active,
+.green-slider .ant-slider:hover .ant-slider-handle {
+  border-color: #37B149;
+}
+
+.green-slider .ant-slider-dot-active {
+  border-color: #37B149;
+}
+
+.green-slider :hover {
+  border-color: #37B149;
+}
+.green-slider .ant-slider:hover .ant-slider-track {
+  border-color: #37B149;
+}
+
+/* ................ */
+
+.custom-slider-container {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+}
+
+.slider {
+  position: relative;
+}
+
+.range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: green;
+  cursor: pointer;
+}
+
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: green;
+  cursor: pointer;
+}
+
+.slider-value {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* import select field css */
+.green-select .ant-select-selector {
+  background-color: #37B149 !important;
+  font-size: 16px;
+  font-weight: 700;
+  color: white !important; 
+}
+
+.green-select .ant-select-item-option-selected,
+.green-select .ant-select-item-option-active {
+    color: white !important;
+    background-color: #37B149 !important; 
+}
+
+/* two ========================= */

@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import OutletButton from "../../../components/button/Button";
-import {  ArrowUpOutlined,
+import {  ArrowUpOutlined,CommentOutlined,PhoneFilled,WhatsAppOutlined, FacebookFilled
 } from "@ant-design/icons";
+import { FloatButton } from "antd";
+import ColorButton from "../../../components/button/ColorButton";
+import { Carousel7 } from "../HomeProduct/ProductCarousel";
 
 
 const HomeBanner = () => {
@@ -64,6 +67,29 @@ getting start
           className="animated  items-center z-10 fixed right-5 bottom-16 transition rounded-full duration-200 text-[20px] flex justify-center items-center animate-bounce w-8 h-8 font-bold bg-primary ">
         <ArrowUpOutlined />
         </OutletButton>
+
+        <div>
+    {/* <FloatButton.Group
+      trigger="hover"
+      className="text-primary"
+      style={{ right: 94 }}
+      icon={<CommentOutlined />}
+    >
+      <FloatButton className="bg-primary text-white text-primary" icon={<CommentOutlined />} />
+      <FloatButton className="bg-primary text-primary" icon={<PhoneFilled />} />
+    </FloatButton.Group> */}
+
+
+
+<ColorButton onClick={handleScrollToTop}
+          className="animated  items-center z-10 fixed right-5 bottom-36 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-primary ">
+       <WhatsAppOutlined />
+        </ColorButton>
+<ColorButton onClick={handleScrollToTop}
+          className="animated  items-center z-10 fixed right-5 bottom-48 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-red-500 border-0 hover:text-red-500 hover:border hover:border-red-500 ">
+       <PhoneFilled />
+        </ColorButton>
+        </div>
     </div>
   );
 };

@@ -1,15 +1,15 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
-"use client";
+
 import { ReloadOutlined, SearchOutlined, UpSquareFilled , DownSquareFilled} from "@ant-design/icons";
 import { Select, Pagination } from "antd";
 import { SubmitHandler } from "react-hook-form";
 import Form from "../../../components/Forms/Form";
 import FormInput from "../../../components/Forms/InputForm";
-import { sortOptions } from "../../../constants/global";
+import { categoryOptions, sortOptions } from "../../../constants/global";
 import ColorButton from "../../../components/button/ColorButton";
 import './style.css';
-import { setLimit, setPage, setSearchTerm, setSortBy, setSortOrder } from "../../../redux/slice/productSlice";
+import { setCategory, setLimit, setPage, setSearchTerm, setSortBy, setSortOrder } from "../../../redux/slice/productSlice";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useGetProductQuery } from "../../../redux/api/productApi";
 import Loading from "../loading/Loading";
@@ -46,10 +46,16 @@ const SearchSorting = () => {
     refetch();
   };
 
+
   const handleSortBy = (value: string) => {
     console.log(value);
     dispatch(setSortBy(value));
   };
+
+  const handleCategory = (value: string) => {
+    dispatch(setCategory(value));
+  };
+
 
   if (isLoading) return <Loading />;
 if (!products) return <h1>No products found</h1>;
@@ -66,6 +72,7 @@ if (!products) return <h1>No products found</h1>;
               options={sortOptions}
             />
         </div>
+       
 
         <div className="flex justify-center items-center ">
  {sortOrder === 'asc' ? (
@@ -74,6 +81,15 @@ if (!products) return <h1>No products found</h1>;
       <DownSquareFilled onClick={() => dispatch(setSortOrder("asc"))} className="text-3xl text-primary" />
     )}
         </div>
+        <div className="flex items-center">
+            <Select
+            className="w-40 mr-2 ml-4 text-primary green-select text-"
+              defaultValue="Select category"
+              onChange={handleCategory}
+              options={categoryOptions}
+            />
+        </div>
+
       </div>
       <div className="flex justify-evenly  lg:mt-0 items-center ">
       <Form submitHandler={onSubmit}>
@@ -138,6 +154,8 @@ export const IPagination = () => {
         onChange={handlePageChange}
         className="custom-pagination"
       />
+
+      <App />
     </div>
   );
 };
@@ -176,4 +194,79 @@ export const IntegerStep = () => {
     </Row>
   );
 };
+
+
+
+// export const App = () => {
+//   const [sliderValue, setSliderValue] = useState([20, 200]);
+
+//   const handleSliderChange = (value:number[]) => {
+//     setSliderValue(value);
+//     console.log('Slider Value:', value);
+//   };
+
+//   return (
+//     <div className="mr-10 w-60">
+//       <p>Price</p>
+//       <Slider
+//         range
+//         defaultValue={[20, 200]}
+//         onChange={handleSliderChange}
+//         value={sliderValue}
+//         className="green-slider"
+//       />
+//       {/* ৳33,490.00 - ৳40,490.00 */}
+//       <div> $ {sliderValue.join(' - $ ')}</div>
+//     </div>
+//   );
+// };
+
+
+export const App = () => {
+  const [sliderValue, setSliderValue] = useState([20, 200]);
+
+  const handleSliderChange = (event) => {
+    const { value, name } = event.target;
+    const newValue = [...sliderValue];
+    newValue[name === "slider1" ? 0 : 1] = Number(value);
+    setSliderValue(newValue);
+  };
+
+  return (
+    <div className="custom-slider-container">
+      <p>Price Range</p>
+      <div className="slider">
+        <input 
+          type="range" 
+          min="0" 
+          max="500" 
+          value={sliderValue[0]} 
+          className="range-slider" 
+          id="slider1"
+          name="slider1"
+          onChange={handleSliderChange}
+        />
+        <input 
+          type="range" 
+          min="0" 
+          max="500" 
+          value={sliderValue[1]} 
+          className="range-slider" 
+          id="slider2"
+          name="slider2"
+          onChange={handleSliderChange}
+        />
+        <div className="slider-value">
+          <span>$ {sliderValue[0]}</span> - <span>$ {sliderValue[1]}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+
+
 

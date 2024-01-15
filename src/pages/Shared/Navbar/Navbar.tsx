@@ -108,7 +108,7 @@ const Navbar = () => {
   const navMenuItems = (
     <li className="list-none flex flex-col justify-center items-center lg:flex-row">
       <Link
-        className=" text-gray-800 hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline"
+        className=" text-black hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline"
         to="/"
       >
         Home
@@ -163,7 +163,7 @@ const Navbar = () => {
             </h3>
           </div>
           <div className="flex items-center items-center">
-            <ul className="hidden lg:flex">{navMenuItems}
+            <ul className="hidden lg:flex ">{navMenuItems}
             
 
             
