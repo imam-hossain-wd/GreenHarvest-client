@@ -7,11 +7,8 @@ import Loading from "../Shared/loading/Loading";
 
 const Product = () => {
   
-  const { searchTerm, sortBy, sortOrder, page, limit } = useAppSelector(state => state.product);
-  const category = '';
+  const { searchTerm, sortBy, sortOrder, page, limit,category } = useAppSelector(state => state.product);
   const { data: products, isLoading } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
-
-  // console.log(products, 'product datas..');
 
   if (isLoading) {
     return <Loading />;

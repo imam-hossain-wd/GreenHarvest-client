@@ -26,10 +26,9 @@ const SearchSorting = () => {
 
   const dispatch = useAppDispatch()
 
- const { searchTerm, sortBy, sortOrder, page, limit } = useAppSelector(state => state.product);
+ const { searchTerm, sortBy, sortOrder, page, limit,category } = useAppSelector(state => state.product);
   // const minPrice=200;
   // const maxPrice=1500;
-  const category = "";
   // const category = "Vegetables";
   //@ts-ignore
   const { data: products, isLoading, refetch } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
@@ -170,6 +169,7 @@ export const IntegerStep = () => {
           max={20}
           style={{ margin: '0 16px' }}
           value={inputValue}
+          //@ts-ignore
           onChange={onChange}
         />
       </Col>

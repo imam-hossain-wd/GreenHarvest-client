@@ -20,7 +20,7 @@ import {
   removeUserInfo,
 } from "../../../utils/auth.Services";
 import OutletButton from "../../../components/button/Button";
-import SearchSorting from "./SearchFiltering";
+import { setCategory } from "../../../redux/slice/productSlice";
 
 
 const Navbar = () => {
@@ -29,11 +29,12 @@ const Navbar = () => {
   const accessToken = useAppSelector(selectAccessToken);
   const { role } = getUserInfo() as any;
 
+
   const showDrawer = () => {
     setOpen(true);
   };
 
-  const items = [
+  const accountItems = [
     {
       key: "1",
       label: (
@@ -55,6 +56,38 @@ const Navbar = () => {
             >
               Log out
             </Button>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  // Fish Vegetables Fruits Rice Meals Tea
+  const categoryItems = [
+    {
+      key: "1",
+      label: (
+        <div>
+          <div className="flex flex-col">
+            <Button onClick={()=>dispatch(setCategory("Fruits")) } type="text">
+            Fruits
+            </Button>
+            <Button onClick={()=>dispatch(setCategory("Fish")) } type="text">
+            Fish
+            </Button>
+            <Button onClick={()=>dispatch(setCategory("Rice")) } type="text">
+            Rice
+            </Button>
+            <Button onClick={()=>dispatch(setCategory("Meals")) } type="text">
+            Meals
+            </Button>
+            <Button onClick={()=>dispatch(setCategory("Vegetables")) } type="text">
+            Vegatables
+            </Button>
+            <Button onClick={()=>dispatch(setCategory("Tea")) } type="text">
+            Tea
+            </Button>
+            
           </div>
         </div>
       ),
@@ -108,17 +141,14 @@ const Navbar = () => {
   );
 
 
+  
+
 
   return (
     <section className="relative z-50 mb-20  w-full overflow-hidden">
       
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
-        {/* upper navbar start */}
-  <div>
 
-  </div>
-
-      {/* upper navbar end */}
         <nav className="flex justify-between p-3 w-[90%] mx-auto">
         
           <div className="flex items-center">
@@ -138,13 +168,18 @@ const Navbar = () => {
 
             
             </ul>
+            <div>
+            <Dropdown menu={{ items: categoryItems }} placement="bottom" arrow={{ pointAtCenter: true }}>
+      <p>Category</p>
+    </Dropdown>
+            </div>
 
             <div className="mr-2 lg:ml-0">
               <CartDrawer />
             </div>
 
             {accessToken ? (
-              <Dropdown menu={{ items }} className="">
+              <Dropdown menu={{ items:accountItems }} className="">
 
                  <OutletButton
               className="text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center"

@@ -10,8 +10,7 @@ import { useAppSelector } from "../../../redux/hooks";
 
 const HomeProduct = () => {
 
-  const { searchTerm, sortBy, sortOrder, page, limit } = useAppSelector(state => state.product);
-  const category = '';
+  const { searchTerm, sortBy, sortOrder, page, limit,category } = useAppSelector(state => state.product);
   const { data: products, isLoading } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
 
   // console.log(products, "products data");

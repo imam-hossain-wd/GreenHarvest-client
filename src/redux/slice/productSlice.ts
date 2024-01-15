@@ -8,6 +8,7 @@ interface IProductStateProps {
   sortOrder: string;
   page:number;
   limit:number;
+  category:string;
 }
 
 const initialState: IProductStateProps = {
@@ -15,6 +16,7 @@ const initialState: IProductStateProps = {
   searchTerm: '',
   sortBy: 'name',
   sortOrder: 'asc',
+  category:'',
   page:1,
   limit:10
 };
@@ -41,6 +43,9 @@ export const productSlice = createSlice({
     setLimit: (state, action: PayloadAction<number>) => {
       state.limit = action.payload;
     },
+    setCategory: (state, action: PayloadAction<string>) => {
+      state.category = action.payload;
+    },
   },
 });
 
@@ -50,7 +55,8 @@ export const {
   setSortBy,
   setSortOrder,
   setLimit,
-  setPage
+  setPage,
+  setCategory
 } = productSlice.actions;
 
 export default productSlice.reducer;
