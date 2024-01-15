@@ -8,3 +8,20 @@
 .border-primary {
   border-color: #37B149 !important;
 }
+
+
+
+
+.custom-pagination .ant-pagination-item-active a {
+  color: white;
+  background-color: #37B149; 
+  border-color: #37B149 !important;
+ 
+}
+
+.custom-pagination .ant-pagination-item-active a:hover {
+  color: white; 
+  background-color: #37B149; 
+  border-color: #37B149 !important;
+}
+

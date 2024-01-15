@@ -2,19 +2,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { ReloadOutlined, SearchOutlined, UpSquareFilled , DownSquareFilled} from "@ant-design/icons";
-import { Select } from "antd";
+import { Select, Pagination } from "antd";
 import { SubmitHandler } from "react-hook-form";
 import Form from "../../../components/Forms/Form";
 import FormInput from "../../../components/Forms/InputForm";
 import { sortOptions } from "../../../constants/global";
 import ColorButton from "../../../components/button/ColorButton";
 import './style.css';
-import { setSearchTerm, setSortBy, setSortOrder } from "../../../redux/slice/productSlice";
+import { setLimit, setPage, setSearchTerm, setSortBy, setSortOrder } from "../../../redux/slice/productSlice";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { useGetProductQuery } from "../../../redux/api/productApi";
 import Loading from "../loading/Loading";
 import { useEffect } from "react";
-
 
 
 type Inputs = {
@@ -23,23 +22,23 @@ type Inputs = {
   sortOrder?: string;
 };
 
-const SearchFiltering = () => {
+const SearchSorting = () => {
 
   const dispatch = useAppDispatch()
 
-  const { searchTerm, sortBy, sortOrder } = useAppSelector(state => state.product);
-  const { data: products, isLoading, refetch } = useGetProductQuery({ searchTerm, sortBy, sortOrder });
+ const { searchTerm, sortBy, sortOrder, page, limit } = useAppSelector(state => state.product);
+  // const minPrice=200;
+  // const maxPrice=1500;
+  const category = "";
+  // const category = "Vegetables";
+  //@ts-ignore
+  const { data: products, isLoading, refetch } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
 
-  // console.log(sortOrder, 'sortOrder sortOrder');
-
-  // console.log(products, 'product data..');
-console.log(searchTerm, 'searchTerm searchTerm');
   useEffect(() => {
     refetch();
-  }, [searchTerm, sortBy, sortOrder, refetch]);
+  }, [searchTerm, sortBy, sortOrder,category, refetch]);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
     dispatch(setSearchTerm(data.search));
   };
 
@@ -57,12 +56,12 @@ console.log(searchTerm, 'searchTerm searchTerm');
 if (!products) return <h1>No products found</h1>;
 
   return (
-    <div className="flex flex-col lg:flex-row rounded items-center p-4 w-full lg:w-[75%] mx-auto rounded ">
+    <div className="flex flex-col lg:flex-row rounded items-center justify-around p-4 w-full mx-auto rounded ">
       <div className="flex items-center">
         <div className="flex items-center">
           <p className=" lg:ml-0 mr-2">SortBy :</p>
             <Select
-            className="w-24 mr-2"
+            className="w-32 mr-2"
               defaultValue="name"
               onChange={handleSortBy}
               options={sortOptions}
@@ -102,4 +101,79 @@ if (!products) return <h1>No products found</h1>;
   );
 };
 
-export default SearchFiltering;
+export default SearchSorting;
+
+
+
+export const IPagination = () => {
+
+  const dispatch = useAppDispatch();
+
+  const { searchTerm, sortBy, sortOrder, page, limit } = useAppSelector(state => state.product);
+  const category = "";
+  //@ts-ignore
+  const { data: products, isLoading } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
+  const meta = products?.meta;
+  console.log(meta);
+
+  // console.log(products, 'products products');
+  // console.log(products?.meta, 'meta');
+  const handlePageChange = (page:number, pageSize:number) => {
+    dispatch(setPage(Number(page)));
+    dispatch(setLimit(Number(pageSize)));
+  
+    // console.log("Current page hanle 1: ", page);
+    // console.log("Current pageSize hanle 1: ", pageSize);
+  };
+
+  if(isLoading){
+    return <Loading />
+  }
+
+  return (
+    <div className="mt-20">
+      <Pagination
+        total={meta?.total}
+        defaultPageSize={meta?.limit}
+        defaultCurrent={1}
+        onChange={handlePageChange}
+        className="custom-pagination"
+      />
+    </div>
+  );
+};
+
+
+import  { useState } from 'react';
+import { Col, InputNumber, Row, Slider } from 'antd';
+
+export const IntegerStep = () => {
+  const [inputValue, setInputValue] = useState(1);
+
+  const onChange = (newValue: number) => {
+    setInputValue(newValue);
+  };
+
+  return (
+    <Row>
+      <Col span={12}>
+        <Slider
+          min={0}
+          max={500}
+          onChange={onChange}
+          value={typeof inputValue === 'number' ? inputValue : 0}
+        />
+      </Col>
+      <Col span={4}>
+        <InputNumber
+          min={1}
+          max={20}
+          style={{ margin: '0 16px' }}
+          value={inputValue}
+          onChange={onChange}
+        />
+      </Col>
+    </Row>
+  );
+};
+

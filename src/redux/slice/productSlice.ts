@@ -1,18 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ServiceState {
+interface IProductStateProps {
   data: any;
   searchTerm: string;
   sortBy: string;
   sortOrder: string;
+  page:number;
+  limit:number;
 }
 
-const initialState: ServiceState = {
+const initialState: IProductStateProps = {
   data: null,
   searchTerm: '',
   sortBy: 'name',
   sortOrder: 'asc',
+  page:1,
+  limit:10
 };
 
 export const productSlice = createSlice({
@@ -31,6 +35,12 @@ export const productSlice = createSlice({
     setSortOrder: (state, action: PayloadAction<string>) => {
       state.sortOrder = action.payload;
     },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    setLimit: (state, action: PayloadAction<number>) => {
+      state.limit = action.payload;
+    },
   },
 });
 
@@ -39,6 +49,8 @@ export const {
   setSearchTerm,
   setSortBy,
   setSortOrder,
+  setLimit,
+  setPage
 } = productSlice.actions;
 
 export default productSlice.reducer;

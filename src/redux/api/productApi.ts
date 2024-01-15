@@ -13,8 +13,8 @@ const productApi = baseApi.injectEndpoints({
     }),
 
     getProduct: builder.query({
-      query: ({ searchTerm = "", sortBy = "name", sortOrder = "asc" }) =>
-        `/product/?searchTerm=${searchTerm}&sortBy=${sortBy}&sortOrder=${sortOrder}`,
+      query: ({ searchTerm , sortBy, sortOrder, page, limit,minPrice, maxPrice, category }) =>
+        `/product/?searchTerm=${searchTerm}&sortBy=${sortBy}&sortOrder=${sortOrder}&page=${page}&limit=${limit}&minPrice=${minPrice}&maxPrice=${maxPrice}&category=${category}`,
     }),
     getSingleProduct: builder.query({
       query: (id: string) => `/product/${id}`,

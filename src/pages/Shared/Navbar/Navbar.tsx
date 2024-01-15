@@ -20,7 +20,7 @@ import {
   removeUserInfo,
 } from "../../../utils/auth.Services";
 import OutletButton from "../../../components/button/Button";
-import SearchFiltering from "./SearchFiltering";
+import SearchSorting from "./SearchFiltering";
 
 
 const Navbar = () => {
@@ -111,10 +111,11 @@ const Navbar = () => {
 
   return (
     <section className="relative z-50 mb-20  w-full overflow-hidden">
+      
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
         {/* upper navbar start */}
   <div>
-  <SearchFiltering />
+
   </div>
 
       {/* upper navbar end */}
