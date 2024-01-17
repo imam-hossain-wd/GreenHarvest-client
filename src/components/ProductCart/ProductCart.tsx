@@ -26,9 +26,9 @@ const ProductCart = ({ product }: any) => {
   
   const showSavedAlert = useSweetAlert();
   const dispatch = useAppDispatch();
-  console.log(activewishlistButton, "activewishlistButton");
+
   const addToCartHandler = (product: IProduct) => {
-    // message.success("Add Product Successfully");
+    message.success("Add Product Successfully");
     dispatch(addToCart(product));
     showSavedAlert("Add to cart successfully")
   };

@@ -20,6 +20,7 @@ import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
 import Order from "../pages/Dashboard/Order/Order";
 import PrivateRoute from "./PrivateRoute";
 import AboutPage from "../pages/about/About";
+import CategoryProduct from "../pages/Product/CategoryProduct";
 
 
 
@@ -41,6 +42,10 @@ import AboutPage from "../pages/about/About";
         {
           path: 'product/:id',
           element: <ProductDetails />
+        },
+        {
+          path: "/product/category/:category",
+          element: <CategoryProduct />,
         },
         {
           path: 'signup',

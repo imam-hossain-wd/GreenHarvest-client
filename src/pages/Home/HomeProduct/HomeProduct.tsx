@@ -7,9 +7,9 @@ import Loading from "../../Shared/loading/Loading";
 import ColorButton from "../../../components/button/ColorButton";
 import SearchSorting, { IPagination } from "../../Shared/Navbar/SearchFiltering";
 import { useAppSelector } from "../../../redux/hooks";
-import ProductCarousel, { Carousel7 } from "./ProductCarousel";
-import App from "./ProductCarousel";
-import HomeCarousel from "../Banner/HomeCarousel";
+import ProductCarousel from "./ProductCarousel";
+
+
 
 const HomeProduct = () => {
 
