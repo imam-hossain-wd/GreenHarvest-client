@@ -3,11 +3,10 @@ import ProductCart from "../../../components/ProductCart/ProductCart";
 import { useGetProductQuery } from "../../../redux/api/productApi";
 import { IProduct } from "../../../types/ProductTypes";
 import Loading from "../../Shared/loading/Loading";
-// import OutletButton from "../../../components/button/Button";
 import ColorButton from "../../../components/button/ColorButton";
 import SearchSorting, { IPagination } from "../../Shared/Navbar/SearchFiltering";
 import { useAppSelector } from "../../../redux/hooks";
-import ProductCarousel from "./ProductCarousel";
+
 
 
 
@@ -50,9 +49,6 @@ const HomeProduct = () => {
         </Link>
       </div>
 
-      <div className="mt-10">
-      <ProductCarousel/>
-      </div>
     </div>
   );
 };
