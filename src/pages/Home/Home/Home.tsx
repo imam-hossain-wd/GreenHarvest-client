@@ -1,9 +1,10 @@
 import Swipper from "../../../components/Swipper/Swipper";
 import HomeBanner from "../Banner/HomeBanner";
 import ReferSection from "../Banner/ReferSection";
-import HomeProduct from "../HomeProduct/HomeProduct";
-import ProductCarousel from "../HomeProduct/ProductCarousel";
+// import HomeProduct from "../HomeProduct/HomeProduct";
+import TopProduct from "../HomeProduct/ProductCarousel";
 import PopularCategory from "../PopularCategory/PopularCategory";
+import VegatableFruitsCategory from "./VegatableFruits/VegatableFruitsCategory";
 
 
 const Home = () => {
@@ -12,9 +13,10 @@ const Home = () => {
             <HomeBanner />
             <ReferSection />
             <PopularCategory />
+            <TopProduct />
+            <VegatableFruitsCategory />
             <Swipper />
-            <HomeProduct />
-            <ProductCarousel/>
+            {/* <HomeProduct /> */}
             {/* <PopularCategory /> */}
         </div>
     );

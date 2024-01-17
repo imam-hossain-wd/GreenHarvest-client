@@ -89,7 +89,7 @@ const AboutPage = () => {
           {provideDetails?.map((details, index) => (
             <div key={index} className="">
               <img src={details?.image} className="" />
-              <p className="mb-3 mt-2 text-[#0CC5B7]">{details?.name}</p>
+              <p className="mb-3 mt-2 text-primary">{details?.name}</p>
               <p className="text-gray-600 text-sm">{details?.description}</p>
             </div>
           ))}

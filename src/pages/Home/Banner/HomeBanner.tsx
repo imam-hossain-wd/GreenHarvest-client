@@ -46,9 +46,9 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex h-[450px] justify-around bg-[#78af2f] mt-12 items-center">
+    <div className="flex h-[450px] justify-around bg-primary mt-12 items-center">
       <div className="-mt-28">
-        <h1 className="text-4xl">
+        <h1 className="text-4xl text-white">
           Healthy Vegetable that <br />
           Deserve to Eat Fresh
         </h1>
