@@ -6,7 +6,7 @@ import "./style.css";
 
 import { Pagination ,Autoplay} from "swiper/modules";
 
-export default function Swipper() {
+const SpecialOffers = () => {
   const image_datas = [
     { url: "https://greengrocery.com.bd/wp-content/uploads/2023/05/tea-2.png" },
     { url: "https://greengrocery.com.bd/wp-content/uploads/2023/06/G-P-7.jpg" },
@@ -30,23 +30,23 @@ export default function Swipper() {
       spaceBetween: 20,
     },
     768: {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 30,
     },
     1024: {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 40,
     },
   };
 
   return (
-    <div className="w-[90%] mx-auto my-20">
-         <h1 className="lg:text-center mb-2">Special Packages & Offers</h1>
+    <div className="w-[90%] mx-auto my-10">
+         <h2 className="lg:text-center mb-2">Special Packages & Offers</h2>
       <Swiper
 
         pagination={{
           clickable: true,
-          // el: ".swiper-pagination",
+        //   el: ".swiper-pagination",
         }}
         modules={[Pagination, Autoplay]} 
         className="mySwiper"
@@ -55,10 +55,12 @@ export default function Swipper() {
       >
         {image_datas.map((image, index) => (
           <SwiperSlide key={index}>
-            <img className="" src={image.url} alt="images" />
+            <img className="mt-5 rounded" src={image.url} alt="images" />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
 }
+
+export default SpecialOffers;

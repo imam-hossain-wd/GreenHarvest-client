@@ -1,10 +1,12 @@
-import Swipper from "../../../components/Swipper/Swipper";
 import HomeBanner from "../Banner/HomeBanner";
 import ReferSection from "../Banner/ReferSection";
-// import HomeProduct from "../HomeProduct/HomeProduct";
-import TopProduct from "../HomeProduct/ProductCarousel";
+import TopProduct from "../TopProduct/TopProduct";
 import PopularCategory from "../PopularCategory/PopularCategory";
-import VegatableFruitsCategory from "./VegatableFruits/VegatableFruitsCategory";
+import ShopGetMore from "../ShopGetMore/ShopGetMore";
+import VegatableFruitsCategory from "../VegatableFruits/VegatableFruitsCategory";
+import SpecialOffers from "../SpecialOffers/SpecialOffers";
+
+
 
 
 const Home = () => {
@@ -14,10 +16,11 @@ const Home = () => {
             <ReferSection />
             <PopularCategory />
             <TopProduct />
-            <VegatableFruitsCategory />
-            <Swipper />
+            <VegatableFruitsCategory /> 
+            <VegatableFruitsCategory /> 
+            <SpecialOffers />
+            <ShopGetMore />
             {/* <HomeProduct /> */}
-            {/* <PopularCategory /> */}
         </div>
     );
 };

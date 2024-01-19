@@ -10,18 +10,19 @@ import {
   HeartOutlined,
   HeartFilled,
 } from "@ant-design/icons";
-import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
-import useSweetAlert from "../../../../hooks/useAlert";
-import useProductState from "../../../../hooks/useProductState";
-import { useGetProductQuery } from "../../../../redux/api/productApi";
-import { setCategory } from "../../../../redux/slice/productSlice";
-import { addToCart } from "../../../../redux/slice/cartSlice";
-import { addToWishlist, removeFromWishlist } from "../../../../redux/slice/wishlistSlice";
-import { IProduct } from "../../../../types/ProductTypes";
-import Loading from "../../../Shared/loading/Loading";
-import ColorButton from "../../../../components/button/ColorButton";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import useSweetAlert from "../../../hooks/useAlert";
+import useProductState from "../../../hooks/useProductState";
+import { useGetProductQuery } from "../../../redux/api/productApi";
+import { setCategory } from "../../../redux/slice/productSlice";
+import { IProduct } from "../../../types/ProductTypes";
+import { addToCart } from "../../../redux/slice/cartSlice";
+import { addToWishlist, removeFromWishlist } from "../../../redux/slice/wishlistSlice";
+import Loading from "../../Shared/loading/Loading";
+import ColorButton from "../../../components/button/ColorButton";
 
-const VegatableFruitsCategory = () => {
+
+const TopProduct = () => {
   const dispatch = useAppDispatch();
   const showSavedAlert = useSweetAlert();
   const productState = useProductState();
@@ -84,7 +85,7 @@ const VegatableFruitsCategory = () => {
     <div className="swiper-container relative w-[90%] mx-auto mt-5">
       <div className="flex justify-between w-[95%] mx-auto mb-5">
         <div className="flex">
-          <h3>Fresh Vegetables & Fruits </h3>
+          <h3>Top Featured Products </h3>
           <p
             className="text-sm text-xs border border-primary text-white bg-primary px-2 py-1 ml-3 rounded"
           >
@@ -100,8 +101,8 @@ const VegatableFruitsCategory = () => {
         spaceBetween={10}
         slidesPerView={slidesToShow}
         navigation={{
-          nextEl: ".swipert-fruits-button-next",
-          prevEl: ".swipert-fruits-button-prev",
+          nextEl: ".swipert-button-next",
+          prevEl: ".swipert-button-prev",
         }}
         scrollbar={{ draggable: true }}
       >
@@ -174,15 +175,15 @@ const VegatableFruitsCategory = () => {
         </div>
       </Swiper>
 
-      <div className="swipert-fruits-button-next absolute top-1/2 -right-5 transform -translate-y-1/2 z-10 bg-black opacity-25 -mt-5 text-white hover:bg-primary hover:opacity-100 w-9 h-9 flex justify-center items-center rounded-full">
+      <div className="swipert-button-next absolute top-1/2 -right-5 transform -translate-y-1/2 z-10 bg-black opacity-25 -mt-5 text-white hover:bg-primary hover:opacity-100 w-9 h-9 flex justify-center items-center rounded-full">
         <RightOutlined className="text-xl" />
       </div>
 
-      <div className="swiper-fruits-button-prev absolute top-1/2 -left-6 -mt-5 bg-black opacity-25 text-white hover:bg-primary hover:opacity-100 rounded-full w-9 h-9 flex justify-center items-center transform -translate-y-1/2 z-10">
+      <div className="swiper-button-prev absolute top-1/2 -left-6 -mt-5 bg-black opacity-25 text-white hover:bg-primary hover:opacity-100 rounded-full w-9 h-9 flex justify-center items-center transform -translate-y-1/2 z-10">
         <LeftOutlined className="text-xl" />
       </div>
     </div>
   );
 };
 
-export default VegatableFruitsCategory;
+export default TopProduct;
