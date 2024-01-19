@@ -5,6 +5,7 @@ import PopularCategory from "../PopularCategory/PopularCategory";
 import ShopGetMore from "../ShopGetMore/ShopGetMore";
 import VegatableFruitsCategory from "../VegatableFruits/VegatableFruitsCategory";
 import SpecialOffers from "../SpecialOffers/SpecialOffers";
+import Review from "../Review/Review";
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
             <VegatableFruitsCategory /> 
             <SpecialOffers />
             <ShopGetMore />
+            <Review />
             {/* <HomeProduct /> */}
         </div>
     );
