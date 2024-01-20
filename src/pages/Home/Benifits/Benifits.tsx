@@ -35,12 +35,12 @@ const items = [
 ]
     return (
         <div className="w-[80%] mx-auto mt-10">
-            <div className="flex justify-around">
+            <div className="flex justify-around" >
                 {
                     items.map((item:IBenifitsProps, index:number)=>(
-                        <div key={index} className="flex items-center p-5 rounded" style={{border:"1px solid gray"}}>
-                            <div>
-                                <img className="w-10 h-10" src={item.image} alt=""/>
+                        <div key={index} className="flex items-center p-5 rounded bg-white shadow hover:shadow-xl" >
+                            <div className="flex items-center">
+                                <img className="w-9 h-9 " src={item.image} alt=""/>
                             </div>
                             <div className="ml-4 text-sm">
                                 <p className="mb-2">{item.title}</p>

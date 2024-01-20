@@ -5,6 +5,7 @@ import Loading from "../Shared/loading/Loading";
 import { ShoppingCartOutlined , HeartOutlined } from "@ant-design/icons";
 import ColorButton from "../../components/button/ColorButton";
 import Review from "../review/Review";
+import RelatedProduct from "./RelatedProduct";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const ProductDetails = () => {
     return <Loading />;
   }
 
-  const { name, description, price, quantity, image } = data?.data;
+  const { name, description, price, quantity, image, category } = data?.data;
 
   return (
     <div className="my-28  w-[80%] mx-auto">
@@ -58,6 +59,10 @@ const ProductDetails = () => {
         </div>
       </div>
       <Review />
+
+      <div>
+        <RelatedProduct category={category}/>
+      </div>
     </div>
   );
 };

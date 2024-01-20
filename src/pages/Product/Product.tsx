@@ -8,6 +8,7 @@ import  { IPagination } from "../Shared/Navbar/SearchFiltering";
 import Loading from "../Shared/loading/Loading";
 import { setLimit } from "../../redux/slice/productSlice";
 
+
 const Product = () => {
   
   const { searchTerm, sortBy, sortOrder, page, limit,category } = useAppSelector(state => state.product);
@@ -17,7 +18,9 @@ const Product = () => {
     dispatch(setLimit(12))
   }, [dispatch])
  
-  const { data: products, isLoading } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
+  const { data, isLoading } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
+const products = data?.data;
+
 
   if (isLoading) {
     return <Loading />;
@@ -31,7 +34,7 @@ const Product = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-[80%] mx-auto gap-5">
         {products &&
-          products.data.map((product: IProduct) => (
+          products.map((product: IProduct) => (
             <div
               className="border border-primary shadow-lg no-underline"
               key={product._id}
@@ -46,6 +49,7 @@ const Product = () => {
       <IPagination />
       </div>
     </div>
+
   );
 };
 
