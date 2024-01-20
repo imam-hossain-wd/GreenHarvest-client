@@ -46,20 +46,23 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex h-[450px] justify-around bg-primary mt-12 items-center">
-      <div className="-mt-28">
-        <h1 className="text-4xl text-white">
+    <div className="flex h-[430px] justify-around bg-[#3AC950] mt-12 items-center shadow">
+      <div className="-mt- ml-10 text-white">
+        <h1 className="text-xl ">
+          Don't Penic, Go Organic
+        </h1>
+        <h4 className="text-3xl  mt-2">
           Healthy Vegetable that <br />
           Deserve to Eat Fresh
-        </h1>
+        </h4>
 
-        <p className="my-5 text-lg">
+        {/* <p className="my-5 text-lg">
           We source and sell the very best beef, lamb, <br />
           fish & herbs with the care from farmers.
-        </p>
+        </p> */}
 
-        <OutletButton className="w-36 text-lg font-bold h-10">
-          getting start
+        <OutletButton className="w-40 mt-5 text-lg font-bold h-10">
+          Shopping Now
         </OutletButton>
       </div>
       {/* home banner */}

@@ -6,6 +6,10 @@ import ShopGetMore from "../ShopGetMore/ShopGetMore";
 import VegatableFruitsCategory from "../VegatableFruits/VegatableFruitsCategory";
 import SpecialOffers from "../SpecialOffers/SpecialOffers";
 import Review from "../Review/Review";
+import Benifits from "../Benifits/Benifits";
+
+
+
 
 
 
@@ -15,7 +19,9 @@ const Home = () => {
         <div className="mt-20">
             <HomeBanner />
             <ReferSection />
+            <Benifits />
             <PopularCategory />
+            {/* <Navigate /> */}
             <TopProduct />
             <VegatableFruitsCategory /> 
             <VegatableFruitsCategory /> 

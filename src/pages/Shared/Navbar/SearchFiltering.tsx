@@ -22,7 +22,7 @@ type Inputs = {
   sortOrder?: string;
 };
 
-const SearchSorting = () => {
+const SearchFiltering = () => {
 
   const dispatch = useAppDispatch()
 
@@ -116,7 +116,7 @@ if (!products) return <h1>No products found</h1>;
   );
 };
 
-export default SearchSorting;
+export default SearchFiltering;
 
 
 
@@ -155,7 +155,6 @@ export const IPagination = () => {
         className="custom-pagination"
       />
 
-      <App />
     </div>
   );
 };

@@ -11,11 +11,13 @@ const ProductDetails = () => {
   const { data, isLoading } = useGetSingleProductQuery(id as string);
   // console.log(data, 'datas');
 
+  window.scroll(0,0)
+  console.log('product details...');
   if (isLoading) {
     return <Loading />;
   }
 
-  const { name, description, price, quantity } = data?.data;
+  const { name, description, price, quantity, image } = data?.data;
 
   return (
     <div className="my-28  w-[80%] mx-auto">
@@ -24,7 +26,7 @@ const ProductDetails = () => {
         <div>
           <img
             className="w-[600px] h-72"
-            src="https://greengrocery.com.bd/wp-content/uploads/2023/12/cinnamon-2.jpg"
+            src={image}
           />
         </div>
         <div className="text-gray-700 ml-5 text-lg">

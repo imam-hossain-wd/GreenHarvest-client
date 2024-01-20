@@ -12,7 +12,6 @@ import {
 } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import useSweetAlert from "../../../hooks/useAlert";
-import useProductState from "../../../hooks/useProductState";
 import { useGetProductQuery } from "../../../redux/api/productApi";
 import { setCategory } from "../../../redux/slice/productSlice";
 import { IProduct } from "../../../types/ProductTypes";
@@ -25,9 +24,16 @@ import ColorButton from "../../../components/button/ColorButton";
 const TopProduct = () => {
   const dispatch = useAppDispatch();
   const showSavedAlert = useSweetAlert();
-  const productState = useProductState();
 
-  const { data, isLoading } = useGetProductQuery(productState);
+const product = {
+  category:"fish meat",
+  searchTerm:"",
+  sortBy:"",
+  sortOrder:"",
+  page:1,
+  limit:10,
+}
+  const { data, isLoading } = useGetProductQuery(product);
 
   const products = data?.data;
 
@@ -51,7 +57,7 @@ const TopProduct = () => {
   };
 
   useEffect(() => {
-    dispatch(setCategory("Fruits"));
+    dispatch(setCategory("fish meat"));
     updateSlidesToShow();
     window.addEventListener("resize", updateSlidesToShow);
 
@@ -101,8 +107,8 @@ const TopProduct = () => {
         spaceBetween={10}
         slidesPerView={slidesToShow}
         navigation={{
-          nextEl: ".swipert-button-next",
-          prevEl: ".swipert-button-prev",
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         }}
         scrollbar={{ draggable: true }}
       >
@@ -144,7 +150,7 @@ const TopProduct = () => {
                 <div className="flex justify-center overflow-hidden">
                   <img
                     className="w-40 h-40 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-                    src="https://i.ibb.co/cbbhKsm/shopping-banner.png"
+                    src={product?.image}
                     alt={`Slide ${index}`}
                   />
                 </div>
@@ -175,7 +181,7 @@ const TopProduct = () => {
         </div>
       </Swiper>
 
-      <div className="swipert-button-next absolute top-1/2 -right-5 transform -translate-y-1/2 z-10 bg-black opacity-25 -mt-5 text-white hover:bg-primary hover:opacity-100 w-9 h-9 flex justify-center items-center rounded-full">
+      <div className="swiper-button-next absolute top-1/2 -right-5 transform -translate-y-1/2 z-10 bg-black opacity-25 -mt-5 text-white hover:bg-primary hover:opacity-100 w-9 h-9 flex justify-center items-center rounded-full">
         <RightOutlined className="text-xl" />
       </div>
 
