@@ -16,7 +16,7 @@ import Benifits from "../Benifits/Benifits";
 
 const Home = () => {
     return (
-        <div className="mt-20">
+        <div className="">
             <HomeBanner />
             <ReferSection />
             <Benifits />

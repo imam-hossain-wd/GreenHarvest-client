@@ -38,11 +38,6 @@ const ProductCart = ({ product }: any) => {
               <EyeOutlined />
             </Link>
           </Button>
-          <Button className="absolute top-6  right-5 items-center z-10 transition rounded-full duration-200 text-[20px] flex justify-center items-center w-8 h-8 font-bold bg-[#e4f9c5] border-0 text-primary hover:text-white hover:bg-primary border-primary">
-            <Link to={`/product/${product?._id}`}>
-              <EyeOutlined />
-            </Link>
-          </Button>
 
           {
             //@ts-ignore

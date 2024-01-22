@@ -66,7 +66,6 @@ console.log(error);
 
     const card = elements.getElement(CardElement);
 
-    console.log(card, 'card cardcard');
 
     if (!card) {
       console.error("Card element is not available.");
@@ -141,6 +140,8 @@ console.log(error);
 
   };
 
+console.log(userData, 'userData');
+
   if(isLoading){
     return <Loading />
   }
@@ -153,8 +154,8 @@ console.log(error);
       <p className="text-lg mb-2 text-center -mt-3 text-primary">
         Total : {cart.total.toFixed(2)}
       </p>
-      <Input type="email" placeholder="Email" className="mb-3" />
-      <Input type="text" placeholder="Phone Number" className="mb-3" />
+      <Input type="email" defaultValue={userData?.email} placeholder="Email" className="mb-3" />
+      <Input type="text" defaultValue={userData?.phone} placeholder="Phone Number" className="mb-3" />
       <Input type="text" placeholder="Address" className="mb-3" />
       <CardElement
         options={{

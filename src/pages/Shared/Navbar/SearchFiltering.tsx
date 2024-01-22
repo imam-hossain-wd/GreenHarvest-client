@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 /* eslint-disable react-hooks/exhaustive-deps */
 
@@ -61,7 +62,7 @@ const SearchFiltering = () => {
 if (!products) return <h1>No products found</h1>;
 
   return (
-    <div className="flex flex-col lg:flex-row rounded items-center justify-around p-4 w-full mx-auto rounded ">
+    <div className="flex flex-col lg:flex-row items-center justify-around p-4 w-full mx-auto rounded ">
       <div className="flex items-center">
         <div className="flex items-center">
           <p className=" lg:ml-0 mr-2">SortBy :</p>
@@ -224,7 +225,7 @@ export const IntegerStep = () => {
 export const App = () => {
   const [sliderValue, setSliderValue] = useState([20, 200]);
 
-  const handleSliderChange = (event) => {
+  const handleSliderChange = (event:any) => {
     const { value, name } = event.target;
     const newValue = [...sliderValue];
     newValue[name === "slider1" ? 0 : 1] = Number(value);

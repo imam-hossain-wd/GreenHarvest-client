@@ -11,7 +11,6 @@ const productApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.product],
     }),
-
     getProduct: builder.query({
       query: ({ searchTerm="" , sortBy="", sortOrder="", page=1, limit=10, category }) =>
         `/product/?searchTerm=${searchTerm}&sortBy=${sortBy}&sortOrder=${sortOrder}&page=${page}&limit=${limit}&category=${category}`,

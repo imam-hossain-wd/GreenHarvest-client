@@ -95,7 +95,7 @@ const Navbar = () => {
   ];
 
   const closedButton = (
-    <div className="ml-72 ml-5">
+    <div className="ml-72">
       <OutletButton
         onClick={() => setOpen(!open)}
         className="lg:hidden text-xl h-8 w-8 rounded-full flex justify-center items-center -ml-2 mr-3 "
@@ -131,12 +131,6 @@ const Navbar = () => {
       >
         About
       </Link>
-      <Link
-        className="text-gray-800 hover:text-primary text-base no-underline mt-2 lg:mt-0 lg:mr-3  "
-        to="/booking"
-      >
-        Our Shop
-      </Link>
     </li>
   );
 
@@ -145,7 +139,7 @@ const Navbar = () => {
 
 
   return (
-    <section className="relative z-50 mb-20  w-full overflow-hidden">
+    <section className="relative z-50 mb-24  w-full overflow-hidden">
       
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
 
@@ -162,7 +156,7 @@ const Navbar = () => {
               Green<span className="">Harvest</span>
             </h3>
           </div>
-          <div className="flex items-center items-center">
+          <div className="flex  items-center">
             <ul className="hidden lg:flex ">{navMenuItems}
             
 
@@ -182,7 +176,7 @@ const Navbar = () => {
               <Dropdown menu={{ items:accountItems }} className="">
 
                  <OutletButton
-              className="text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center"
+              className="text-xl h-10 w-10 rounded-full flex justify-center items-center"
             >
               <UserOutlined />
             </OutletButton>

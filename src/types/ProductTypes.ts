@@ -11,3 +11,14 @@ export type IProduct = {
     updatedAt?: string;
     createdAt?: string;
   };
+
+  export type IReview ={
+    id?:string;
+    userName:string;
+    rating:number;
+    title:string;
+    productName:string;
+    userEmail:string;
+    userId:string;
+    comment:string;
+}

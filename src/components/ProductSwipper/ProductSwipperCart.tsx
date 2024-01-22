@@ -19,6 +19,9 @@ import { useEffect, useState } from "react";
 //@ts-ignore
 const ProductSwiper = ({ products,category, offer }) => {
 
+  console.log(category, 'category');
+  console.log(offer, 'offer');
+
     const [slidesToShow, setSlidesToShow] = useState(5);
 const dispatch = useAppDispatch();
 
@@ -63,15 +66,23 @@ useEffect(() => {
         <div className="flex">
             <h3>{offer?.title}</h3>
             <p
-              className="text-sm text-xs border border-primary text-white bg-primary px-2 py-1 ml-3 rounded"
+              className="text-xs border border-primary text-white bg-primary px-2 py-1 ml-3 rounded"
             >
               {offer?.weiver}
             </p>
           </div>
-  
-          <ColorButton className="w-20 h-6 flex justify-center items-center">
+
+          {
+            category === "related" ? <ColorButton className="w-28 h-6 flex justify-center items-center">
+            <Link to={`/product`}>More Product </Link>
+          </ColorButton> : <ColorButton className="w-20 h-6 flex justify-center items-center">
             <Link to="/product/category/Fruits">View All</Link>
           </ColorButton>
+          }
+  
+          {/* <ColorButton className="w-20 h-6 flex justify-center items-center">
+            <Link to="/product/category/Fruits">View All</Link>
+          </ColorButton> */}
         </div>
   </>
 
@@ -95,18 +106,18 @@ useEffect(() => {
           {products?.map((product: IProduct, index: number) => (
             <SwiperSlide key={index}>
               <div
-                className="bg-white shadow-xl rounded w-full w-72 py-4 mt-2"
+                className="bg-white shadow-xl rounded w-full lg:w-72 py-4 mt-2"
                 style={{ border: "1px solid #A8A8A8" }}
               >
                 <div className="flex justify-around">
                   <p
                     style={{ border: "1px sloid #37B149" }}
-                    className="text-sm text-xs  border-primary text-white bg-primary px-3 py-1 -ml-4 rounded-full"
+                    className=" text-xs border-primary text-white bg-primary px-3 py-1 -ml-4 rounded-full"
                   >
                     10% OFF
                   </p>
                   <div>
-                    <Button className="absolute top-6  right-5 items-center z-10 transition rounded-full duration-200 text-[20px] flex justify-center items-center w-8 h-8 font-bold bg-[#e4f9c5] border-0 text-primary hover:text-white hover:bg-primary border-primary">
+                    <Button className="absolute top-6  right-5  z-10 transition rounded-full duration-200 text-[20px] flex justify-center items-center w-8 h-8 font-bold bg-[#e4f9c5] border-0 text-primary hover:text-white hover:bg-primary border-primary">
                       <Link to={`/product/${product?._id}`}>
                         <EyeOutlined />
                       </Link>
@@ -115,14 +126,14 @@ useEffect(() => {
                     {!activeWishlistButtons[product?._id as string] ? (
                       <Button
                         onClick={() => addToCartWishlist(product)}
-                        className="absolute top-16 right-5 items-center z-10 transition rounded-full duration-200 text-[20px] flex justify-center items-center w-8 h-8 font-bold bg-[#e4f9c5] border-0 text-primary hover:text-white hover:bg-primary border-primary"
+                        className="absolute top-16 right-5 z-10 transition rounded-full duration-200 text-[20px] flex justify-center items-center w-8 h-8 font-bold bg-[#e4f9c5] border-0 text-primary hover:text-white hover:bg-primary border-primary"
                       >
                         <HeartOutlined />
                       </Button>
                     ) : (
                       <Button
                         onClick={() => removeToCartWishlist(product)}
-                        className="absolute top-16 right-5 items-center z-10 transition rounded-full duration-200 text-[20px] flex justify-center items-center w-8 h-8 font-bold border-0 text-primary bg-transparent"
+                        className="absolute top-16 right-5 z-10 transition rounded-full duration-200 text-[20px] flex justify-center items-center w-8 h-8 font-bold border-0 text-primary bg-transparent"
                       >
                         <HeartFilled />
                       </Button>

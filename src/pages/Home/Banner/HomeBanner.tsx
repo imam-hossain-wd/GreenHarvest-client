@@ -46,8 +46,8 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex h-[430px] justify-around bg-[#3AC950] mt-12 items-center shadow">
-      <div className="-mt- ml-10 text-white">
+    <div className="flex -mt-12 h-[430px] justify-around bg-[#3AC950] items-center shadow">
+      <div className=" ml-10 text-white">
         <h1 className="text-xl ">
           Don't Penic, Go Organic
         </h1>
@@ -55,11 +55,6 @@ const HomeBanner = () => {
           Healthy Vegetable that <br />
           Deserve to Eat Fresh
         </h4>
-
-        {/* <p className="my-5 text-lg">
-          We source and sell the very best beef, lamb, <br />
-          fish & herbs with the care from farmers.
-        </p> */}
 
         <OutletButton className="w-40 mt-5 text-lg font-bold h-10">
           Shopping Now
@@ -72,20 +67,20 @@ const HomeBanner = () => {
       />
       <OutletButton
         onClick={handleScrollToTop}
-        className="animated  items-center z-10 fixed right-5 bottom-16 transition rounded-full duration-200 text-[20px] flex justify-center items-center animate-bounce w-8 h-8 font-bold bg-primary "
+        className="animated z-10 fixed right-5 bottom-16 transition rounded-full duration-200 text-[20px] flex justify-center items-center animate-bounce w-8 h-8 font-bold bg-primary "
       >
         <ArrowUpOutlined />
       </OutletButton>
       <div>
         <ColorButton
           onClick={handleScrollToTop}
-          className="animated  items-center z-10 fixed right-5 bottom-36 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-primary "
+          className="animated z-10 fixed right-5 bottom-36 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-primary "
         >
           <WhatsAppOutlined />
         </ColorButton>
         <ColorButton
           onClick={handleScrollToTop}
-          className="animated  items-center z-10 fixed right-5 bottom-48 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-red-500 border-0 hover:text-red-500 hover:border hover:border-red-500 "
+          className="animated z-10 fixed right-5 bottom-48 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-red-500 border-0 hover:text-red-500 hover:border hover:border-red-500 "
         >
           <PhoneFilled />
         </ColorButton>
