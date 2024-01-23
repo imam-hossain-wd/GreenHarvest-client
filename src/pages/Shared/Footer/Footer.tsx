@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="">
       {/* contact info */}
 
-      <div className="flex justify-between w-[88%] mx-auto mb-5 border border-top">
-        <div className="flex">
+      <div className="flex flex-col lg:flex-row justify-between w-[88%] mx-auto mb-5 border border-top">
+        <div className="flex flex-col md:flex-row">
           <div className="flex mr-5">
             <p className="mr-2">
               <PhoneFilled />
@@ -22,7 +22,7 @@ const Footer = () => {
             <p>+8801624243747</p>
           </div>
 
-          <div className="flex">
+          <div className="flex mt-2 lg:mt-0">
             <p className="mr-2">
               <MailFilled />
             </p>
@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
         {/* social info */}
 
-        <div className="flex text-2xl w-40 justify-around mr-24">
+        <div className="flex mt-3 lg:mt-0 text-2xl w-40 justify-around mr-24">
           <Link
             to="https://www.linkedin.com/in/imam-hossain-web-dev/"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black  duration-300"
@@ -61,7 +61,7 @@ const Footer = () => {
       <hr className="mb-5 w-[95%] mx-auto"></hr>
 
       {/* --------------------------------- */}
-      <div className="flex flex-col lg:flex-row justify-around">
+      <div className="flex flex-col md:flex-row justify-around">
         <div>
           <h4>Categories</h4>
           <p className="mb-2 mt-3">Fruits and Vegetables</p>

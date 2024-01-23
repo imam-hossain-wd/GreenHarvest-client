@@ -4,7 +4,7 @@ import { useGetProductQuery } from "../../../redux/api/productApi";
 import { IProduct } from "../../../types/ProductTypes";
 import Loading from "../../Shared/loading/Loading";
 import ColorButton from "../../../components/button/ColorButton";
-import SearchSorting, { IPagination } from "../../Shared/Navbar/SearchFiltering";
+import SearchSorting, { IPagination } from "../../Shared/searchFiltering/SearchFiltering";
 import { useAppSelector } from "../../../redux/hooks";
 
 

@@ -56,9 +56,9 @@ const PopularCategory = () => {
 
     <div className="mt-5 w-full lg:w-[90%] flex flex-col justify-center items-center mx-auto">
     <h3 className="text-center my-5">Popular Category</h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center">
       {products.map((product: IProductProps, index: number) => (
-        <div key={index} className="border border-gray-300 rounded-lg p-4 flex items-center bg-primary h-18  text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300" style={{ border:"1px solid green"}}>
+        <div key={index} className="border border-gray-300 rounded-lg px-2 py-1 flex items-center bg-primary h-18  text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300" style={{ border:"1px solid green"}}>
           <div className="overflow-hidden flex justify-center items-center">
             <img
               className="w-14 rounded h-14 font-bold  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"

@@ -3,8 +3,8 @@ import ProductCart from "../../components/ProductCart/ProductCart";
 import { useGetProductQuery } from "../../redux/api/productApi";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { IProduct } from "../../types/ProductTypes";
-import SearchFiltering from "../Shared/Navbar/SearchFiltering";
-import  { IPagination } from "../Shared/Navbar/SearchFiltering";
+import SearchFiltering from "../Shared/searchFiltering/SearchFiltering";
+import  { IPagination } from "../Shared/searchFiltering/SearchFiltering";
 import Loading from "../Shared/loading/Loading";
 import { setLimit } from "../../redux/slice/productSlice";
 
