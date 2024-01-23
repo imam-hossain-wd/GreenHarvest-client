@@ -27,7 +27,7 @@ const VegatableFruitsCategory = () => {
 
   return (
     <div className="w-[90%] mx-auto">
-         <ProductSwiper category="fruits" products={products} offer={offer}/>
+         <ProductSwiper category="fruit vegatable" products={products} offer={offer}/>
     </div>
   );
 };

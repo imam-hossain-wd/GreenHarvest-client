@@ -10,7 +10,7 @@ import FormInput from "../../components/Forms/InputForm";
 import { Rate, message } from "antd";
 import { useAddProductReviewMutation, useGetReviewsQuery } from "../../redux/api/reviewApi";
 import { IReview } from "../../types/ProductTypes";
-
+import { UserOutlined } from "@ant-design/icons";
 
 interface IReviewProductName {
   productName: string;
@@ -48,6 +48,7 @@ const Review = ({ productName }: IReviewProductName) => {
       comment,
       rating,
     };
+    console.log(userRivew, 'userRivew');
     const result = await addProductReview(userRivew).unwrap();
     if (result.success === true) {
       message.success(result?.message);
@@ -168,19 +169,9 @@ const Review = ({ productName }: IReviewProductName) => {
                   className="bg-gray-100 w-full flex  p-3 m-2 rounded"
                   key={review?.id}
                 >
-                  {/* {review?.user?.userImage ? (
-                    <Image
-                      src={review?.user?.userImage}
-                      alt="review"
-                      width={20}
-                      height={20}
-                    />
-                  ) : (
                     <p className="text-4xl flex justify-center items-center font-bold bg-gray-200 rounded-full p-2 w-14 h-14">
                       <UserOutlined />
                     </p>
-                  )} */}
-                 
                  <div className="flex justify-between">
                  <div className="flex flex-col ml-8 mr-10">
                     <p className="mb-2">
@@ -189,11 +180,9 @@ const Review = ({ productName }: IReviewProductName) => {
                     <p>{review?.comment}</p>
                   </div>
                   <div className="">
-                    {/* <Rate disabled count={4} defaultValue={4} /> */}
-                    <Rate disabled count={review.rating} defaultValue={review.rating} />
+                    <Rate disabled count={4} defaultValue={4} />
                   </div>
                  </div>
-  
                 </div>
               ))}
           </div>

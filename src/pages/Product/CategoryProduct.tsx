@@ -1,39 +1,61 @@
-import { useParams } from "react-router-dom";
-import { useGetProductQuery } from "../../redux/api/productApi";
-import useProductState from "../../hooks/useProductState";
-import Loading from "../Shared/loading/Loading";
-import { useAppDispatch } from "../../redux/hooks";
 import { useEffect } from "react";
-import { setCategory } from "../../redux/slice/productSlice";
+import ProductCart from "../../components/ProductCart/ProductCart";
+import { useGetProductQuery } from "../../redux/api/productApi";
+import { useAppDispatch} from "../../redux/hooks";
+import { IProduct } from "../../types/ProductTypes";
+import SearchFiltering from "../Shared/Navbar/SearchFiltering";
+import  { IPagination } from "../Shared/Navbar/SearchFiltering";
+import Loading from "../Shared/loading/Loading";
+import { setCategory, setLimit } from "../../redux/slice/productSlice";
+import useProductState from "../../hooks/useProductState";
+import { useParams } from "react-router-dom";
 
 
 const CategoryProduct = () => {
+
+    const dispatch = useAppDispatch()
     const {category} = useParams();
     const productState = useProductState();
-    const dispatch = useAppDispatch();
-    console.log(category, 'cccccc');
+  window.scroll(0,0)
+  
+  useEffect(()=> {
+    dispatch(setLimit(12))
+    dispatch(setCategory(category as string))
+  }, [dispatch, category])
  
+  const { data, isLoading } = useGetProductQuery(productState);
+const products = data?.data;
 
-    useEffect(() => {
-        if (category) {
-            dispatch(setCategory(category)); 
-        }
-    }, [category, dispatch]);
 
-    const { data, isLoading } = useGetProductQuery(productState);
+  if (isLoading) {
+    return <Loading />;
+  }
+  return (
+    <div>
+      <h1 className="lg:text-center mb-2 mt-28">Category : {}</h1>
 
-    const products = data?.data;
-    console.log(products, 'category products....');
+      <div>
+        <SearchFiltering />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-[80%] mx-auto gap-5">
+        {products &&
+          products.map((product: IProduct) => (
+            <div
+              className="border border-primary shadow-lg no-underline"
+              key={product._id}
+            >
+              <ProductCart product={product} />
+            </div>
+          ))}
+      </div>
 
-    if(isLoading){
-        return <Loading />
-    }
+      <div className="flex justify-end items-center">
 
-    return (
-        <div>
-            <h1>This is category Product page</h1>
-        </div>
-    );
+      <IPagination />
+      </div>
+    </div>
+
+  );
 };
 
 export default CategoryProduct;

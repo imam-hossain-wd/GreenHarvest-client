@@ -19,9 +19,6 @@ import { useEffect, useState } from "react";
 //@ts-ignore
 const ProductSwiper = ({ products,category, offer }) => {
 
-  console.log(category, 'category');
-  console.log(offer, 'offer');
-
     const [slidesToShow, setSlidesToShow] = useState(5);
 const dispatch = useAppDispatch();
 
@@ -76,7 +73,7 @@ useEffect(() => {
             category === "related" ? <ColorButton className="w-28 h-6 flex justify-center items-center">
             <Link to={`/product`}>More Product </Link>
           </ColorButton> : <ColorButton className="w-20 h-6 flex justify-center items-center">
-            <Link to="/product/category/Fruits">View All</Link>
+            <Link to={`/product/category/${category}`}>View All</Link>
           </ColorButton>
           }
   
