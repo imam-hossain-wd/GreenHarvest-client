@@ -26,6 +26,7 @@ const FormTextArea = ({
         render={({ field }) => (
           <Input.TextArea
             rows={rows}
+            className="hover:border-primary h-28 focus:border-primary"
             placeholder={placeholder}
             {...field}
             defaultValue={value}

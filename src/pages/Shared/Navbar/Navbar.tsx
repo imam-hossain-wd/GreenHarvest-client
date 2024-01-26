@@ -115,14 +115,14 @@ const Navbar = () => {
   return (
     <div className="relative z-50 mb-24  w-full overflow-hidden">
     <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
-    <div>
+    <div className="hidden lg:block">
   <UpperNav />
   </div>
       <nav className="flex justify-between p-3 w-[90%] mx-auto">
         <div className="flex items-center">
           <OutletButton
             onClick={showDrawer}
-            className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-2 mr-3 "
+            className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-5 mr-3 "
           >
             <MenuOutlined />
           </OutletButton>
@@ -135,8 +135,8 @@ const Navbar = () => {
           src="https://i.ibb.co/QXHFgbc/icon.png"
         />
         <div>
-          <p className="text-sm uppercase font-bold">Green Harvest</p>
-          <p className="text-xs text-primary font-bold">Super Shop</p>
+          <p className="text-sm uppercase font-bold ">Green Harvest</p>
+          <p className="text-xs mt-[1px] text-primary font-bold">Super Shop</p>
         </div>
 
         <ul className="hidden lg:flex ml-20">{navMenuItems}</ul>
@@ -164,7 +164,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-      <nav>
+      <nav className="">
         {/* navbar items drawer sm device */}
         <Drawer
           placement="left"

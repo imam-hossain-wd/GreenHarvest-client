@@ -7,6 +7,7 @@ import {
 } from "@ant-design/icons";
 
 import ColorButton from "../../../components/button/ColorButton";
+import { Button } from "antd";
 
 const HomeBanner = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -46,8 +47,8 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex -mt-12 h-[430px] justify-around bg-[#3AC950] items-center shadow">
-      <div className=" ml-10 text-white">
+    <div className="flex mt-28 h-[430px] justify-around bg-[#3AC950] items-center shadow">
+      <div className=" ml-16 text-white">
         <h1 className="text-xl ">
           Don't Penic, Go Organic
         </h1>
@@ -56,13 +57,16 @@ const HomeBanner = () => {
           Deserve to Eat Fresh
         </h4>
 
-        <OutletButton className="w-40 mt-5 text-lg font-bold h-10">
+        {/* <OutletButton className="w-40 mt-5 text-lg font-bold h-10">
           Shopping Now
-        </OutletButton>
+        </OutletButton> */}
+        <Button type="primary" className="bg-orange-500 text-[17px] flex justify-center items-center mt-3 py-4">
+        Shopping Now
+        </Button>
       </div>
       {/* home banner */}
       <img
-        className="w-[500px] h-[350px] "
+        className="w-[500px] h-[350px] ml-40"
         src={images[currentImageIndex].img}
       />
       <OutletButton

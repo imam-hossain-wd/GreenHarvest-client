@@ -21,6 +21,7 @@ import Order from "../pages/Dashboard/Order/Order";
 import PrivateRoute from "./PrivateRoute";
 import AboutPage from "../pages/about/About";
 import CategoryProduct from "../pages/Product/CategoryProduct";
+import PopularProductCategory from "../pages/Home/PopularCategory/PopularProductCategory";
 
 
 
@@ -46,6 +47,14 @@ import CategoryProduct from "../pages/Product/CategoryProduct";
         {
           path: "/product/category/:category",
           element: <CategoryProduct />,
+        },
+        {
+          path: "/category/:category/:category",
+          element: <CategoryProduct />,
+        },
+        {
+          path: "/category/:category",
+          element: <PopularProductCategory />,
         },
         {
           path: 'signup',

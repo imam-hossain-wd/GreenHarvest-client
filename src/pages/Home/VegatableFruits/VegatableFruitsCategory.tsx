@@ -5,7 +5,7 @@ import ProductSwiper from "../../../components/ProductSwipper/ProductSwipperCart
 const VegatableFruitsCategory = () => {
 
   const productState = {
-    category:"fruit vegatable",
+    category:"vegetable",
     searchTerm:"",
     sortBy:"",
     sortOrder:"",
@@ -21,13 +21,13 @@ const VegatableFruitsCategory = () => {
     return <Loading />;
   }
   const offer = {
-    title:"Fresh Fruits & Vegatables",
+    title:"Fresh Fruits",
     weiver:"2% OFF"
   }
 
   return (
     <div className="w-[90%] mx-auto">
-         <ProductSwiper category="fruit vegatable" products={products} offer={offer}/>
+         <ProductSwiper category="fruit" products={products} offer={offer}/>
     </div>
   );
 };

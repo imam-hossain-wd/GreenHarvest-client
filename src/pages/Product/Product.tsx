@@ -10,6 +10,8 @@ import { setLimit } from "../../redux/slice/productSlice";
 
 
 const Product = () => {
+
+  window.scroll(0,0)
   
   const { searchTerm, sortBy, sortOrder, page, limit,category } = useAppSelector(state => state.product);
   const dispatch = useAppDispatch()
@@ -26,7 +28,7 @@ const products = data?.data;
     return <Loading />;
   }
   return (
-    <div>
+    <div className="mt-36">
       <h1 className="lg:text-center mb-2 mt-28">Best Selling Products</h1>
 
       <div>

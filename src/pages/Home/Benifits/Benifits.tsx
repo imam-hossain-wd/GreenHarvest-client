@@ -6,9 +6,7 @@ type IBenifitsProps = {
 }
 
 const Benifits = () => {
-
-
-
+   
 
 const items = [
     {
@@ -45,14 +43,13 @@ const items = [
                             <div className="ml-4 text-sm">
                                 <p className="mb-2">{item.title}</p>
                                 <p className="">{item.condition}</p>
-
                             </div>
-
                         </div>
                     ))
                 }
             </div>
-            
+
+          
         </div>
     );
 };

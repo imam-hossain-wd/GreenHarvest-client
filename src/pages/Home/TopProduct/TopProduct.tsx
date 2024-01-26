@@ -5,7 +5,7 @@ import ProductSwiper from "../../../components/ProductSwipper/ProductSwipperCart
 
 const TopProduct = () => {
   const product = {
-    category: "fish meat",
+    category: "meat",
     searchTerm: "",
     sortBy: "",
     sortOrder: "",

@@ -71,27 +71,35 @@ export const sortOptions = [
 export const categoryOptions = [
     {
         label: "Fish",
-        value:"Fish"
+        value:"fish"
     },
     {
         label: "Vegetables",
-        value:"Vegetables"
+        value:"vegetable"
     },
     {
-        label: "Fruits",
-        value:"Fruits"
+        label: "Meat",
+        value:"meat"
     },
     {
         label: "Rice",
-        value:"Rice"
+        value:"rice"
     },
     {
-        label: "Meals",
-        value:"Meals"
+        label: "Spices",
+        value:"spices"
     },
     {
         label: "Tea",
-        value:"Tea"
+        value:"tea"
+    },
+    {
+        label: "Coffee",
+        value:"coffee"
+    },
+    {
+        label: "Juice",
+        value:"juice"
     },
   
 ]

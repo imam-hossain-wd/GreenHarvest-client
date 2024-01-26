@@ -58,7 +58,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <hr className="mb-5 w-[95%] mx-auto"></hr>
+      <hr className="mb-5 w-[95%] mx-auto border-[#C8C8C8]"></hr>
 
       {/* --------------------------------- */}
       <div className="flex flex-col md:flex-row justify-around">
