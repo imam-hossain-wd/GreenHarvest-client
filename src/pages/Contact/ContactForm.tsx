@@ -9,6 +9,8 @@ import FormInput from "../../components/Forms/InputForm";
 import FormTextArea from "../../components/Forms/FormTextArea";
 import ColorButton from "../../components/button/ColorButton";
 import emailjs from "@emailjs/browser";
+import { HomeOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 interface FormValues {
   name: string;
@@ -67,9 +69,32 @@ const ContactForm = () => {
     },
   ];
 
+
+
   return (
-    <div className="mt-40 mb-10 w-full lg:w-[90%] flex flex-col lg:flex-row  bg-white">
-      <div className="flex flex-col mt-9 items-center  w-full lg:w-[50%]">
+    <div className="mt-40">
+
+<div className="relative">
+
+<img src="https://i.ibb.co/BTwMPLK/page-hero-bg.png"/>
+
+<div className=" absolute top-[35%] font-bold text-black right-[50%]">
+
+<div className="mb-2 ml-5">
+  <p className="italic text-primary mb-2 text-lg">Explore</p>
+  <h3>Contact Us</h3>
+</div>
+<div>
+   <Link className="no-underline text-black mr-2" to="/"><HomeOutlined /></Link>
+   <Link className="no-underline text-black mr-2" to="/">Home</Link>
+   <Link className="no-underline text-black mr-2" to="/">Contact Us</Link>
+</div>
+</div>
+</div>
+
+ 
+    <div className=" mb-10 w-full lg:w-[90%] flex flex-col lg:flex-row  bg-white">
+      <div className="flex flex-col mt-9 ml-5 lg:0 items-center  w-full lg:w-[50%]">
         <div className="mb-10 flex flex-col ">
           <h2 className="my-2">Support is our main priority </h2>
 
@@ -150,6 +175,7 @@ const ContactForm = () => {
           </div>
         </Form>
       </div>
+    </div>
     </div>
   );
 };
