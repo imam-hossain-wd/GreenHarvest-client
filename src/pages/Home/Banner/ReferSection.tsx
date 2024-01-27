@@ -53,7 +53,7 @@ export default function ReferSection() {
   };
 
   return (
-    <div className="mt-5 w-[90%] mx-auto">
+    <div className="mt-24 lg:mt-5 w-[90%] mx-auto">
       <Swiper
          modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
          spaceBetween={50}

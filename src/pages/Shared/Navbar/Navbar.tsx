@@ -107,7 +107,7 @@ const Navbar = () => {
         className="text-gray-800 hover:text-primary text-base no-underline mt-2 lg:mt-0 lg:mr-3"
         to="/about"
       >
-        Career
+        Category
       </Link>
     </li>
   );

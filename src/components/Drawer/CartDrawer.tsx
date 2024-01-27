@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ShoppingCartOutlined } from "@ant-design/icons";
-
 import { useState } from "react";
-import { Button, Drawer } from "antd";
-import { CloseOutlined, PlusOutlined, MinusOutlined } from "@ant-design/icons";
+import {  Drawer } from "antd";
+import { CloseOutlined, PlusOutlined, MinusOutlined ,DeleteFilled } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   addToCart,
@@ -35,10 +34,10 @@ const CartDrawer = () => {
   );
 
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <OutletButton
         onClick={showDrawer}
-        className="ml-2 text-xl h-10 w-10 text-2xl rounded-full flex justify-center items-center"
+        className="ml-2 text-xl h-10 w-10 rounded-full flex justify-center items-center"
       >
         <ShoppingCartOutlined />
       </OutletButton>
@@ -90,20 +89,20 @@ const CartDrawer = () => {
                   <div>
                     <img
                       className="w-20 h-20 rounded"
-                      src="https://greengrocery.com.bd/wp-content/uploads/2023/08/pistachio-300x300.jpg"
+                      src={cartItem?.image}
                     />
                   </div>
-                  <div className="ml-5 flex justify-around items-center">
-                    <div>
-                      <p className="text-lg font-semibold mb-2">
+                  <div className="ml-4 flex justify-around items-center">
+                    <div className="w-24 flex flex-col justify-center items-center">
+                      <p className="font-semibold text-sm mb-2">
                         {cartItem?.name}
                       </p>
 
                       <p className="text-lg text-gray-700 font-semibold">
-                        {cartItem?.quantity} x $ {cartItem?.price}{" "}
+                        {cartItem?.quantity} x ${cartItem?.price}{" "}
                       </p>
 
-                      <div className="flex text-primary items-center ml-5 text-xl mt-2 mb-2">
+                      <div className="flex text-primary items-center text-xl mt-2 mb-2">
                         <MinusOutlined
                           className="bg-primary rounded text-white mr-2"
                           onClick={() => dispatch(removeOne(cartItem))}
@@ -114,16 +113,16 @@ const CartDrawer = () => {
                         />
                       </div>
                     </div>
-                    <Button className=" bg-white hover:bg-primary border-primary text-xs text-primary hover:text-white w-6 h-7 flex justify-center items-center ml-5">
-                      <CloseOutlined
-                        className=""
-                        onClick={() => dispatch(removeFromCart(cartItem))}
-                      />
-                    </Button>
+                    <button className="text-red-500 border-0 text-2xl ml-5">
+                      <DeleteFilled 
+                       className=""
+                       onClick={() => dispatch(removeFromCart(cartItem))}/>
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
+
         </div>
       </Drawer>
     </div>

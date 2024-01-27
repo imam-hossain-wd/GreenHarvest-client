@@ -49,20 +49,22 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex mt-28 w-[90%] mx-auto h-[430px] justify-between    items-center">
-      <div className=" w-[50%] ml-10">
-        <div className="">
-          <h1 className="text-black z-10 -mb-[80px]  bg-yellow-400 w-60 p-2 italic rounded-full -rotate-12 text-3xl text-center ">
-            Vegetables
-          </h1>
-          <h1 className="text-white z-40  bg-primary  text-xl w-48 ml-5 rounded-full  p-2 italic -rotate-12 text-center mb-5">
+    <div className="flex flex-col lg:flex-row mt-28 w-[90%] mx-auto h-screen lg:h-[430px] justify-around items-center">
+      <div className="w-full lg:w-[50%] ml-0 lg:ml-8">
+        <div className="relative mt-10 lg:mt-0">
+
+        <h1 className="text-white absolute -top-8  bg-primary z-10 text-xl w-48 ml-5 rounded-full  p-2 italic -rotate-12 text-center mb-5">
             {" "}
             Fresh & Healthy
           </h1>
+          <h1 className=" text-black z-10 bg-yellow-400 w-60 p-2 italic rounded-full -rotate-12 text-3xl text-center ">
+            Vegetables
+          </h1>
+         
         </div>
 
-        <h1 className="text-xl mt-20 ">Don't Penic, Go Organic</h1>
-        <h4 className="text-3xl  mt-3">
+        <h1 className="text-xl mt-10 ">Don't Penic, Go Organic</h1>
+        <h4 className="text-3xl mt-2">
           Healthy Vegetable that <br />
           Deserve to Eat Fresh
         </h4>
@@ -100,16 +102,18 @@ const HomeBanner = () => {
         </div>
       </div>
 
-      <div className="relative">
+     <div className="mb-20 -ml-40">
+     <div className="relative ">
         <img
-          className="w-full lg:w-[600px] mt-10 rounded-xl h-[400px] "
+          className="w-full lg:w-[600px] mt-16 rounded-xl h-[400px] "
           src={images[currentImageIndex].img}
         />
         <img
-          className="w-32 h-32 -mt-10 absolute rounded-full top-10 right-0"
+          className="w-32 h-32 mt-0 absolute rounded-full top-10 right-0"
           src="https://i.ibb.co/WpbXHPq/50off-removebg-preview.png"
         />
       </div>
+     </div>
 
       <OutletButton
         onClick={handleScrollToTop}
