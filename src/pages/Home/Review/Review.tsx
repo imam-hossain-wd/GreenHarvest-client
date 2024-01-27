@@ -15,10 +15,6 @@ type ItemsProps = {
   rating:number;
 };
 
-// 
-// 
-
-// 
 export default function Review() {
   const items = [
     {
