@@ -44,9 +44,7 @@ const AboutPage = () => {
           />
         </div>
       </div>
-
       <WeProvideSection />
-
       <OurTeam />
     </div>
   );

@@ -4,10 +4,12 @@ import {
   ArrowUpOutlined,
   PhoneFilled,
   WhatsAppOutlined,
+  FacebookFilled,
+  LinkedinFilled,
+  TwitterOutlined,
 } from "@ant-design/icons";
-
 import ColorButton from "../../../components/button/ColorButton";
-import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 const HomeBanner = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -47,28 +49,68 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex mt-28 h-[430px] justify-around bg-[#3AC950] items-center shadow">
-      <div className=" ml-16 text-white">
-        <h1 className="text-xl ">
-          Don't Penic, Go Organic
-        </h1>
-        <h4 className="text-3xl  mt-2">
+    <div className="flex mt-28 w-[90%] mx-auto h-[430px] justify-between    items-center">
+      <div className=" w-[50%] ml-10">
+        <div className="">
+          <h1 className="text-black z-10 -mb-[80px]  bg-yellow-400 w-60 p-2 italic rounded-full -rotate-12 text-3xl text-center ">
+            Vegetables
+          </h1>
+          <h1 className="text-white z-40  bg-primary  text-xl w-48 ml-5 rounded-full  p-2 italic -rotate-12 text-center mb-5">
+            {" "}
+            Fresh & Healthy
+          </h1>
+        </div>
+
+        <h1 className="text-xl mt-20 ">Don't Penic, Go Organic</h1>
+        <h4 className="text-3xl  mt-3">
           Healthy Vegetable that <br />
           Deserve to Eat Fresh
         </h4>
 
-        {/* <OutletButton className="w-40 mt-5 text-lg font-bold h-10">
+        <ColorButton className="w-36 mt-5 mb-5  rounded-full h-9">
           Shopping Now
-        </OutletButton> */}
-        <Button type="primary" className="bg-orange-500 text-[17px] flex justify-center items-center mt-3 py-4">
-        Shopping Now
-        </Button>
+        </ColorButton>
+
+        <div className="flex lg:mt-0 text-2xl w-36 justify-around mr-24">
+          <Link
+            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  text-black duration-300"
+          >
+            <TwitterOutlined />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  text-black duration-300"
+          >
+            <WhatsAppOutlined />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110   text-black duration-300"
+          >
+            <FacebookFilled />
+          </Link>
+
+          <Link
+            to=""
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300"
+          >
+            <LinkedinFilled />
+          </Link>
+        </div>
       </div>
-      {/* home banner */}
-      <img
-        className="w-[500px] h-[350px] ml-40"
-        src={images[currentImageIndex].img}
-      />
+
+      <div className="relative">
+        <img
+          className="w-full lg:w-[600px] mt-10 rounded-xl h-[400px] "
+          src={images[currentImageIndex].img}
+        />
+        <img
+          className="w-32 h-32 -mt-10 absolute rounded-full top-10 right-0"
+          src="https://i.ibb.co/WpbXHPq/50off-removebg-preview.png"
+        />
+      </div>
+
       <OutletButton
         onClick={handleScrollToTop}
         className="animated z-10 fixed right-5 bottom-16 transition rounded-full duration-200 text-[20px] flex justify-center items-center animate-bounce w-8 h-8 font-bold bg-primary "

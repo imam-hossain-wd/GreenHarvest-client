@@ -7,6 +7,9 @@ import VegatableFruitsCategory from "../VegatableFruits/VegatableFruitsCategory"
 import SpecialOffers from "../SpecialOffers/SpecialOffers";
 import Review from "../Review/Review";
 import Benifits from "../Benifits/Benifits";
+import WeProvideSection from "../../about/WeProvideSection";
+import ContactForm from "../../Contact/ContactForm";
+import OurTeam from "../../about/OurTeam";
 
 
 
@@ -26,7 +29,10 @@ const Home = () => {
             <VegatableFruitsCategory /> 
             <VegatableFruitsCategory /> 
             <SpecialOffers />
+            <WeProvideSection />
             <ShopGetMore />
+            <ContactForm />
+            <OurTeam />
             <Review />
             {/* <HomeProduct /> */}
         </div>

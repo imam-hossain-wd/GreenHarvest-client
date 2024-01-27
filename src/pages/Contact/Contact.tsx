@@ -4,7 +4,8 @@ import GoogleMap from "./GoogleMap";
 
 const ContactPage = () => {
   return (
-   <div>
+   <div className="mt-32">
+    <img className="h-80 w-full" src="https://i.ibb.co/3S02ZRs/market-concept-with-vegetables.jpg"/>
     <ContactForm />
     <GoogleMap />
 

@@ -20,7 +20,7 @@ import {
   removeUserInfo,
 } from "../../../utils/auth.Services";
 import OutletButton from "../../../components/button/Button";
-import UpperNav from "./UpperNav";
+
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -116,7 +116,7 @@ const Navbar = () => {
     <div className="relative z-50 mb-24  w-full overflow-hidden">
     <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
     <div className="hidden lg:block">
-  <UpperNav />
+  {/* <UpperNav /> */}
   </div>
       <nav className="flex justify-between p-3 w-[90%] mx-auto">
         <div className="flex items-center">

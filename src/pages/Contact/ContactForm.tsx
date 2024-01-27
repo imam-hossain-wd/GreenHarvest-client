@@ -70,10 +70,9 @@ const ContactForm = () => {
 
 
   return (
-    <div className="mt-32">
+    <div className="">
 
 <div className="">
-<img className="h-80 w-full" src="https://i.ibb.co/3S02ZRs/market-concept-with-vegetables.jpg"/>
 <h2 className="text-center mt-5 text-2xl -ml-10 italic">Contact us</h2>
 </div>
 
