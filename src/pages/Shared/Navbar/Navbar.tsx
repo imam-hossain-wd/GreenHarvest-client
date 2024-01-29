@@ -23,7 +23,8 @@ import {
 import OutletButton from "../../../components/button/Button";
 import './style.css'
 import ColorButton from "../../../components/button/ColorButton";
-import Submenu from "./SubMenu";
+import App from "./Modal";
+
 
 
 const Navbar = () => {
@@ -32,7 +33,15 @@ const Navbar = () => {
   const accessToken = useAppSelector(selectAccessToken);
   const { role } = getUserInfo() as any;
   const location = useLocation();
-  console.log(location.pathname, "location.pathname");
+  const [showFirstCategory, setShowFirstCategory] = useState(true);
+  const [showSecondCategory, setShowSecondCategory] = useState(false);
+  
+  const handleSliderChanger = ()=> {
+
+    console.log("clicked");
+    setShowFirstCategory(!showFirstCategory);
+    setShowSecondCategory(!showSecondCategory)
+  }
 
   const showDrawer = () => {
     setOpen(true);
@@ -67,12 +76,16 @@ const Navbar = () => {
   ];
 
   const closedButton = (
+  <div className="flex justify-between">
+    <App />
+
       <OutletButton
         onClick={() => setOpen(!open)}
-        className="ml-72 lg:hidden text-xl h-8 w-8 rounded-full flex justify-center items-center mr-3 "
-      >
+        className=" lg:hidden text-xl h-8 w-8 rounded-full flex justify-center items-center mr-3 "
+        >
         <CloseOutlined />
       </OutletButton>
+        </div>
   );
 
   const navMenuItems = (
@@ -120,10 +133,10 @@ const Navbar = () => {
 
       <div className="relative group">
         <div className="group w-full">
-          <Link
+          <Link 
             className={`${
               location.pathname === "/category" ? "text-primary" : ""
-            } text-black hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline`}
+            } text-black hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline hidden lg:block`}
             to="/category"
           >
             Category
@@ -135,7 +148,9 @@ const Navbar = () => {
           >
             <div className="w-[300px] lg:w-[800px] text-[15px]  -ml-20 lg:-ml-[400px] mt-6 shadow-2xl bg-white z-10 p-5 category-parent group-hover:flex flex-wrap justify-around ">
 
-              <div className="w-44 p-5 -mt-3 flex flex-col gap-2">
+             {
+              showFirstCategory &&  <div className="grid grid-cols-4">
+                <div className="w-44 p-5 -mt-3 flex flex-col gap-2">
                 <h4
                   className="pb-2"
                   style={{ borderBottom: "2px dotted #84C225" }}
@@ -255,15 +270,146 @@ const Navbar = () => {
                   <Link className="text-black hover:text-primary no-underline" to="/">Soft Drinks</Link>
                   <Link className="text-black hover:text-primary no-underline" to="/">Powder Drinks</Link>
                 </div>
-               <Link className="no-underline" to="/category">
-               <ColorButton className="flex h-8 w-32 justify-center items-center text-xs ">
+               {/* <Link className="no-underline" to="/category"> */}
+               <ColorButton onClick={handleSliderChanger} className="flex ml-[600px] h-8 w-32 justify-center items-center text-xs ">
                   More Category <SendOutlined />
                   </ColorButton>
-               </Link>
+               {/* </Link> */}
+              </div>
 
+             }
+
+             {
+              showSecondCategory &&  <div className="grid grid-cols-4">
+              <div className="w-44 p-5 -mt-3 flex flex-col gap-2">
+              <h4
+                className="pb-2"
+                style={{ borderBottom: "2px dotted #84C225" }}
+              >
+                Health Product
+              </h4>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Fresh Fruits
+              </Link>
+              <Link
+                className="text-black no-underline hover:text-primary"
+                to="/"
+              >
+                Fresh Vegatables
+              </Link>
             </div>
 
-           
+            <div className="w-44 p-5 -mt-3 flex flex-col gap-2 ">
+              <h4
+                className="pb-2"
+                style={{ borderBottom: "2px dotted #84C225" }}
+              >
+                Home & Cleaning
+              </h4>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Frozen Fish
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Meat
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Dried Fish
+              </Link>
+            </div>
+
+            <div className="w-44 p-5 -mt-3 flex flex-col gap-2 ">
+              <h4
+                className="pb-2 "
+                style={{ borderBottom: "2px dotted #84C225" }}
+              >
+                Baby Care
+              </h4>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Spices
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Salt Sugar
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Rice
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Dal or Lantil
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Ready Mix
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Oil
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Ghee
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/"
+              >
+                Shemai & Suji
+              </Link>
+            </div>
+
+            <div className="w-48 p-5 -mt-3 flex flex-col gap-2 ">
+              <h4 className="pb-2" style={{borderBottom:"2px dotted #84C225"}}>Kitchen Appliances</h4>
+                <Link className="text-black tree-product hover:text-primary no-underline" to="/">Tree</Link>
+                <Link className="text-black hover:text-primary no-underline" to="/">Coffee</Link>
+                <Link className="text-black hover:text-primary no-underline" to="/">Soft Drinks</Link>
+                <Link className="text-black hover:text-primary no-underline" to="/">Powder Drinks</Link>
+              </div> 
+
+            <div className="w-44  tree-product-items p-5 -mt-3 flex-col gap-2 ">
+              <h4 className="pb-2" style={{borderBottom:"2px dotted #84C225"}}></h4>
+                <Link className="text-black hover:text-primary no-underline" to="/">Tree</Link>
+                <Link className="text-black hover:text-primary no-underline" to="/">Coffee</Link>
+                <Link className="text-black hover:text-primary no-underline" to="/">Soft Drinks</Link>
+                <Link className="text-black hover:text-primary no-underline" to="/">Powder Drinks</Link>
+              </div>
+             {/* <Link className="no-underline" to="/category"> */}
+             <ColorButton onClick={handleSliderChanger} className="flex ml-[600px] h-8 w-32 justify-center items-center text-xs ">
+                Previous Category <SendOutlined />
+                </ColorButton>
+             {/* </Link> */}
+            </div>
+             }
+
+            </div>
           </div>
         </div>
       </div>
@@ -273,88 +419,88 @@ const Navbar = () => {
   
                 {/* --------------------------------------- */}
 
-              {/* <div className=" -mt-3 flex flex-col gap-2 ">
-                <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Home & Cleaning</h4>
-                  <Link className="text-black no-underline" to="/">Dishwashing Supplies</Link>
-                  <Link className="text-black no-underline" to="/">Lundary</Link>
-                  <Link className="text-black no-underline" to="/">Cleaning Accessories</Link>
-                  <Link className="text-black no-underline" to="/">Floor & Glass cleaner</Link>
-                  <Link className="text-black no-underline" to="/">Toilet Cleaner</Link>
-                  <Link className="text-black no-underline" to="/">Trash Bin & Basket</Link>
-                </div> */}
-              {/* <div className=" -mt-3 flex flex-col gap-2 ">
-                <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Health Products</h4>
-                  <Link className="text-black no-underline" to="/">Antiseptics</Link>
-                  <Link className="text-black no-underline" to="/">Handwash & Handrub</Link>
-                  <Link className="text-black no-underline" to="/">Food Supplement</Link>
-                  <Link className="text-black no-underline" to="/">Herbal & Digestive Aids</Link>
-                </div>
+            //  <div className=" -mt-3 flex flex-col gap-2 ">
+            //     <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Home & Cleaning</h4>
+            //       <Link className="text-black no-underline" to="/">Dishwashing Supplies</Link>
+            //       <Link className="text-black no-underline" to="/">Lundary</Link>
+            //       <Link className="text-black no-underline" to="/">Cleaning Accessories</Link>
+            //       <Link className="text-black no-underline" to="/">Floor & Glass cleaner</Link>
+            //       <Link className="text-black no-underline" to="/">Toilet Cleaner</Link>
+            //       <Link className="text-black no-underline" to="/">Trash Bin & Basket</Link>
+            //     </div> 
+            //   <div className=" -mt-3 flex flex-col gap-2 ">
+            //     <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Health Products</h4>
+            //       <Link className="text-black no-underline" to="/">Antiseptics</Link>
+            //       <Link className="text-black no-underline" to="/">Handwash & Handrub</Link>
+            //       <Link className="text-black no-underline" to="/">Food Supplement</Link>
+            //       <Link className="text-black no-underline" to="/">Herbal & Digestive Aids</Link>
+            //     </div>
               
    
-              {/* <div className=" -mt-3 flex flex-col gap-2 ">
-                <h4
-                  className="pb-2"
-                  style={{ borderBottom: "2px dotted #84C225" }}
-                >
-                  Other Category
-                </h4>
+            //    <div className=" -mt-3 flex flex-col gap-2 ">
+            //     <h4
+            //       className="pb-2"
+            //       style={{ borderBottom: "2px dotted #84C225" }}
+            //     >
+            //       Other Category
+            //     </h4>
 
-               <div>
-               <div className="flex absolute overflow-hidden health-product">
-                  <Link
-                    className="text-black my-5  hover:text-primary no-underline"
-                    to="/"
-                  >
-                    Health Products
-                  </Link>
+            //    <div>
+            //    <div className="flex absolute overflow-hidden health-product">
+            //       <Link
+            //         className="text-black my-5  hover:text-primary no-underline"
+            //         to="/"
+            //       >
+            //         Health Products
+            //       </Link>
 
-                  <div className="relative overflow-hidden top-10 -right-20 bg-white p-5 rounded">
-                    <p>Hello</p>
-                    <p>Hello</p>
-                    <p>Hello</p>
-                    <p>Hello</p>
-                    <p>Hello</p>
-                  </div>
-                </div>
-               </div>
+            //       <div className="relative overflow-hidden top-10 -right-20 bg-white p-5 rounded">
+            //         <p>Hello</p>
+            //         <p>Hello</p>
+            //         <p>Hello</p>
+            //         <p>Hello</p>
+            //         <p>Hello</p>
+            //       </div>
+            //     </div>
+            //    </div>
 
-                <Link
-                  className="text-black hover:text-primary no-underline"
-                  to="/"
-                >
-                  Home & cleaning
-                </Link>
+            //     <Link
+            //       className="text-black hover:text-primary no-underline"
+            //       to="/"
+            //     >
+            //       Home & cleaning
+            //     </Link>
 
-                <Link
-                  className="text-black hover:text-primary no-underline"
-                  to="/"
-                >
-                  Baby Care
-                </Link>
+            //     <Link
+            //       className="text-black hover:text-primary no-underline"
+            //       to="/"
+            //     >
+            //       Baby Care
+            //     </Link>
 
-                <Link
-                  className="text-black hover:text-primary no-underline"
-                  to="/"
-                >
-                  Kitchen Appliances
-                </Link>
-              </div> */}
+            //     <Link
+            //       className="text-black hover:text-primary no-underline"
+            //       to="/"
+            //     >
+            //       Kitchen Appliances
+            //     </Link>
+            //   </div> 
 
 
-              {/* <div className=" -mt-3 flex flex-col gap-2 ">
-                <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Baby Care</h4>
-                  <Link className="text-black no-underline" to="/">Diapers</Link>
-                  <Link className="text-black no-underline" to="/">Baby Food</Link>
-                  <Link className="text-black no-underline" to="/">Baby Skin Care</Link>
-                  <Link className="text-black no-underline" to="/">Baby Accessories</Link>
-                  <Link className="text-black no-underline" to="/">Wipes</Link>
-                </div> */}
-              {/* <div className=" -mt-3 flex flex-col gap-2 ">
-                <h4>Kitchen Appliances</h4>
-                  <Link className="text-black no-underline" to="/">Frozen Fish</Link>
-                  <Link className="text-black no-underline" to="/">Meat</Link>
-                  <Link className="text-black no-underline" to="/">Dried Fish</Link>
-                </div> */}
+            //    <div className=" -mt-3 flex flex-col gap-2 ">
+            //     <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Baby Care</h4>
+            //       <Link className="text-black no-underline" to="/">Diapers</Link>
+            //       <Link className="text-black no-underline" to="/">Baby Food</Link>
+            //       <Link className="text-black no-underline" to="/">Baby Skin Care</Link>
+            //       <Link className="text-black no-underline" to="/">Baby Accessories</Link>
+            //       <Link className="text-black no-underline" to="/">Wipes</Link>
+            //     </div> 
+            //   <div className=" -mt-3 flex flex-col gap-2 ">
+            //     <h4>Kitchen Appliances</h4>
+            //       <Link className="text-black no-underline" to="/">Frozen Fish</Link>
+            //       <Link className="text-black no-underline" to="/">Meat</Link>
+            //       <Link className="text-black no-underline" to="/">Dried Fish</Link>
+            //     </div> 
 
   return (
     <div className="relative z-50 h-40  w-full overflow-hidden">
@@ -384,7 +530,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="">
-          <div className="flex absolute top-5 left-[1190px] items-center">
+          <div className="flex absolute top-5 left-[75%] lg:left-[1190px] items-center">
             <div className="mr-2 lg:ml-0">
               <CartDrawer />
             </div>
@@ -414,12 +560,7 @@ const Navbar = () => {
             open={open}
             closable={false}
           >
-            <div style={{borderBottom:"1px solid green"}}>
-              <p>Hellow</p>
-            </div>
             {navMenuItems}
-
-            <Submenu />
           </Drawer>
         </nav>
       </header>
