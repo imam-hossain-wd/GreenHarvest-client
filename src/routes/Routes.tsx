@@ -22,6 +22,7 @@ import PrivateRoute from "./PrivateRoute";
 import AboutPage from "../pages/about/About";
 import CategoryProduct from "../pages/Product/CategoryProduct";
 import PopularProductCategory from "../pages/Home/PopularCategory/PopularProductCategory";
+import Category from "../pages/Category/Category";
 
 
 
@@ -39,6 +40,10 @@ import PopularProductCategory from "../pages/Home/PopularCategory/PopularProduct
         {
           path: 'login',
           element: <Login />
+        },
+        {
+          path: 'category',
+          element: <Category />
         },
         {
           path: 'product/:id',

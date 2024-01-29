@@ -28,8 +28,8 @@ const products = data?.data;
     return <Loading />;
   }
   return (
-    <div className="mt-36">
-      <h1 className="lg:text-center mb-2 mt-28">Best Selling Products</h1>
+    <div className="">
+      <h1 className="lg:text-center mb-2">Best Selling Products</h1>
 
       <div>
         <SearchFiltering />

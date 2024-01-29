@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import ColorButton from "../../../components/button/ColorButton";
+import {SendOutlined} from "@ant-design/icons";
 type IProductProps = {
   name: string;
   image: string;
@@ -89,6 +90,12 @@ l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,4
           </Link>
         ))}
       </div>
+
+     <Link className="no-underline" to="/category">
+     <ColorButton className="flex mt-5 h-8 w-32 justify-center items-center text-xs ">
+                  More Category <SendOutlined />
+                  </ColorButton>
+     </Link>
     </div>
   );
 };

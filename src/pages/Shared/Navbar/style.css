@@ -18,3 +18,18 @@
     transform: translateY(-50%);
     color: #686868;
 }
+
+
+/* .category-parent
+
+.health-product:hover {
+
+} */
+
+.tree-product-items {
+    display: none;
+  }
+  
+  .tree-product:hover + .tree-product-items {
+    display: flex; /* or any other display value you want to apply */
+  }

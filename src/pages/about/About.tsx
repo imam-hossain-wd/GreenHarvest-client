@@ -3,7 +3,7 @@ import WeProvideSection from "./WeProvideSection";
 
 const AboutPage = () => {
   return (
-    <div className="mt-32 bg-white">
+    <div className="-mt-20 bg-white">
       <div className="mb-5">
         <img
           className="h-80 w-full"

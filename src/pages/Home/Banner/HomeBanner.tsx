@@ -49,7 +49,7 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row mt-28 w-[90%] mx-auto h-screen lg:h-[430px] justify-around items-center">
+    <div className="flex flex-col lg:flex-row  w-[90%] mx-auto h-screen lg:h-[430px] justify-around items-center">
       <div className="w-full lg:w-[50%] ml-0 lg:ml-8">
         <div className="relative mt-10 lg:mt-0">
 

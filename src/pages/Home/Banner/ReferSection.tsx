@@ -15,25 +15,29 @@ export default function ReferSection() {
       image: "https://i.ibb.co/WgNLnvr/img-2.png",
       title: "Refer spring cleaning for home appliance",
       para: "Get your clean on supplies.",
-      color: "#d9ecd2",
+      color: "#3AC950",
+      // color: "#d9ecd2",
     },
     {
       image: "https://i.ibb.co/zxwMS8Q/2.png",
       title: "Refer spring cleaning for home appliance",
       para: "Get your clean on supplies.",
-      color: "#dbe5ef",
+      color: "#F0BDBB",
+      // color: "#dbe5ef",
     },
     {
       image: "https://i.ibb.co/fHD44Sg/3.png",
       title: "Refer spring cleaning for home appliance",
       para: "Get your clean on supplies.",
-      color: "#efd8d4",
+      color: "#ADCEF1",
+      // color: "#efd8d4",
     },
     {
       image: "https://i.ibb.co/WW426x9/4.png",
       title: "Refer spring cleaning for home appliance",
       para: "Get your clean on supplies.",
-      color: "#ffeed6",
+      color: "#F2D800",
+      // color: "#ffeed6",
     },
   ];
 
@@ -62,19 +66,19 @@ export default function ReferSection() {
          scrollbar={{ draggable: true }}
          autoplay={{ delay: 2000, disableOnInteraction: false }}
          breakpoints={breakpoints}
-         onSwiper={(swiper) => console.log(swiper)}
-         onSlideChange={() => console.log("slide change")}
+        //  onSwiper={(swiper) => console.log(swiper)}
+        //  onSlideChange={() => console.log("slide change")}
       >
          <div className="">
          {
                     items.map((item:ItemsProps, index:number)=> (
-                        <div key={index} className="flex items-center">
-                            <SwiperSlide className="p-3" style={{ backgroundColor: item?.color }}>
+                        <div key={index} className="flex  ">
+                            <SwiperSlide className="p-3 rounded-lg" style={{ backgroundColor: item?.color }}>
                             <img className="w-32 h-24" src={item?.image} alt={item?.title}/>
 
-                            <div className="ml-2">
-                                <h4 className="mb-3 -mt-2">{item?.title}</h4>
-                                <p className="opacity-50">{item?.para}</p>
+                            <div className="ml-2 text-[#181818]">
+                                <p className="mb-2 -mt-2 font-semibold">{item?.title}</p>
+                                <p className="">{item?.para}</p>
                             </div>
                             </SwiperSlide>
                         </div>

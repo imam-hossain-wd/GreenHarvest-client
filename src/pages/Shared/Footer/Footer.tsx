@@ -62,7 +62,7 @@ const Footer = () => {
 
       {/* --------------------------------- */}
       <div className="flex flex-col md:flex-row justify-around">
-        <div>
+        <div className="">
           <h4>Categories</h4>
           <p className="mb-2 mt-3">Fruits and Vegetables</p>
           <p className="mb-2">Grocery & Staples </p>

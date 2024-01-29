@@ -35,7 +35,8 @@ const ProductDetails = () => {
   const { name, description, price, image, category } =product;
 
   return (
-    <div className="my-28  w-[96%] mx-auto">
+    <div className="mb-28 -mt-10  w-[96%] mx-auto">
+      <h3 className="text-center my-5">Product Details page</h3>
       <div className="flex flex-col lg:flex-row">
       <div className="flex flex-col">
         <div className="flex flex-col lg:flex-row shadow-xl p-7 rounded" style={{border:"1px solid #D3D3D3"}}>
