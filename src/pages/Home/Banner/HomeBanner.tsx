@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import OutletButton from "../../../components/button/Button";
 import {
   ArrowUpOutlined,
-  PhoneFilled,
   WhatsAppOutlined,
   FacebookFilled,
   LinkedinFilled,
@@ -115,26 +113,12 @@ const HomeBanner = () => {
       </div>
      </div>
 
-      <OutletButton
+      <ColorButton
         onClick={handleScrollToTop}
         className="animated z-10 fixed right-5 bottom-16 transition rounded-full duration-200 text-[20px] flex justify-center items-center animate-bounce w-8 h-8 font-bold bg-primary "
       >
         <ArrowUpOutlined />
-      </OutletButton>
-      <div>
-        <ColorButton
-          onClick={handleScrollToTop}
-          className="animated z-10 fixed right-5 bottom-36 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-primary "
-        >
-          <WhatsAppOutlined />
-        </ColorButton>
-        <ColorButton
-          onClick={handleScrollToTop}
-          className="animated z-10 fixed right-5 bottom-48 transition rounded-full duration-200 text-[24px] flex justify-center items-center  w-10 h-10 font-bold bg-red-500 border-0 hover:text-red-500 hover:border hover:border-red-500 "
-        >
-          <PhoneFilled />
-        </ColorButton>
-      </div>
+      </ColorButton>
     </div>
   );
 };

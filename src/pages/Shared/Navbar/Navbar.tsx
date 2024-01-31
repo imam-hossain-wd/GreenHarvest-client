@@ -8,6 +8,9 @@ import {
   MenuOutlined,
   UserOutlined,
   SendOutlined,
+  PhoneOutlined,
+  MailOutlined,
+  TwitterOutlined,WhatsAppOutlined ,FacebookFilled ,LinkedinFilled
 } from "@ant-design/icons";
 import CartDrawer from "../../../components/Drawer/CartDrawer";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
@@ -401,11 +404,10 @@ const Navbar = () => {
                 <Link className="text-black hover:text-primary no-underline" to="/">Soft Drinks</Link>
                 <Link className="text-black hover:text-primary no-underline" to="/">Powder Drinks</Link>
               </div>
-             {/* <Link className="no-underline" to="/category"> */}
              <ColorButton onClick={handleSliderChanger} className="flex ml-[600px] h-8 w-32 justify-center items-center text-xs ">
                 Previous Category <SendOutlined />
                 </ColorButton>
-             {/* </Link> */}
+       
             </div>
              }
 
@@ -416,95 +418,45 @@ const Navbar = () => {
     </li>
   );
 
-  
-                {/* --------------------------------------- */}
-
-            //  <div className=" -mt-3 flex flex-col gap-2 ">
-            //     <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Home & Cleaning</h4>
-            //       <Link className="text-black no-underline" to="/">Dishwashing Supplies</Link>
-            //       <Link className="text-black no-underline" to="/">Lundary</Link>
-            //       <Link className="text-black no-underline" to="/">Cleaning Accessories</Link>
-            //       <Link className="text-black no-underline" to="/">Floor & Glass cleaner</Link>
-            //       <Link className="text-black no-underline" to="/">Toilet Cleaner</Link>
-            //       <Link className="text-black no-underline" to="/">Trash Bin & Basket</Link>
-            //     </div> 
-            //   <div className=" -mt-3 flex flex-col gap-2 ">
-            //     <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Health Products</h4>
-            //       <Link className="text-black no-underline" to="/">Antiseptics</Link>
-            //       <Link className="text-black no-underline" to="/">Handwash & Handrub</Link>
-            //       <Link className="text-black no-underline" to="/">Food Supplement</Link>
-            //       <Link className="text-black no-underline" to="/">Herbal & Digestive Aids</Link>
-            //     </div>
-              
-   
-            //    <div className=" -mt-3 flex flex-col gap-2 ">
-            //     <h4
-            //       className="pb-2"
-            //       style={{ borderBottom: "2px dotted #84C225" }}
-            //     >
-            //       Other Category
-            //     </h4>
-
-            //    <div>
-            //    <div className="flex absolute overflow-hidden health-product">
-            //       <Link
-            //         className="text-black my-5  hover:text-primary no-underline"
-            //         to="/"
-            //       >
-            //         Health Products
-            //       </Link>
-
-            //       <div className="relative overflow-hidden top-10 -right-20 bg-white p-5 rounded">
-            //         <p>Hello</p>
-            //         <p>Hello</p>
-            //         <p>Hello</p>
-            //         <p>Hello</p>
-            //         <p>Hello</p>
-            //       </div>
-            //     </div>
-            //    </div>
-
-            //     <Link
-            //       className="text-black hover:text-primary no-underline"
-            //       to="/"
-            //     >
-            //       Home & cleaning
-            //     </Link>
-
-            //     <Link
-            //       className="text-black hover:text-primary no-underline"
-            //       to="/"
-            //     >
-            //       Baby Care
-            //     </Link>
-
-            //     <Link
-            //       className="text-black hover:text-primary no-underline"
-            //       to="/"
-            //     >
-            //       Kitchen Appliances
-            //     </Link>
-            //   </div> 
-
-
-            //    <div className=" -mt-3 flex flex-col gap-2 ">
-            //     <h4 className="pb-2" style={{borderBottom:"2px dotted green"}}>Baby Care</h4>
-            //       <Link className="text-black no-underline" to="/">Diapers</Link>
-            //       <Link className="text-black no-underline" to="/">Baby Food</Link>
-            //       <Link className="text-black no-underline" to="/">Baby Skin Care</Link>
-            //       <Link className="text-black no-underline" to="/">Baby Accessories</Link>
-            //       <Link className="text-black no-underline" to="/">Wipes</Link>
-            //     </div> 
-            //   <div className=" -mt-3 flex flex-col gap-2 ">
-            //     <h4>Kitchen Appliances</h4>
-            //       <Link className="text-black no-underline" to="/">Frozen Fish</Link>
-            //       <Link className="text-black no-underline" to="/">Meat</Link>
-            //       <Link className="text-black no-underline" to="/">Dried Fish</Link>
-            //     </div> 
 
   return (
     <div className="relative z-50 h-40  w-full overflow-hidden">
-      <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 p-2">
+   
+      <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 ">
+     <div className="sm:hidden md:flex items-center justify-between bg-primary">
+     <div className="flex items-center text-sm p-[6px] text-white ">
+      <p className="ml-5"><span><PhoneOutlined /></span> 01624243747</p> <p className="ml-3"> <span><MailOutlined className="mr-2"/></span>imamhossain6t9@gmail.com</p>
+      </div>
+
+      <div className="flex lg:mt-0 text-lg w-28  justify-around mr-24">
+          <Link
+            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
+            className="hover:text-black transition ease-in-out delay-150 text-white  duration-300"
+          >
+            <TwitterOutlined /> 
+          </Link>
+          <Link 
+            to=""
+            className="transition ease-in-out delay-150 hover:text-black text-white duration-300"
+          >
+            <LinkedinFilled />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
+            className="transition ease-in-out delay-150 hover:text-black text-white duration-300"
+          >
+            <WhatsAppOutlined />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
+            className="transition ease-in-out delay-150 hover:text-black text-white duration-300"
+          >
+            <FacebookFilled />
+          </Link>
+
+          
+        </div>
+     </div>
         <nav className="flex justify-between p-3 w-[90%] mx-auto">
           <div className="flex items-center">
             <OutletButton
@@ -530,7 +482,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="">
-          <div className="flex absolute top-5 left-[75%] lg:left-[1190px] items-center">
+          <div className="flex absolute top-12 left-[75%] lg:left-[1190px] items-center">
             <div className="mr-2 lg:ml-0">
               <CartDrawer />
             </div>
