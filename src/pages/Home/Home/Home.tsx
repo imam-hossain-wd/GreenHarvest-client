@@ -1,5 +1,4 @@
 import HomeBanner from "../Banner/HomeBanner";
-import ReferSection from "../Banner/ReferSection";
 import TopProduct from "../TopProduct/TopProduct";
 import PopularCategory from "../PopularCategory/PopularCategory";
 import ShopGetMore from "../ShopGetMore/ShopGetMore";
@@ -10,11 +9,7 @@ import Benifits from "../Benifits/Benifits";
 import WeProvideSection from "../../about/WeProvideSection";
 import ContactForm from "../../Contact/ContactForm";
 import OurTeam from "../../about/OurTeam";
-
-
-
-
-
+import ReferSection from "../Banner/ReferSection";
 
 
 const Home = () => {
@@ -22,6 +17,7 @@ const Home = () => {
         <div className="">
             <HomeBanner />
             <ReferSection />
+            {/* <SpecialOffers /> */}
             <Benifits />
             <PopularCategory />
             {/* <Navigate /> */}
@@ -34,7 +30,6 @@ const Home = () => {
             <ContactForm />
             <OurTeam />
             <Review />
-            {/* <HomeProduct /> */}
         </div>
     );
 };

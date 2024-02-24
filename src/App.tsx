@@ -7,9 +7,9 @@ import { authKey } from "./utils/auth.Services";
 
 function App() { 
   const token = getFromLocalStorage(authKey)
-  // console.log(token, "tkn");
   const dispatch = useAppDispatch()
   dispatch(setAccessToken(token as string));
+  
   return (
     <div className="bg-[#FCFCFC]">
         <RouterProvider router={router} />
