@@ -47,9 +47,9 @@ const HomeBanner = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row  w-[90%] mx-auto h-screen lg:h-[430px] justify-around items-center">
-      <div className="w-full lg:w-[50%] ml-0 lg:ml-8">
-        <div className="relative mt-10 lg:mt-0">
+    <div className="flex flex-col-reverse lg:flex-row w-[90%] mx-auto h-screen lg:h-[430px] justify-around items-center ">
+      <div className="w-full lg:w-[50%]  lg:ml-8">
+        <div className="relative  lg:mt-0">
 
         <h1 className="text-white absolute -top-8  bg-primary z-10 text-xl w-48 ml-5 rounded-full  p-2 italic -rotate-12 text-center mb-5">
             {" "}
@@ -103,11 +103,11 @@ const HomeBanner = () => {
      <div className="mb-20 -ml-40">
      <div className="relative ">
         <img
-          className="w-full lg:w-[600px] mt-16 rounded-xl h-[400px] "
+          className="w-full  lg:w-[600px] mt-48 lg:mt-0 rounded-xl h-[400px] "
           src={images[currentImageIndex].img}
         />
         <img
-          className="w-32 h-32 mt-0 absolute rounded-full top-10 right-0"
+          className="w-32 h-32 mt-28 lg:mt-0 absolute rounded-full top-10 right-0"
           src="https://i.ibb.co/WpbXHPq/50off-removebg-preview.png"
         />
       </div>

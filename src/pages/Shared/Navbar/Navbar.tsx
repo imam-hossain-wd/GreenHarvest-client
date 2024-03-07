@@ -40,8 +40,6 @@ const Navbar = () => {
   const [showSecondCategory, setShowSecondCategory] = useState(false);
   
   const handleSliderChanger = ()=> {
-
-    console.log("clicked");
     setShowFirstCategory(!showFirstCategory);
     setShowSecondCategory(!showSecondCategory)
   }
@@ -125,14 +123,7 @@ const Navbar = () => {
       >
         About us
       </Link>
-      <Link
-        className={`${
-          location.pathname === "/blog" ? "text-primary" : ""
-        } text-black hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline`}
-        to="/blog"
-      >
-        Blog
-      </Link>
+
 
       <div className="relative group">
         <div className="group w-full">
@@ -162,13 +153,13 @@ const Navbar = () => {
                 </h4>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/fruit-vegetable/fruit"
                 >
                   Fresh Fruits
                 </Link>
                 <Link
                   className="text-black no-underline hover:text-primary"
-                  to="/"
+                  to="/category/fruit-vegetable/vegetable"
                 >
                   Fresh Vegatables
                 </Link>
@@ -183,19 +174,19 @@ const Navbar = () => {
                 </h4>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/meat-fish/fish"
                 >
                   Frozen Fish
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/meat-fish/meat"
                 >
                   Meat
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/meat-fish/dried-fish"
                 >
                   Dried Fish
                 </Link>
@@ -210,49 +201,49 @@ const Navbar = () => {
                 </h4>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/spices"
                 >
                   Spices
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/salt-sugar"
                 >
                   Salt Sugar
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/rice"
                 >
                   Rice
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/dal-lentil"
                 >
                   Dal or Lantil
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/ready-mix"
                 >
                   Ready Mix
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/oil"
                 >
                   Oil
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/ghee"
                 >
                   Ghee
                 </Link>
                 <Link
                   className="text-black hover:text-primary no-underline"
-                  to="/"
+                  to="/category/cooking/shemai-suji"
                 >
                   Shemai & Suji
                 </Link>
@@ -260,19 +251,19 @@ const Navbar = () => {
 
               <div className="w-44 p-5 -mt-3 flex flex-col gap-2 ">
                 <h4 className="pb-2" style={{borderBottom:"2px dotted #84C225"}}>Bevarages</h4>
-                  <Link className="text-black tree-product hover:text-primary no-underline" to="/">Tree</Link>
-                  <Link className="text-black hover:text-primary no-underline" to="/">Coffee</Link>
-                  <Link className="text-black hover:text-primary no-underline" to="/">Soft Drinks</Link>
-                  <Link className="text-black hover:text-primary no-underline" to="/">Powder Drinks</Link>
+                  <Link className="text-black tree-product hover:text-primary no-underline" to="/category/beverages/tea">Tea</Link>
+                  <Link className="text-black hover:text-primary no-underline" to="/category/beverages/coffee">Coffee</Link>
+                  <Link className="text-black hover:text-primary no-underline" to="/category/beverages/soft-drink">Soft Drinks</Link>
+                  <Link className="text-black hover:text-primary no-underline" to="/category/beverages/powder-syrup">Powder Drinks</Link>
                 </div> 
 
-              <div className="w-44  tree-product-items p-5 -mt-3 flex-col gap-2 ">
+              {/* <div className="w-44  tree-product-items p-5 -mt-3 flex-col gap-2 ">
                 <h4 className="pb-2" style={{borderBottom:"2px dotted #84C225"}}>Bevarages</h4>
                   <Link className="text-black hover:text-primary no-underline" to="/">Tree</Link>
                   <Link className="text-black hover:text-primary no-underline" to="/">Coffee</Link>
                   <Link className="text-black hover:text-primary no-underline" to="/">Soft Drinks</Link>
                   <Link className="text-black hover:text-primary no-underline" to="/">Powder Drinks</Link>
-                </div>
+                </div> */}
                {/* <Link className="no-underline" to="/category"> */}
                <ColorButton onClick={handleSliderChanger} className="flex ml-[600px] h-8 w-32 justify-center items-center text-xs ">
                   More Category <SendOutlined />
@@ -293,15 +284,27 @@ const Navbar = () => {
               </h4>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/health-product/antiseptics"
               >
-                Fresh Fruits
+                Antiseptics
               </Link>
               <Link
                 className="text-black no-underline hover:text-primary"
-                to="/"
+                to="/category/health-product/handwash-handrub"
               >
-                Fresh Vegatables
+               Handwash Handrub
+              </Link>
+              <Link
+                className="text-black no-underline hover:text-primary"
+                to="/category/health-product/food-supplements"
+              >
+               Food Supplements
+              </Link>
+              <Link
+                className="text-black no-underline hover:text-primary"
+                to="/category/health-product/herbal-digestive-aids"
+              >
+               Herbal Digestive Aids
               </Link>
             </div>
 
@@ -314,21 +317,39 @@ const Navbar = () => {
               </h4>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/home-cleaning/dish-wash"
               >
-                Frozen Fish
+                Dishwashing Supplies
               </Link>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/home-cleaning/laundry"
               >
-                Meat
+                Laundry
               </Link>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/home-cleaning/cleaning-accessories"
               >
-                Dried Fish
+                Cleaning Accessories
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/category/home-cleaning/floor-Glass-cleaner"
+              >
+                Floor & Glass Cleaner
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/category/home-cleaning/toilet-cleaners"
+              >
+                Toilet Cleaners
+              </Link>
+              <Link
+                className="text-black hover:text-primary no-underline"
+                to="/category/home-cleaning/trash-bin-basket"
+              >
+                Trash Bin Basket
               </Link>
             </div>
 
@@ -341,52 +362,35 @@ const Navbar = () => {
               </h4>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/baby-care/diapers"
               >
-                Spices
+                Diapers
               </Link>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/baby-care/food"
               >
-                Salt Sugar
+                Food
               </Link>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/baby-care/baby-skincare"
               >
-                Rice
+                Baby Skincare
               </Link>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/baby-care/baby-accessories"
               >
-                Dal or Lantil
+                Baby Accessories
               </Link>
               <Link
                 className="text-black hover:text-primary no-underline"
-                to="/"
+                to="/category/baby-care/wipes"
               >
-                Ready Mix
+                Wipes
               </Link>
-              <Link
-                className="text-black hover:text-primary no-underline"
-                to="/"
-              >
-                Oil
-              </Link>
-              <Link
-                className="text-black hover:text-primary no-underline"
-                to="/"
-              >
-                Ghee
-              </Link>
-              <Link
-                className="text-black hover:text-primary no-underline"
-                to="/"
-              >
-                Shemai & Suji
-              </Link>
+             
             </div>
 
             <div className="w-48 p-5 -mt-3 flex flex-col gap-2 ">
@@ -423,12 +427,12 @@ const Navbar = () => {
     <div className="relative z-50 h-40  w-full overflow-hidden">
    
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 ">
-     <div className="sm:hidden md:flex items-center justify-between bg-primary">
+     <div className="flex flex-col lg:flex-row  lg:justify-between bg-primary">
      <div className="flex items-center text-sm p-[6px] text-white ">
       <p className="ml-5"><span><PhoneOutlined /></span> 01624243747</p> <p className="ml-3"> <span><MailOutlined className="mr-2"/></span>imamhossain6t9@gmail.com</p>
       </div>
 
-      <div className="flex lg:mt-0 text-lg w-28  justify-around mr-24">
+      <div className="flex ml-5 mb-1 lg:mt-0 text-lg w-28 items-center justify-around mr-24">
           <Link
             to="https://www.linkedin.com/in/imam-hossain-web-dev/"
             className="hover:text-black transition ease-in-out delay-150 text-white  duration-300"
@@ -482,8 +486,8 @@ const Navbar = () => {
             </div>
           </div>
           <div className="">
-          <div className="flex absolute top-12 left-[75%] lg:left-[1190px] items-center">
-            <div className="mr-2 lg:ml-0">
+          <div className={`${accessToken ? 'left-[65%] md:left-[70%] lg:left-[85%]' : 'left-[60%] lg:left-[80%]'} p-4 rounded-md flex absolute top-12 md:top-15 lg:top-7 `}>
+            <div className="mr-3 lg:ml-0">
               <CartDrawer />
             </div>
 
@@ -494,7 +498,7 @@ const Navbar = () => {
                 </OutletButton>
               </Dropdown>
             ) : (
-              <Link className="no-underline -mr-5" to="/login">
+              <Link className="no-underline" to="/login">
                 <OutletButton className="w-24 h-10 flex justify-center items-center rounded-lg text-lg">
                   <LoginOutlined />
                   Login

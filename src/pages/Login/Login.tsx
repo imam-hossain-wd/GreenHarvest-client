@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-"use client"
 import {  message } from "antd";
 import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
-import {  GoogleCircleFilled } from "@ant-design/icons";
+// import {  GoogleCircleFilled } from "@ant-design/icons";
 import { useLogInUserMutation } from "../../redux/api/authApi";
-import { signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../../firebase/firebase.config";
+// import { signInWithPopup } from "firebase/auth";
+// import { auth, googleProvider } from "../../firebase/firebase.config";
 import { useAppDispatch } from "../../redux/hooks";
 import { setAccessToken } from "../../redux/slice/authSlice";
 import { storeUserInto } from "../../utils/auth.Services";
@@ -23,7 +22,7 @@ type FormValues = {
 
 const Login = () => {
 
-  const googleIcon = <GoogleCircleFilled />
+  // const googleIcon = <GoogleCircleFilled />
   const navigate = useNavigate();
   const [logInUser, { error }] = useLogInUserMutation();
 
@@ -52,29 +51,31 @@ const Login = () => {
     }
   };
 
-  const handleGoogleSignIn = async ()=> {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const email = result?.user?.email;
-      const password = result?.user?.uid;
-      const user = {
-        email,
-        password
-      }
-      const res = await logInUser(user);
-      //@ts-ignore
-      if (res?.data) {
-        //@ts-ignore
-        message.success(res?.data?.message);
-        navigate("/");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-}
+//   const handleGoogleSignIn = async ()=> {
+//     try {
+//       const result = await signInWithPopup(auth, googleProvider);
+//       console.log(result, 'firebase result');
+//       const email = result?.user?.email;
+//       const password = result?.user?.uid;
+//       console.log(password, 'password');
+//       const user = {
+//         email,
+//         password
+//       }
+//       const res = await logInUser(user);
+//       //@ts-ignore
+//       if (res?.data) {
+//         //@ts-ignore
+//         message.success(res?.data?.message);
+//         navigate("/");
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+// }
 
   return (
-    <div className="bg-white border-2 border-gray-200 mt-24">
+    <div className="bg-white border-2 h-screen border-gray-200">
       <div className="">
   
       <div
@@ -89,7 +90,7 @@ const Login = () => {
           <h3 className="text-center text-lg  py-1 rounded mx-auto mb-3 ">
             Welcome Back
           </h3>
-          <p className="text-center mb-2 mb-1">
+          <p className="text-center mb-2">
             Please Login into your account
           </p>
           <Form submitHandler={onSubmit}>
@@ -136,7 +137,7 @@ const Login = () => {
             </div>
           </Form>
 
-          <div className="flex justify-center items-center mt-4">
+          {/* <div className="flex justify-center items-center mt-4">
             <hr className="w-28 mr-2 text-[15px]" /> or Sing in with{" "}
             <hr className="ml-2 w-28" />
           </div>
@@ -146,7 +147,7 @@ const Login = () => {
       className="text-2xl h-8 flex justify-center items-center w-full"
       type="primary"
       htmlType="submit">{googleIcon}</ColorButton>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -48,8 +48,8 @@ const SpecialOffers = () => {
       >
         {image_datas.map((image, index) => (
           <SwiperSlide key={index} >
-            <div className="h-[180px] w-[230px] ">
-            <img className="w-full h-full rounded" src={image.url} alt="images" />
+            <div className=" ">
+            <img className="h-[180px] w-[250px] rounded" src={image.url} alt="images" />
             </div>
           </SwiperSlide>
         ))}

@@ -22,3 +22,9 @@ export type IProduct = {
     userId:string;
     comment:string;
 }
+
+export type IProductProps = {
+  name: string;
+  image: string;
+  href: string;
+};

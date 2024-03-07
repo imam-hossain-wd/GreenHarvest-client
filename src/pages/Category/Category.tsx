@@ -1,7 +1,9 @@
+import PopularCategory from "../Home/PopularCategory/PopularCategory";
+
 const Category = () => {
     return (
         <div>
-            <h1>This is category page</h1>
+            <PopularCategory size="large" />
         </div>
     );
 };

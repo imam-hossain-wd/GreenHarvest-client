@@ -5,10 +5,10 @@ import Form from "../../components/Forms/Form";
 import FormInput from "../../components/Forms/InputForm";
 import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
-import {  GoogleCircleFilled } from "@ant-design/icons";
+// import {  GoogleCircleFilled } from "@ant-design/icons";
 import { useCreateUserMutation } from "../../redux/api/authApi";
-import { auth, googleProvider, } from "../../firebase/firebase.config";
-import { signInWithPopup } from "firebase/auth";
+// import { auth, googleProvider, } from "../../firebase/firebase.config";
+// import { signInWithPopup } from "firebase/auth";
 import ColorButton from "../../components/button/ColorButton";
 
 type FormValues = {
@@ -41,32 +41,31 @@ const Signup = () => {
     console.log(error?.data?.message, "error");
   }
 
-const handleGoogleSignUp = async ()=> {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      console.log(result?.user, 'result...');
-      const name = result?.user?.displayName;
-      const email = result?.user?.email;
-      const password = result?.user?.uid;
-      const user = {
-        name, 
-        email,password
-      }
-      console.log(user, 'suser');
-      const res = await createUser(user);
-      //@ts-ignore
-      if (res?.data) {
-         //@ts-ignore
-        message.success(res?.data?.message);
-        navigate("/login");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-}
+// const handleGoogleSignUp = async ()=> {
+//     try {
+//       const result = await signInWithPopup(auth, googleProvider);
+//       const name = result?.user?.displayName;
+//       const email = result?.user?.email;
+//       const password = result?.user?.uid;
+//       const user = {
+//         name, 
+//         email,password
+//       }
+//       console.log(user, 'suser');
+//       const res = await createUser(user);
+//       //@ts-ignore
+//       if (res?.data) {
+//          //@ts-ignore
+//         message.success(res?.data?.message);
+//         navigate("/login");
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+// }
 
   return (
-    <div className="bg-white shadow-2xl border-2 border-gray-200 mt-24">
+    <div className=" border-2 border-gray-200">
       <div className="flex flex-col lg:flex-row justify-around">
         <div>
           <img
@@ -87,7 +86,7 @@ const handleGoogleSignUp = async ()=> {
           <h3 className="text-center text-lg  py-1 rounded mx-auto mb-3 ">
             Welcome Back
           </h3>
-          <p className="text-center mb-2 mb-1">
+          <p className="text-center mb-2">
             Please Sign up into your account
           </p>
           <Form submitHandler={onSubmit}>
@@ -135,7 +134,7 @@ const handleGoogleSignUp = async ()=> {
   
           </Form>
 
-          <div className="flex justify-center items-center mt-4">
+          {/* <div className="flex justify-center items-center mt-4">
             <hr className="w-28 mr-2 text-[15px]" /> or Sing in with{" "}
             <hr className="ml-2 w-28" />
           </div>
@@ -147,10 +146,10 @@ const handleGoogleSignUp = async ()=> {
       htmlType="submit" >
         <GoogleCircleFilled />
       </ColorButton>
-          </div>
+          </div> */}
           <div className="mt-5 flex justify-center">
               <p className="text-[12px] font-semibold">
-                New to CarDev?{" "}
+                New to Green Harvest?{" "}
                 <Link to="/login" className="text-primary underline">
                  Login
                 </Link>

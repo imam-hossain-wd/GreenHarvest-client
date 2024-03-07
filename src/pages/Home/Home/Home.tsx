@@ -17,19 +17,16 @@ const Home = () => {
         <div className="">
             <HomeBanner />
             <ReferSection />
-            {/* <SpecialOffers /> */}
             <Benifits />
-            <PopularCategory />
-            {/* <Navigate /> */}
+            <PopularCategory size="small" />
             <TopProduct />
             <VegatableFruitsCategory /> 
-            <VegatableFruitsCategory /> 
             <SpecialOffers />
-            <WeProvideSection />
             <ShopGetMore />
-            <ContactForm />
+            <WeProvideSection />
             <OurTeam />
             <Review />
+            <ContactForm />
         </div>
     );
 };

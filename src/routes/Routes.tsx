@@ -1,5 +1,5 @@
-import {createBrowserRouter} from "react-router-dom";
-import MainLayout from '../layout/MainLayout'
+import { createBrowserRouter } from "react-router-dom";
+import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Singup";
@@ -8,7 +8,7 @@ import Profile from "../pages/Dashboard/Account/Account";
 import ErrorElement from "../pages/Errorpage/ErrorElement";
 import CheckoutPage from "../pages/Checkout/CheckoutPage";
 import Product from "../pages/Product/Product";
-import DeshboardLayout from '../layout/DashboardLayout'
+import DeshboardLayout from "../layout/DashboardLayout";
 import Wishlist from "../pages/Dashboard/Wishlist/Wishlist";
 import Cartitem from "../pages/Dashboard/cartItem/Cartitem";
 import Payment from "../pages/Dashboard/Payment/Payment";
@@ -18,36 +18,34 @@ import Contact from "../pages/Contact/Contact";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
 import Order from "../pages/Dashboard/Order/Order";
-import PrivateRoute from "./PrivateRoute";
 import AboutPage from "../pages/about/About";
 import CategoryProduct from "../pages/Product/CategoryProduct";
 import PopularProductCategory from "../pages/Home/PopularCategory/PopularProductCategory";
 import Category from "../pages/Category/Category";
 
-
-
-  export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
     {
       path: "/",
-      element: <MainLayout/> ,
+      element: <MainLayout />,
       errorElement: <ErrorElement />,
       children: [
         {
-            path: '/',
-            element: <Home />
-        }, 
- 
+          path: "/",
+          element: <Home />,
+        },
+
         {
-          path: 'login',
-          element: <Login />
+          path: "login",
+          element: <Login />,
         },
         {
-          path: 'category',
-          element: <Category />
+          path: "category",
+          element: <Category />,
         },
         {
-          path: 'product/:id',
-          element: <ProductDetails />
+          path: "product/:id",
+          element: <ProductDetails />,
         },
         {
           path: "/product/category/:category",
@@ -62,30 +60,38 @@ import Category from "../pages/Category/Category";
           element: <PopularProductCategory />,
         },
         {
-          path: 'signup',
-          element: <Signup />
+          path: "signup",
+          element: <Signup />,
         },
         {
-          path: 'contact-us',
-          element: <Contact />
+          path: "contact-us",
+          element: <Contact />,
         },
         {
-          path: 'profile',
-          element: <Profile />
+          path: "profile",
+          element: <Profile />,
         },
         {
-          path: 'about',
-          element: <AboutPage />
+          path: "about",
+          element: <AboutPage />,
         },
         {
-          path: 'checkout',
-          element: <CheckoutPage />
+          path: "checkout",
+          element: <CheckoutPage />,
         },
         {
-          path: 'product',
-          element:<PrivateRoute> <Product /> </PrivateRoute> 
-        },
-      ]
+          path: "product",
+          element: <Product />},
+        // {
+        //   path: "product",
+        //   element: (
+        //     <PrivateRoute>
+        //       {" "}
+        //       <Product />{" "}
+        //     </PrivateRoute>
+        //   ),
+        // },
+      ],
     },
 
     {
@@ -123,10 +129,9 @@ import Category from "../pages/Category/Category";
         },
         {
           path: "/dashboard/:user/payment",
-          element: <Payment/>,
+          element: <Payment />,
         },
-    
       ],
     },
-
-  ]);
+  ],
+);

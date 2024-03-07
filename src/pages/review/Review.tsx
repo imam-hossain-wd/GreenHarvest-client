@@ -8,7 +8,10 @@ import Loading from "../Shared/loading/Loading";
 import ColorButton from "../../components/button/ColorButton";
 import FormInput from "../../components/Forms/InputForm";
 import { Rate, message } from "antd";
-import { useAddProductReviewMutation, useGetReviewsQuery } from "../../redux/api/reviewApi";
+import {
+  useAddProductReviewMutation,
+  useGetReviewsQuery,
+} from "../../redux/api/reviewApi";
 import { IReview } from "../../types/ProductTypes";
 import { UserOutlined } from "@ant-design/icons";
 
@@ -19,41 +22,43 @@ interface IReviewProductName {
 const Review = ({ productName }: IReviewProductName) => {
   const [addProductReview] = useAddProductReviewMutation();
   const user: any = getUserInfo();
-  const {data:reviews}= useGetReviewsQuery(undefined)
-  const { data, isLoading } = useGetSingleUserQuery(user._id);
+  const { data: review } = useGetReviewsQuery(undefined);
+  const { data, isLoading } = useGetSingleUserQuery(user?._id);
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
-
-  const reviewDatas = reviews?.data;
-  console.log(reviewDatas, "reviewDatas");
-
-
+  const reviewDatas = review?.data;
   const userData = data?.data;
-  const { _id, email, name } = userData;
 
   const onSubmit = async (values: any) => {
     const comment = values.comment;
     const rating = values.rating;
     const title = values.title;
+    const userId = userData?._id;
+    const userName = userData?.name;
+    const userEmail = userData?.email;
+
+    if (!userData) {
+      message.error("Please Login Before Comment");
+    }
 
     const userRivew = {
-      userId: _id,
-      userName: name,
+      userId,
+      userName,
       productName,
-      userEmail: email,
+      userEmail,
       title,
       comment,
       rating,
     };
-    console.log(userRivew, 'userRivew');
+
     const result = await addProductReview(userRivew).unwrap();
     if (result.success === true) {
       message.success(result?.message);
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="">
@@ -160,32 +165,34 @@ const Review = ({ productName }: IReviewProductName) => {
 
       <div className="mt-5">
         <h4 className="">
-          {reviewDatas ? <span>Review({reviewDatas?.length})</span> : <span>Reviews</span>}
+          {reviewDatas ? (
+            <span>Review({reviewDatas?.length})</span>
+          ) : (
+            <span>Reviews</span>
+          )}
         </h4>
         <div className=" w-[90%] p-3 mt-2 flex flex-col items-center">
-            {reviewDatas &&
-              reviewDatas.map((review: IReview) => (
-                <div
-                  className="bg-gray-100 w-full flex  p-3 m-2 rounded"
-                  key={review?.id}
-                >
-                    <p className="text-4xl flex justify-center items-center font-bold bg-gray-200 rounded-full p-2 w-14 h-14">
-                      <UserOutlined />
-                    </p>
-                 <div className="flex justify-between">
-                 <div className="flex flex-col ml-8 mr-10">
-                    <p className="mb-2">
-                      {review?.userName}
-                    </p>
+          {reviewDatas &&
+            reviewDatas.map((review: IReview) => (
+              <div
+                className="bg-gray-100 w-full flex  p-3 m-2 rounded"
+                key={review?.id}
+              >
+                <p className="text-4xl flex justify-center items-center font-bold bg-gray-200 rounded-full p-2 w-14 h-14">
+                  <UserOutlined />
+                </p>
+                <div className="flex justify-between">
+                  <div className="flex flex-col ml-8 mr-10">
+                    <p className="mb-2">{review?.userName}</p>
                     <p>{review?.comment}</p>
                   </div>
                   <div className="">
                     <Rate disabled count={4} defaultValue={4} />
                   </div>
-                 </div>
                 </div>
-              ))}
-          </div>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

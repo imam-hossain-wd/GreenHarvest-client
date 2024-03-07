@@ -16,7 +16,7 @@ const PopularProductCategory = () => {
 
   window.scroll(0, 0);
   return (
-    <div className="mt-40 flex">
+    <div className="flex">
       {filteredItems.length < 1 && (
         <div className="flex justify-center items-center">
           <h1 className="">No product Found</h1>

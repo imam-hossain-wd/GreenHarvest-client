@@ -1,13 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
-import ColorButton from "../../../components/button/ColorButton";
-import {SendOutlined} from "@ant-design/icons";
-type IProductProps = {
-  name: string;
-  image: string;
-  href: string;
-};
+import { IProductProps } from "../../../types/ProductTypes";
 
-const PopularCategory = () => {
+const PopularCategory = ({size}:{size:string}) => {
+
   const products: IProductProps[] = [
     {
       name: "Fruits & Vegatables",
@@ -32,7 +28,7 @@ const PopularCategory = () => {
     {
       name: "Home & Cleaning",
       image: "https://i.ibb.co/jGNHn3H/home-and-cleaning.png",
-      href: "home-cleaning", 
+      href: "home-cleaning",
     },
     {
       name: "Health Products",
@@ -59,19 +55,18 @@ const PopularCategory = () => {
           <Link
             to={`/category/${product.href}`}
             key={index}
-            className="border no-underline border-gray-300 rounded-lg px-2 py-1 flex items-center bg-primary h-18  text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300"
-            style={{ border: "1px solid green" }}
+            className={`${size === 'small' ? 'h-16 ': 'h-40 flex-col' } no-underline rounded-lg px-2 py-1 flex  justify-center  items-center bg-primary text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300`}
           >
             <div className="overflow-hidden flex justify-center items-center">
               <img
-                className="w-14 rounded h-14 font-bold  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                className={`${size === 'small' ? 'w-18 h-12': 'w-40 h-28'} 'rounded  font-bold  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'`}
                 src={product?.image}
               />
             </div>
-            <div className="flex ml-3 items-center">
-              <p className="w-36">{product.name}</p>
+            <div className="flex justify-center items-center">
+              <p className="">{product.name}</p>
               <svg
-                className="w-3 text-white  front-bold  borobazar-rtl-rotate"
+                className="w-3 ml-3 text-white  front-bold  borobazar-rtl-rotate"
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
@@ -90,12 +85,6 @@ l177.68-177.68c5.084-5.088,7.88-11.88,7.86-19.1C492.02,238.762,489.228,231.966,4
           </Link>
         ))}
       </div>
-
-     <Link className="no-underline" to="/category">
-     <ColorButton className="flex mt-5 h-8 w-32 justify-center items-center text-xs ">
-                  More Category <SendOutlined />
-                  </ColorButton>
-     </Link>
     </div>
   );
 };

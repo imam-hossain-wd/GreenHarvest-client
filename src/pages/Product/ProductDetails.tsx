@@ -14,9 +14,12 @@ import DeliveryOptions from "./DeliveryOptions";
 
 const ProductDetails = () => {
 
-  const [productCount,setProductCount]= useState(1)
+  const [productCount,setProductCount]= useState(1);
+
   const { id } = useParams();
+
   const { data, isLoading } = useGetSingleProductQuery(id as string);
+
 
   const activewishlistButton = useAppSelector(
     (state) => state.wishlist.activeWishlistButtons[id!]

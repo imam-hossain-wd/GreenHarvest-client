@@ -30,13 +30,11 @@ const CategoryProduct = () => {
   }
   return (
     <div>
-      <h3 className="lg:text-center mb-2 mt-40 capitalize">
-        Category : {category}
-      </h3>
+      <h3 className="lg:text-center mb-2 capitalize">Category : {category}</h3>
 
-
-
-      {products?.length < 1 && <h1 className="text-center text-red-500">No Product found</h1>}
+      {products?.length < 1 && (
+        <h1 className="text-center text-red-500">No Product found</h1>
+      )}
       {products?.length > 10 && (
         <div className="">
           <SearchFiltering />

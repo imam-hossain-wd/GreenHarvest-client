@@ -32,12 +32,12 @@ const items = [
    
 ]
     return (
-        <div className="w-[80%] mx-auto mt-10">
-            <div className="flex justify-around" >
+        <div className="w-[85%] mx-auto mt-7">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" >
                 {
                     items.map((item:IBenifitsProps, index:number)=>(
-                        <div key={index} className="flex items-center p-5 rounded bg-white shadow hover:shadow-xl" >
-                            <div className="flex items-center">
+                        <div key={index} className="flex px-7 py-5 rounded bg-white shadow hover:shadow-xl" >
+                            <div className="flex  items-center">
                                 <img className="w-9 h-9 " src={item.image} alt=""/>
                             </div>
                             <div className="ml-4 text-sm">
