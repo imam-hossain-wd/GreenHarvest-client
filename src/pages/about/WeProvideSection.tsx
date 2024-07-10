@@ -54,17 +54,17 @@ const WeProvideSection = () => {
         <div className="mt-10 bg-white">
         <div className="flex justify-center items-center flex-col mb-5">
           <h2 className="mb-2">What We Provide?</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p className="text-center mx-5 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
 
-        <div className="grid grid-cols-3 gap-10 w-full lg:w-[90%] mx-auto  p-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full lg:w-[90%] mx-auto  p-10">
           {provideDetails?.map((details, index) => (
             <div key={index} className="bg-white shadow-xl p-5">
               <div className="flex justify-center flex-col items-center">
               <p className="text-5xl text-primary">{details.icon}</p>
               <h4 className="mb-3 mt-2 ">{details?.name}</h4>
               </div>
-              <p className="text-[#696969] leading-snug">
+              <p className="text-[#696969] leading-snug text-center">
                 {details?.description}
               </p>
             </div>

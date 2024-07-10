@@ -58,15 +58,15 @@ export default function OurTeam() {
   ];
 
   const breakpoints = {
-    320: {
+    640: {
       slidesPerView: 1,
       spaceBetween: 10,
     },
-    480: {
+    768: {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    768: {
+    1024: {
       slidesPerView: 4,
       spaceBetween: 30,
     },
@@ -83,8 +83,8 @@ export default function OurTeam() {
         scrollbar={{ draggable: true }}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         breakpoints={breakpoints}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
       >
         <div className="">
           {items.map((item: ItemsProps, index: number) => (

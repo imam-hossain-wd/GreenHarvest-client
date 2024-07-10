@@ -51,6 +51,7 @@ const Review = ({ productName }: IReviewProductName) => {
     };
 
     const result = await addProductReview(userRivew).unwrap();
+
     if (result.success === true) {
       message.success(result?.message);
     }

@@ -75,21 +75,19 @@ const ContactForm = () => {
 <div className="">
 <h2 className="text-center mt-5 text-2xl -ml-10 italic">Contact us</h2>
 </div>
-
-
     <div className=" mb-10 w-full lg:w-[90%] flex flex-col lg:flex-row  bg-white">
    
-      <div className="flex flex-col mt-9 ml-5 lg:0 items-center  w-full lg:w-[50%]">
-        <div className="mb-10 flex flex-col ">
-          <h2 className="my-2">Support is our main priority </h2>
+      <div className="flex flex-col mt-9 justify-center items-center  w-full lg:w-[50%]">
+        <div className="mb-7 flex flex-col justify-center items-center">
+          <h3 className="my-2 -ml-9 lg:-ml-32 lg:text-2xl">Support is our main priority </h3>
 
-          <p className=" text-[#696969] leading-snug ">
-            We created reusable react components, and modern mono repo so <br />
+          <p className="text-[#696969] w-[80%] leading-snug ">
+            We created reusable react components, and modern mono repo so 
             you can build multiple apps with common components.{" "}
           </p>
         </div>
 
-        <div className="flex flex-col  justify-center items-center -ml-40">
+        <div className="flex flex-col w-[90%] mx-auto justify-center items-center lg:-ml-6">
           {ContactDetails?.map((details, index) => (
             <div
               key={index}
@@ -108,7 +106,7 @@ const ContactForm = () => {
 
       <div className="w-full lg:w-[50%] mx-auto bg-white rounded p-5">
         <Form submitHandler={onSubmit}>
-          <div className="grid grid-cols-2 gap-x-5 gap-y-1 p-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-1 p-5">
             <div className="mb-3">
               <FormInput
                 name="name"

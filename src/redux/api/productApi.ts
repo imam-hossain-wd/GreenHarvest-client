@@ -12,11 +12,30 @@ const productApi = baseApi.injectEndpoints({
       invalidatesTags: [tagTypes.product],
     }),
     getProduct: builder.query({
-      query: ({ searchTerm="" , sortBy="", sortOrder="", page=1, limit=10, category }) =>
-        `/product/?searchTerm=${searchTerm}&sortBy=${sortBy}&sortOrder=${sortOrder}&page=${page}&limit=${limit}&category=${category}`,
+      query: ({
+        searchTerm = "",
+        sortBy = "",
+        sortOrder = "",
+        page = 1,
+        limit = 10,
+        category,
+      }) => {
+        return {
+          url: `/product/?searchTerm=${searchTerm}&sortBy=${sortBy}&sortOrder=${sortOrder}&page=${page}&limit=${limit}&category=${category}`,
+          method: "GET",
+          params: searchTerm,
+        };
+      },
+      providesTags: [tagTypes.product],
     }),
     getSingleProduct: builder.query({
-      query: (id: string) => `/product/${id}`,
+      query: (id: string) => {
+        return {
+          url: `/product/${id}`,
+          method: "GET",
+        };
+      },
+      providesTags: [tagTypes.product],
     }),
   }),
 });

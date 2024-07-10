@@ -32,8 +32,8 @@ const items = [
    
 ]
     return (
-        <div className="w-[85%] mx-auto mt-7">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" >
+        <div className="w-full lg:w-[90%] mb-10 mx-auto mt-7">
+            <div className="grid grid-cols-1 m-5 md:grid-cols-2 lg:grid-cols-4 gap-5" >
                 {
                     items.map((item:IBenifitsProps, index:number)=>(
                         <div key={index} className="flex px-7 py-5 rounded bg-white shadow hover:shadow-xl" >

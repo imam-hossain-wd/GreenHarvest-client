@@ -145,10 +145,10 @@ useEffect(() => {
                   />
                 </div>
 
-                <div className="flex flex-col">
-                  <Rate className="text-lg -ml-4" disabled defaultValue={5} />
+                <div className="flex flex-col justify-start ml-10">
+                  <Rate className="text-lg -ml-10" disabled defaultValue={5} />
 
-                  <div className="ml-10 mt-2 text-[15px] text-start mb-2">
+                  <div className="mt-2 text-[15px] text-start mb-2">
                     <p className="">Name : {product?.name}</p>
                     <p className="">Net Weight : {product?.netWeight}</p>
                     <p className="">Price : $ {product?.price}</p>

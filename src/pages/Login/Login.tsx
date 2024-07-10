@@ -36,18 +36,15 @@ const Login = () => {
     try {
       const res = await logInUser(data);
         //@ts-ignore
-      const token = res?.data?.data?.accessToken
-    
+      const token = res?.data?.data?.accessToken;
       if (token) {
         storeUserInto({ accessToken: token });
         dispatch(setAccessToken(token));
-        //@ts-ignore
-        // const message = res?.data?.message
-        message.success(res?.data?.message);
+        message.success("Login Successful");
         navigate(from, { replace: true });
       }
     } catch (error: any) {
-      // console.error(error.message);
+      console.error(error.message);
     }
   };
 

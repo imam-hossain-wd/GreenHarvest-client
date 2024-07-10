@@ -4,23 +4,23 @@ const Onlineshopping = () => {
   return (
     <div
       style={{ backgroundColor: "#F2F2F2" }}
-      className="flex justify-around items-center my-10"
+      className="flex flex-col-reverse lg:flex-row justify-around items-center my-10"
     >
-      <div className="-mt-20">
-        <h1>
-          Make your online shop easier <br />
+      <div className="lg:-mt-20 text-center">
+        <h2 className="w-[80%] text-2xl lg:text-3xl mx-auto">
+          Make your online shop easier
           with our mobile app
-        </h1>
+        </h2>
         <p className="text-lg my-5">
-          We offer high-quality films and the best documentary selection, <br />
+          <span className="lg:block mb-1">We offer high-quality films and the best documentary selection ,</span>
           and the ability to browse alphabetically and by genre
         </p>
 
-        <div className="flex">
+        <div className="flex justify-center ">
             
             <Link to="https://play.google.com/store/games?hl=en&gl=US&pli=1">
           <img
-            className=" mr-4 transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 "
+            className=" mr-4 mtransition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300 "
             src="https://i.ibb.co/syKSCFL/play-store.png"
             alt="play store"
           /> </Link>
@@ -35,7 +35,7 @@ const Onlineshopping = () => {
       </div>
       <div>
         <img
-          className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300"
+          className="w-[100%]"
           src="https://i.ibb.co/R64RWDP/shopping-banner.png"
           alt="Shopping Banner"
         />

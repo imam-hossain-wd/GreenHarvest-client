@@ -7,9 +7,6 @@ type ItmesProps = {
 };
 
 
-
-
-
 const ShopGetMore = () => {
   const items = [
     {
@@ -36,13 +33,13 @@ const ShopGetMore = () => {
     <div className="my-10">
       <h3 className="my-3 text-center">Shop and Get More</h3>
 
-      <div className="grid w-[80%] mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  mb-3">
+      <div className="grid w-[85%] mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  mb-3">
         {items.map((items: ItmesProps, index: number) => (
           <div key={index} className="">
             <div className="h-40 rounded-t-xl bg-[#F5F5F5]">
               <div className="px-5 py-6">
                 <h3 className="mb-3 text-xl">{items.title}</h3>
-                <p className=" w-80 h-20 opacity-75">
+                <p className=" w-[100%] h-20 opacity-75">
                   {items.description}
                 </p>
               </div>
@@ -55,19 +52,19 @@ const ShopGetMore = () => {
         ))}
       </div>
 
-      <div className="relative w-[80%] mx-auto">
+      <div className="relative w-[90%] lg:w-[85%] mx-auto">
         <img
-          className="w-full h-[450px] rounded"
+          className="w-full  h-[300px] lg:h-[450px] rounded"
           src="https://i.ibb.co/7ktxPrd/shopping.png"
           alt=""
         />
 
         <div className="absolute top-[40%] left-[50%]  transform -translate-x-1/2 -translate-y-1/2 text-center w-full  text-white">
-          <h3 className="text-4xl w-[50%] mx-auto bg-transparent font-bold mb-4">
+          <h3 className="text-3xl lg:text-4xl mt-5 lg:mt-0 lg:w-[50%] mx-auto bg-transparent font-bold mb-4">
             Shop your daily necessities
           </h3>
 
-          <p className="text-lg w-[60%] mx-auto p-2 mb-4">
+          <p className="text-lg lg:w-[60%] mx-auto p-2 mb-4">
             Shop from our popular category, Explore special offers and receive
             grocery on your doorsteps within 1 hour.
           </p>

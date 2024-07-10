@@ -57,19 +57,20 @@ export default function Review() {
   ];
 
   const breakpoints = {
-    320: {
+    640: {
       slidesPerView: 1,
       spaceBetween: 10,
     },
-    480: {
+    768: {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    768: {
-      slidesPerView: 3,
+    1024: {
+      slidesPerView: 4,
       spaceBetween: 30,
     },
   };
+
 
   return (
     <div className="mt-5 mb-10 w-[90%] mx-auto">
@@ -89,7 +90,7 @@ export default function Review() {
           {items.map((item: ItemsProps, index: number) => (
             <div key={index} className="flex flex-col items-center">
               <SwiperSlide
-                className="p-3 flex flex-col bg-white shadow-xl mb-10 p-5 "
+                className=" flex flex-col bg-white shadow-xl mb-10 p-5 "
               >
                 <img
                   className="w-20 h-20 rounded-full mb-2"

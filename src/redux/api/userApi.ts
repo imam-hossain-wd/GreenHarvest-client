@@ -1,13 +1,26 @@
 
+import { tagTypes } from "../tag-types";
 import { baseApi } from "./baseApi";
 
 const userApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getUsers: builder.query({
-        query: () => '/users',
-      }),
+      query: () => {
+        return {
+          url: "/users",
+          method: "GET"
+        };
+      },
+      providesTags: [tagTypes.user],
+    }),
       getSingleUser: builder.query({
-        query: (id:string) => `/users/${id}`,
+        query: (id:string) => {
+          return {
+            url: `/users/${id}`,
+            method: "GET"
+          };
+        },
+        providesTags: [tagTypes.user]
       }),
   }),
 });

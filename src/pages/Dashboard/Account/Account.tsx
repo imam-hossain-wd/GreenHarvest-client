@@ -17,16 +17,16 @@ const Account = () => {
   const userInfo = getUserInfo();
   //@ts-ignore
   const id = userInfo?._id as string;
-
   const { data, isLoading } = useGetSingleUserQuery(id);
 
+  const accountData = data?.data;
   
   if (isLoading) {
     return <Loading />;
   }
-  const { name, email, role } = data && data?.data;
+  const { name, email, role } = accountData;
 
-  const image = data?.data?.userImage;
+  const image = accountData?.userImage;
 
 
   const onSubmit: SubmitHandler<any> = async (data: any) => {
@@ -51,16 +51,16 @@ console.log(data, 'updated data..');
           )}
         </div>
         <div className="flex my-4">
-                <span className="text-2xl  border-2 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 p-1 text-sky-600  ml-2">
+                <span className="text-2xl  border-2 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-1 text-sky-600  ml-2">
                   <LinkedinOutlined />
                 </span>
                 <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 text-primary hover:scale-110  duration-300  ml-2">
                   <WhatsAppOutlined />
                 </span>
-                <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 ml-2 text-red-500">
+                <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110k duration-300 ml-2 text-red-500">
                   <InstagramOutlined />
                 </span>
-                <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 text-black duration-300 ml-2 text-sky-500">
+                <span className="text-2xl border-2 rounded p-1 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-11 duration-300 ml-2 text-sky-500">
                   <TwitterOutlined />
                 </span>
               </div>

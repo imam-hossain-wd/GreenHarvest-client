@@ -38,7 +38,7 @@ const SideBar = () => {
     
   return (
     <Sider
-      className="bg-white text-black"
+      className="bg-white text-black -mt-12 pb-2"
       collapsible
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
@@ -59,7 +59,7 @@ const SideBar = () => {
         bottom: 0,
       }}
     >
-      {!collapsed && <div className="flex flex-col justify-center items-center mt-4 -ml-3 -mb-7 hidden lg:flex">
+      {!collapsed && <div className=" flex-col justify-center items-center -ml-3 -mb-7 hidden lg:flex">
                 {
                    image ? <img className="" src={image}/> :<Avatar size={80} icon={<UserOutlined />} />
                    

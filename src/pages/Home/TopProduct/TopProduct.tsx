@@ -25,7 +25,7 @@ const TopProduct = () => {
   }
 
   return (
-    <div className="w-[90%] mx-auto">
+    <div className="w-[80%] md:w-[90%] mx-auto">
       <ProductSwiper category="top" products={products} offer={offer}/>
     </div>
   );

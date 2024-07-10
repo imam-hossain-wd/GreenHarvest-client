@@ -15,9 +15,9 @@ import ReferSection from "../Banner/ReferSection";
 const Home = () => {
     return (
         <div className="">
-            <HomeBanner />
-            <ReferSection />
-            <Benifits />
+            <HomeBanner /> 
+           <ReferSection />
+             <Benifits />
             <PopularCategory size="small" />
             <TopProduct />
             <VegatableFruitsCategory /> 
@@ -26,7 +26,7 @@ const Home = () => {
             <WeProvideSection />
             <OurTeam />
             <Review />
-            <ContactForm />
+            <ContactForm /> 
         </div>
     );
 };

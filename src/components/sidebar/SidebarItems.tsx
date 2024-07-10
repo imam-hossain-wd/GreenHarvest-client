@@ -35,12 +35,7 @@ const baseSidebarItems = (role:string ,color: string) => [
     label: <StyledStyledLink to={`/dashboard/${role}/password`} color={color}>Password</StyledStyledLink>,
     key: `/dashboard/${role}/password`,
     icon: <UnlockOutlined />,
-  },
-  {
-    label: <StyledStyledLink to={`/dashboard/${role}/add-product`} color={color}>Add Product</StyledStyledLink>,
-    key: `/dashboard/${role}/add-product`,
-    icon: <PlusCircleOutlined />,
-  },
+  }
 ];
 
 // Sidebar items for users
@@ -49,7 +44,7 @@ const userSidebarItems = (role:string,color: string ) => [
   {
     label: <StyledStyledLink to={`/dashboard/${role}/order`} color={color}>Order</StyledStyledLink>,
     icon: <ScheduleOutlined />,
-    key: `/dashboard/${role}/booking`,
+    key: `/dashboard/${role}/order`,
   },
   {
     label: <StyledStyledLink to={`/dashboard/${role}/cart-item`} color={color}>Cart Item</StyledStyledLink>,
@@ -57,22 +52,28 @@ const userSidebarItems = (role:string,color: string ) => [
     key: `/dashboard/${role}/cart-item`,
   },
   {
-    label: <StyledStyledLink to={`/dashboard/${role}/payment`} color={color}>Payment</StyledStyledLink>,
-    icon: <CreditCardOutlined />,
-    key: `/dashboard/${role}/payment`,
-  },
-  {
     label: <StyledStyledLink to={`/dashboard/${role}/wish-list`} color={color}>Wish List</StyledStyledLink>,
     icon: <HeartOutlined />,
     key: `/dashboard/${role}/wish-list`,
   },
+  {
+    label: <StyledStyledLink to={`/dashboard/${role}/payment`} color={color}>Payment</StyledStyledLink>,
+    icon: <CreditCardOutlined />,
+    key: `/dashboard/${role}/payment`,
+  }
+  
 ];
 
 // Sidebar items for admins
 const adminSidebarItems = (role:string, color: string) => [
   ...baseSidebarItems(role, color),
   {
-    label: <StyledStyledLink to={`/${role}/order`} color={color}>Booking</StyledStyledLink>,
+    label: <StyledStyledLink to={`/dashboard/${role}/add-product`} color={color}>Add Product</StyledStyledLink>,
+    key: `/dashboard/${role}/add-product`,
+    icon: <PlusCircleOutlined />,
+  },
+  {
+    label: <StyledStyledLink to={`/${role}/order`} color={color}>Orders</StyledStyledLink>,
     icon: <ScheduleOutlined />,
     key: `/${role}/booking`,
   },

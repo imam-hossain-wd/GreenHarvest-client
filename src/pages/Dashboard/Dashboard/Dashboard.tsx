@@ -15,7 +15,7 @@ const Dashboard = () => {
   const dashboardItems = getSidebarItems(role, textColor);
 
   return (
-    <div className="mt-12">
+    <div className="">
         <h2 className="capitalize text-center mb-4">{role} Dashboard</h2>
       <div className="w-[95%] mx-auto grid gap-10 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 no-underline">
         {dashboardItems?.map((item: any, index: number) => (

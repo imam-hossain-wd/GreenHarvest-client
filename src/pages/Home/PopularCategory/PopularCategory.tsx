@@ -2,8 +2,8 @@
 import { Link } from "react-router-dom";
 import { IProductProps } from "../../../types/ProductTypes";
 
-const PopularCategory = ({size}:{size:string}) => {
-
+const PopularCategory = ({ size }: { size: string }) => {
+  window.scroll(0, 0);
   const products: IProductProps[] = [
     {
       name: "Fruits & Vegatables",
@@ -48,23 +48,31 @@ const PopularCategory = ({size}:{size:string}) => {
   ];
 
   return (
-    <div className="mt-5 w-full lg:w-[90%] flex flex-col justify-center items-center mx-auto">
-      <h3 className="text-center my-5">Popular Category</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center">
+    <div className=" w-[90%] mb-10 lg:w-[90%] flex flex-col justify-center items-center mx-auto">
+      <h3 className="text-center mb-5">Popular Category</h3>
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 items-center">
         {products.map((product: IProductProps, index: number) => (
           <Link
             to={`/category/${product.href}`}
             key={index}
-            className={`${size === 'small' ? 'h-16 ': 'h-40 flex-col' } no-underline rounded-lg px-2 py-1 flex  justify-center  items-center bg-primary text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300`}
+            className={`${
+              size === "small" ? "h-16 " : "h-44 w-full lg:w-72 flex-col"
+            } no-underline rounded-lg px-2 py-1 flex  justify-center  items-center bg-primary text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110  duration-300`}
           >
             <div className="overflow-hidden flex justify-center items-center">
               <img
-                className={`${size === 'small' ? 'w-18 h-12': 'w-40 h-28'} 'rounded  font-bold  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'`}
+                className={`${
+                  size === "small" ? "w-18 h-12" : "w-40 h-28"
+                } 'rounded  font-bold  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300'`}
                 src={product?.image}
               />
             </div>
-            <div className="flex justify-center items-center">
-              <p className="">{product.name}</p>
+            <div
+              className={`${
+                size === "large" ? "mt-3" : ""
+              } flex justify-center items-center`}
+            >
+              <p className="ml-2">{product.name}</p>
               <svg
                 className="w-3 ml-3 text-white  front-bold  borobazar-rtl-rotate"
                 xmlns="http://www.w3.org/2000/svg"

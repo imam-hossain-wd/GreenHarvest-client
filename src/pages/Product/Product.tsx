@@ -7,6 +7,8 @@ import SearchFiltering from "../Shared/searchFiltering/SearchFiltering";
 import  { IPagination } from "../Shared/searchFiltering/SearchFiltering";
 import Loading from "../Shared/loading/Loading";
 import { setLimit } from "../../redux/slice/productSlice";
+import { getFromLocalStorage } from "../../utils/localStorage";
+import { authKey } from "../../utils/auth.Services";
 
 
 const Product = () => {
@@ -22,13 +24,14 @@ const Product = () => {
  
   const { data, isLoading } = useGetProductQuery({ searchTerm, sortBy, sortOrder , page, limit, category});
 const products = data?.data;
-
+const accessToken = getFromLocalStorage(authKey);
+console.log(accessToken, 'accessToken');
 
   if (isLoading) {
     return <Loading />;
   }
   return (
-    <div className="">
+    <div className="-mt-5">
       <h1 className="lg:text-center mb-2">Best Selling Products</h1>
 
       <div>

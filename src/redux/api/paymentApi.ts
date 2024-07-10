@@ -21,7 +21,11 @@ const paymentApi = baseApi.injectEndpoints({
       invalidatesTags: [tagTypes.payment],
     }),
     getPayment: builder.query({
-      query: (email:string) => `/payment/${email}`,
+      query: () => ({
+        url: `/payment`,
+        method: 'GET',
+      }),
+      providesTags:[tagTypes.payment]
     }),
   }),
 });

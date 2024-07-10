@@ -14,7 +14,7 @@ const Footer = () => {
       {/* contact info */}
 
       <div className="flex flex-col lg:flex-row justify-between w-[88%] mx-auto mb-5 border border-top">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col ml-3 md:flex-row">
           <div className="flex mr-5">
             <p className="mr-2">
               <PhoneFilled />
@@ -61,7 +61,8 @@ const Footer = () => {
       <hr className="mb-5 w-[95%] mx-auto border-[#C8C8C8]"></hr>
 
       {/* --------------------------------- */}
-      <div className="flex flex-col md:flex-row justify-around">
+      {/* <div className="flex ml-5 flex-col md:flex-row justify-around"> */}
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 w-[95%] ml-5 mx-auto">
         <div className="">
           <h4>Categories</h4>
           <p className="mb-2 mt-3">Fruits and Vegetables</p>

@@ -125,7 +125,7 @@ const Navbar = () => {
       </Link>
 
 
-      <div className="relative group">
+      <div className="relative group ">
         <div className="group w-full">
           <Link 
             className={`${
@@ -257,18 +257,10 @@ const Navbar = () => {
                   <Link className="text-black hover:text-primary no-underline" to="/category/beverages/powder-syrup">Powder Drinks</Link>
                 </div> 
 
-              {/* <div className="w-44  tree-product-items p-5 -mt-3 flex-col gap-2 ">
-                <h4 className="pb-2" style={{borderBottom:"2px dotted #84C225"}}>Bevarages</h4>
-                  <Link className="text-black hover:text-primary no-underline" to="/">Tree</Link>
-                  <Link className="text-black hover:text-primary no-underline" to="/">Coffee</Link>
-                  <Link className="text-black hover:text-primary no-underline" to="/">Soft Drinks</Link>
-                  <Link className="text-black hover:text-primary no-underline" to="/">Powder Drinks</Link>
-                </div> */}
-               {/* <Link className="no-underline" to="/category"> */}
                <ColorButton onClick={handleSliderChanger} className="flex ml-[600px] h-8 w-32 justify-center items-center text-xs ">
                   More Category <SendOutlined />
                   </ColorButton>
-               {/* </Link> */}
+
               </div>
 
              }
@@ -424,7 +416,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="relative z-50 h-40  w-full overflow-hidden">
+    <div className="relative z-50 h-40 lg:mb-0  w-full overflow-hidden">
    
       <header className="fixed top-0 left-0 right-0  bg-white shadow-md mb-2 ">
      <div className="flex flex-col lg:flex-row  lg:justify-between bg-primary">
@@ -434,13 +426,13 @@ const Navbar = () => {
 
       <div className="flex ml-5 mb-1 lg:mt-0 text-lg w-28 items-center justify-around mr-24">
           <Link
-            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
+            to="https://twitter.com/imam_hossain_wd"
             className="hover:text-black transition ease-in-out delay-150 text-white  duration-300"
           >
             <TwitterOutlined /> 
           </Link>
           <Link 
-            to=""
+            to="https://www.linkedin.com/in/imam-hossain-web-dev/"
             className="transition ease-in-out delay-150 hover:text-black text-white duration-300"
           >
             <LinkedinFilled />
@@ -465,19 +457,19 @@ const Navbar = () => {
           <div className="flex items-center">
             <OutletButton
               onClick={showDrawer}
-              className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-5 mr-3 "
+              className="lg:hidden text-2xl h-10 w-10 flex justify-center items-center -ml-4 mr-3 "
             >
               <MenuOutlined />
             </OutletButton>
 
-            <div className="flex items-center">
+            <div className="lg:flex items-center hidden ">
               <img
                 className="w-14 h-12 rounded-full"
                 src="https://i.ibb.co/QXHFgbc/icon.png"
               />
               <div>
-                <p className="text-sm uppercase font-bold ">Green Harvest</p>
-                <p className="text-xs mt-[1px] text-primary font-bold">
+                <p className="text-[12px] md:text-sm uppercase font-bold ">Green Harvest</p>
+                <p className="text-[11px] md:text-xs  mt-[2px] md:mt-1px text-primary font-bold">
                   Super Shop
                 </p>
               </div>
@@ -486,7 +478,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="">
-          <div className={`${accessToken ? 'left-[65%] md:left-[70%] lg:left-[85%]' : 'left-[60%] lg:left-[80%]'} p-4 rounded-md flex absolute top-12 md:top-15 lg:top-7 `}>
+          <div className={`${accessToken ? 'left-[65%] md:left-[70%] lg:left-[85%]' : 'left-[55%] mt-1 lg:left-[83%] md:left-[75%]'} p-4 rounded-md flex absolute top-12 md:top-15 lg:top-7 `}>
             <div className="mr-3 lg:ml-0">
               <CartDrawer />
             </div>
@@ -498,8 +490,8 @@ const Navbar = () => {
                 </OutletButton>
               </Dropdown>
             ) : (
-              <Link className="no-underline" to="/login">
-                <OutletButton className="w-24 h-10 flex justify-center items-center rounded-lg text-lg">
+              <Link className="no-underline flex justify-center items-center" to="/login">
+                <OutletButton className="w-24 h-10 flex justify-center items-center rounded-lg text-sm md:text-lg">
                   <LoginOutlined />
                   Login
                 </OutletButton>

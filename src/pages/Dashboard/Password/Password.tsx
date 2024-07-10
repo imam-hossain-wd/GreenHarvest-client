@@ -4,73 +4,45 @@ import Form from "../../../components/Forms/Form";
 import FormInput from "../../../components/Forms/InputForm";
 import ColorButton from "../../../components/button/ColorButton";
 import { useChangePasswordMutation } from "../../../redux/api/authApi";
-import { getUserInfo } from "../../../utils/auth.Services";
 import { message } from "antd";
+import { IPasswordProps } from "../../../types/ProductTypes";
 
-
-
-type IFormProps = {
-    password:string
-}
 
 
 
 const Password = () => {
-  const [changePassword, {error}]= useChangePasswordMutation()
+  const [changePassword]= useChangePasswordMutation()
 
-  const user = getUserInfo();
-  //@ts-ignore
- const email= user?.email as string;
+ const onSubmit: SubmitHandler<IPasswordProps> = async (data) => {
+  try {
+    // Extracting oldPassword and newPassword1 from form data
+    const { oldPassword, newPassword1,newPassword2 } = data;
 
-
-  const onSubmit: SubmitHandler<IFormProps> = async (data: IFormProps) => {
-  
- 
-    try{
-//  console.log(data, 'updated data..');
-//@ts-ignore
- const {oldPassword,newPassword1} = data
- 
-//  let newPassword;
-
-//  if(oldPassword){
-//   message.error("Please provide previous password")
-//  }
-//  if(!newPassword1 || !newPassword2){
-//   message.error("Please provide New password")
-//  }
-//  if(newPassword1 && newPassword2){
-
-//   if(newPassword1 !== newPassword2){
-//     newPassword=newPassword1
-//     message.error("New password is not match")
-//   }
-
-//   message.error("Please provide New password")
-//  }
-
- const userPassword = {
-  oldPassword, 
-  newPassword:newPassword1,
-  email
- }
-//  console.log(userPassword, 'userPassword');
- const res = await changePassword(userPassword);
- //@ts-ignore
- const result = res?.data;
-
- if(result?.statusCode === 200){
-  message.success(result?.message)
- }
-
-    }catch(error){
-     console.log(error);
+    if(newPassword1 !== newPassword2){
+      message.error("password not match")
     }
-   };
-   if(error){
+
+    // Constructing userPassword object
+    const userPassword = {
+      oldPassword,
+       newPassword1,
+       newPassword2
+    };
+
+    // Calling changePassword mutation with userPassword
+    const res = await changePassword(userPassword);
     //@ts-ignore
-    message.error(error?.data?.message)
-   }
+    const result = res?.data?.data;
+    if (result?.success === true) {
+      message.success(result?.message);
+    }else {
+      message.error("Something went wrong")
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
     return (
         <div className="w-full lg:w-[38%] p-5 h-72 mt-20 mx-auto bg-white shadow-lg">
@@ -101,7 +73,7 @@ const Password = () => {
                 name="newPassword2"
                 type="password"
                 size="middle"
-                placeholder="New Password"
+                placeholder="Confirm Password"
               />
             </div>
             <ColorButton htmlType="submit" className="w-full mt-3">
