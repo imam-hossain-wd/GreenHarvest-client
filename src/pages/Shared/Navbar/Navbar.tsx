@@ -26,7 +26,8 @@ import {
 import OutletButton from "../../../components/button/Button";
 import './style.css'
 import ColorButton from "../../../components/button/ColorButton";
-import App from "./Modal";
+import CategoryModel from "./CategoryModel";
+import { logo } from "../../../utils/assets";
 
 
 
@@ -76,9 +77,9 @@ const Navbar = () => {
     },
   ];
 
-  const closedButton = (
+ const closedButton = (
   <div className="flex justify-between">
-    <App />
+    <CategoryModel />
 
       <OutletButton
         onClick={() => setOpen(!open)}
@@ -92,9 +93,10 @@ const Navbar = () => {
   const navMenuItems = (
     <li className="list-none flex flex-col justify-center items-center lg:flex-row">
       <Link
+      style={{borderBottom:'1px solid gray'}}
         className={`${
           location.pathname === "/" ? "text-primary" : ""
-        } text-black hover:text-primary text-base mt-2 lg:mt-0 lg:mr-3 no-underline`}
+        } text-black hover:text-primary text-base mt-2 w-full text-center lg:mt-0 lg:mr-3 no-underline`}
         to="/"
       >
         Home
@@ -465,7 +467,7 @@ const Navbar = () => {
             <div className="lg:flex items-center hidden ">
               <img
                 className="w-14 h-12 rounded-full"
-                src="https://i.ibb.co/QXHFgbc/icon.png"
+                src={logo.navlogo}
               />
               <div>
                 <p className="text-[12px] md:text-sm uppercase font-bold ">Green Harvest</p>
@@ -500,7 +502,7 @@ const Navbar = () => {
           </div>
           </div>
         </nav>
-        <nav className="">
+        <nav className="m-0 p-0 ">
           {/* navbar items drawer sm device */}
           <Drawer
             placement="left"

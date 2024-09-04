@@ -11,6 +11,7 @@ import {
 } from "../../redux/slice/cartSlice";
 import { Link } from "react-router-dom";
 import OutletButton from "../button/Button";
+import { images } from "../../utils/assets";
 const CartDrawer = () => {
   const [open, setOpen] = useState(false);
   const cart = useAppSelector((state) => state?.cart);
@@ -73,7 +74,7 @@ const CartDrawer = () => {
         <div>
           {
             cart.products?.length < 1 && <div className="flex flex-col justify-center items-center">
-              <img className="w-60 h-60" src="https://i.ibb.co/QFN127j/shooping-cart.png" alt="shopping-cart"/>
+              <img className="w-60 h-60" src={images.emptycard} alt="shopping-cart"/>
 
               <h1 className="text-xl mt-4">Your cart is empty</h1>
               <p className="text-lg mt-3">Please add product to your cart</p>

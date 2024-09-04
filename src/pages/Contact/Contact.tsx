@@ -1,11 +1,14 @@
+import { contactbanner } from "../../utils/assets";
 import ContactForm from "./ContactForm";
 import GoogleMap from "./GoogleMap";
 
 
 const ContactPage = () => {
+
+  const {contact }=contactbanner
   return (
    <div className="-mt-20">
-    <img className="h-80 w-full" src="https://i.ibb.co/3S02ZRs/market-concept-with-vegetables.jpg"/>
+    <img className="h-96 w-full" src={contact}/>
     <ContactForm />
     <GoogleMap />
 

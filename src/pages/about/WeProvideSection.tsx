@@ -59,7 +59,7 @@ const WeProvideSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full lg:w-[90%] mx-auto  p-10">
           {provideDetails?.map((details, index) => (
-            <div key={index} className="bg-white shadow-xl p-5">
+            <div key={index} style={{border:"1px solid #E8E8E8"}} className="bg-white shadow-md rounded-xl border p-5">
               <div className="flex justify-center flex-col items-center">
               <p className="text-5xl text-primary">{details.icon}</p>
               <h4 className="mb-3 mt-2 ">{details?.name}</h4>

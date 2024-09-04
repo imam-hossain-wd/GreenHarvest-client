@@ -6,55 +6,49 @@ import {
   Autoplay,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { teammate } from "../../utils/assets";
 
 type ItemsProps = {
   image: string;
   name: string;
-  title:string;
-
+  title: string;
 };
 
 export default function OurTeam() {
+  const { teammate1, teammate2, teammate3, teammate4, teammate5, teammate6 } =
+    teammate;
+
   const items = [
     {
-      image: "https://i.ibb.co/2PxVCLK/Mask-Group-7.png",
-      name:"Dorian Prince",
-     title:"CFO, Accounts",
-
+      image: teammate1,
+      name: "Dorian Prince",
+      title: "CFO, Accounts",
     },
     {
-      image: "https://i.ibb.co/wyWRnTL/Mask-Group-5.png",
-      name:"Dorian Prince",
-     title:"CFO, Accounts",
-
+      image: teammate2,
+      name: "Dorian Prince",
+      title: "CFO, Accounts",
     },
     {
-      image: "https://i.ibb.co/TBWG2kf/Mask-Group-3.png",
-      name:"Dorian Prince",
-     title:"CFO, Accounts",
-
+      image: teammate3,
+      name: "Dorian Prince",
+      title: "CFO, Accounts",
     },
     {
-      image: "https://i.ibb.co/TtMsZb6/Mask-Group.png",
-      name:"Dorian Prince",
-     title:"CFO, Accounts",
-
+      image: teammate4,
+      name: "Dorian Prince",
+      title: "CFO, Accounts",
     },
     {
-      image: "https://i.ibb.co/5G5GtD5/Mask-Group-2.png",
-      name:"Alex Callan",
-     title:"CEO, Founder",
-
+      image: teammate5,
+      name: "Alex Callan",
+      title: "CEO, Founder",
     },
     {
-      image: "https://i.ibb.co/D4fgLyZ/Mask-Group-6.png",
-      name:"Matthew kade",
-     title:"COO, Founder",
-
+      image: teammate6,
+      name: "Matthew kade",
+      title: "COO, Founder",
     },
-   
-  
-    
   ];
 
   const breakpoints = {
@@ -73,8 +67,10 @@ export default function OurTeam() {
   };
 
   return (
-    <div className="mt-5 mb-10 w-[90%] mx-auto">
-        <p className="text-center text-xl font-semibold mb-3">Meet our Super Heros</p>
+    <div className="mt-5 mb-10 w-[90%] lg:w-[85%] mx-auto ]">
+      <p className="text-center text-xl font-semibold mb-5">
+        Meet our Super Heros
+      </p>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={50}
@@ -88,18 +84,20 @@ export default function OurTeam() {
       >
         <div className="">
           {items.map((item: ItemsProps, index: number) => (
-            <div key={index} className="flex flex-col">
+            <div key={index} className="flex flex-col ">
               <SwiperSlide
-                className=" flex flex-col bg-white mb-10 p-5 "
+                style={{ border: "0.5px solid #E8E8E8 " }}
+                className=" flex flex-col bg-white mb-10 p-5 shadow-md rounded-xl"
               >
                 <img
-                  className="w-72 h-72 rounded mb-2"
+                  style={{ border: "3px solid #E8E8E8" }}
+                  className="w-[200px] h-[200px] bg-[#EFF6FF] shadow-md mb-2 rounded-full"
                   src={item?.image}
                   alt="review"
                 />
                 <div className=" text-lg">
-                  <p className=" opacity-75">{item?.name}</p>
-                  <p className ="w-60  opacity-75">{item?.title}</p>
+                  <p className=" opacity-75 mb-1">{item?.name}</p>
+                  <p className="w-60 opacity-75">{item?.title}</p>
                 </div>
               </SwiperSlide>
             </div>

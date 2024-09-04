@@ -88,9 +88,10 @@ export default function Review() {
       >
         <div className="">
           {items.map((item: ItemsProps, index: number) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col items-center ">
               <SwiperSlide
-                className=" flex flex-col bg-white shadow-xl mb-10 p-5 "
+              style={{border:"0.5px solid #E8E8E8 "}}
+                className=" flex flex-col bg-white rounded-2xl shadow-xl mb-10 p-5 "
               >
                 <img
                   className="w-20 h-20 rounded-full mb-2"

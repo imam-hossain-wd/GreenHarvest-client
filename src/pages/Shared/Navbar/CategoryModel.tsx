@@ -6,7 +6,7 @@ import {
   SendOutlined
 } from "@ant-design/icons";
 
-const App: React.FC = () => {
+const CategoryModel: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showFirstCategory, setShowFirstCategory] = useState(true);
   const [showSecondCategory, setShowSecondCategory] = useState(false);
@@ -329,4 +329,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default CategoryModel;

@@ -13,22 +13,23 @@ import ReferSection from "../Banner/ReferSection";
 
 
 const Home = () => {
-    return (
-        <div className="">
-            <HomeBanner /> 
-           <ReferSection />
-             <Benifits />
-            <PopularCategory size="small" />
-            <TopProduct />
-            <VegatableFruitsCategory /> 
-            <SpecialOffers />
-            <ShopGetMore />
-            <WeProvideSection />
-            <OurTeam />
-            <Review />
-            <ContactForm /> 
-        </div>
-    );
+
+  return (
+    <div className="">
+      <HomeBanner />
+      <ReferSection />
+      <Benifits />
+      <PopularCategory size="small" />
+      <TopProduct />
+      <VegatableFruitsCategory />
+      <SpecialOffers />
+      <ShopGetMore />
+      <WeProvideSection />
+      <OurTeam />
+      <Review />
+      <ContactForm />
+    </div>
+  );
 };
 
 export default Home;

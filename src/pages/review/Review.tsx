@@ -176,7 +176,7 @@ const Review = ({ productName }: IReviewProductName) => {
           {reviewDatas &&
             reviewDatas.map((review: IReview) => (
               <div
-                className="bg-gray-100 w-full flex  p-3 m-2 rounded"
+                className="bg-gray-100 w-full flex  p-3 m-2 rounded-2xl"
                 key={review?.id}
               >
                 <p className="text-4xl flex justify-center items-center font-bold bg-gray-200 rounded-full p-2 w-14 h-14">

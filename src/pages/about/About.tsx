@@ -1,20 +1,23 @@
+import { contactbanner } from "../../utils/assets";
 import OurTeam from "./OurTeam";
 import WeProvideSection from "./WeProvideSection";
 
 const AboutPage = () => {
+
+  const {contact,about}=contactbanner;
   return (
     <div className="-mt-20 bg-white">
       <div className="mb-5">
         <img
-          className="h-80 w-full"
-          src="https://i.ibb.co/3S02ZRs/market-concept-with-vegetables.jpg"
+          className="h-96 w-full"
+          src={contact}
         />
-        <h2 className="text-center mt-5 text-2xl -ml-10 italic">About us</h2>
+        {/* <h2 className="text-center mt-5 text-2xl -ml-10 italic">About us</h2> */}
       </div>
-      <div className="flex justify-around items-center">
+      <div className="flex w-[90%] mt-10 mx-auto flex-col lg:flex-row justify-around items-center">
         <div className="w-full lg:w-[500px] -mt-10">
           <h2 className="text-3xl">
-            Save more with GO! We give <br /> you the lowest prices on all{" "}
+            Save more with GO! We give you the lowest prices on all{" "}
             <br /> your grocery needs.
           </h2>
 
@@ -39,8 +42,8 @@ const AboutPage = () => {
         </div>
         <div>
           <img
-            className="rounded w-full lg:w-[500px] h-[450px]"
-            src="https://i.ibb.co/7RkTqJx/food-cart.jpg"
+            className="rounded-2xl border shadow-md w-full lg:w-[500px] h-[450px]"
+            src={about}
           />
         </div>
       </div>
